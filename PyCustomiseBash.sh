@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source ./PyBashrcSource.sh >> ~/.bashrc
+cat ./PyBashrcSource.sh >> ~/.bashrc
 
 echo "Applied!"
