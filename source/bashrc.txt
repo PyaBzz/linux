@@ -18,17 +18,17 @@ fi
 
 function printGreeting {
 
- local lineLen=60
- local lineStartLen=20
+ local paddingLen=20
  local text="  Welcome $USER  "
  local textLen=${#text}
+ local lineLen=2*paddingLen+textLen
 
  echo
  repeatText lineLen "#" && echo
  repeatText lineLen "#" && echo
- repeatText lineStartLen "#" && repeatText textLen && repeatText lineLen-textLen-lineStartLen "#" && echo
- repeatText lineStartLen "#" && printf "  Welcome $USER  " && repeatText lineLen-textLen-lineStartLen "#" && echo
- repeatText lineStartLen "#" && repeatText textLen && repeatText lineLen-textLen-lineStartLen "#" && echo
+ repeatText paddingLen "#" && repeatText textLen && repeatText paddingLen "#" && echo
+ repeatText paddingLen "#" && printf "  Welcome $USER  " && repeatText paddingLen "#" && echo
+ repeatText paddingLen "#" && repeatText textLen && repeatText paddingLen "#" && echo
  repeatText lineLen "#" && echo
  repeatText lineLen "#" && echo
  echo
