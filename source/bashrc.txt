@@ -16,18 +16,23 @@ else
 fi
 }
 
-lineLen=60
-lineStartLen=20
-text="  Welcome $USER  "
-textLen=${#text}
+function printGreeting {
 
-echo
-repeatText lineLen "#" && echo
-repeatText lineLen "#" && echo
-repeatText lineStartLen "#" && repeatText textLen && repeatText lineLen-textLen-lineStartLen "#" && echo
-repeatText lineStartLen "#" && printf "  Welcome $USER  " && repeatText lineLen-textLen-lineStartLen "#" && echo
-repeatText lineStartLen "#" && repeatText textLen && repeatText lineLen-textLen-lineStartLen "#" && echo
-repeatText lineLen "#" && echo
-repeatText lineLen "#" && echo
-echo
+ local lineLen=60
+ local lineStartLen=20
+ local text="  Welcome $USER  "
+ local textLen=${#text}
 
+ echo
+ repeatText lineLen "#" && echo
+ repeatText lineLen "#" && echo
+ repeatText lineStartLen "#" && repeatText textLen && repeatText lineLen-textLen-lineStartLen "#" && echo
+ repeatText lineStartLen "#" && printf "  Welcome $USER  " && repeatText lineLen-textLen-lineStartLen "#" && echo
+ repeatText lineStartLen "#" && repeatText textLen && repeatText lineLen-textLen-lineStartLen "#" && echo
+ repeatText lineLen "#" && echo
+ repeatText lineLen "#" && echo
+ echo
+
+}
+
+printGreeting
