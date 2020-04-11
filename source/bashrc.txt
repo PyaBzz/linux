@@ -44,23 +44,6 @@ function printGreeting {
 
 }
 
-#---------------------- Colours ---------------------
-
-# Colour        Text  TextLight  Background
-
-# Black          30    --            40
-# Red            31    91            41
-# Green          32    92            42
-# Orange         33    93            43
-# Blue           34    94            44
-# Magenta        35    95            45
-# Cyan           36    96            46
-# White          37    97            --
-# Default Grey   0     --            47
-# Dark Grey      ??    90            ??
-
-#----------------------------------------------------
-
 function setPromptStyle {
  local e='\[\033['  # Escape sequence
  export PS1="${e}95m\]\u${e}91m\]@${e}96m\]\h:${e}94m\]\w${e}93m\]$ ${e}0m\]"
