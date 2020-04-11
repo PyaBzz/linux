@@ -70,5 +70,5 @@ function showDateTime {
 
 printGreeting
 setPromptStyle
-showDateTime & command &  # To run in background
+showDateTime &   # To run in background
 
