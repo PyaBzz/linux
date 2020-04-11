@@ -49,8 +49,26 @@ function setPromptStyle {
  export PS1="${e}100;95m\]\u${e}91m\]@${e}96m\]\h:${e}30m\]\w${e}96m\]$ ${e}0m\]"
 }
 
+function postInUpRightCorner {
+ local len=${#1};
+ local colour='\033[30;42m';
+
+ tput sc;
+ tput cup 0 $(($(tput cols)-len));
+ printf "${colour}$1";
+ tput rc;
+}
+
+
+function showDateTime {
+ while sleep 1;do
+  postInUpRightCorner "$(date +"%F @ %T")";
+ done
+}
+
 #=====================  Apply  ===================
 
 printGreeting
 setPromptStyle
+showDateTime & command &  # To run in background
 
