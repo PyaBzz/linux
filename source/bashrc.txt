@@ -4,10 +4,6 @@
 ##############                        ##############
 ####################################################
 
-#=============  Customise Prompt Style  ============
-
-export PS1="\[\033[95;100m\]\u\[\033[30m\]@\h:\[\033[96m\]\w\[\033[30m\] $\[\033[0m\] "
-
 #===================  Aliases  ===================
 
 #ToDo
@@ -48,6 +44,13 @@ function printGreeting {
 
 }
 
+function setPromptStyle {
+ local e='\[\033['  # Escape sequence
+ export PS1="${e}100;95m\]\u${e}91m\]@${e}96m\]\h:${e}30m\]\w${e}96m\]$ ${e}0m\]"
+}
+
 #=====================  Apply  ===================
 
 printGreeting
+setPromptStyle
+
