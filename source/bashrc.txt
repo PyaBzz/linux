@@ -63,7 +63,7 @@ function printGreeting {
 
 function setPromptStyle {
  local e='\[\033['  # Escape sequence
- export PS1="${e}100;95m\]\u${e}91m\]@${e}96m\]\h:${e}0m\]\w${e}96m\]$ ${e}0m\]"
+ export PS1="${e}95m\]\u${e}91m\]@${e}96m\]\h:${e}94m\]\w${e}93m\]$ ${e}0m\]"
 }
 
 function postInUpRightCorner {
