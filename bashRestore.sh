@@ -1,3 +1,3 @@
-cp ./source/bashrc-bak ~/.bashrc
+cp ./bashrc/backup ~/.bashrc
 echo "Backup of .bashrc restored!"
 
