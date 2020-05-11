@@ -18,6 +18,13 @@ function askUser {
  fi
 }
 
+function applyBashMod {
+ cp ~/.bashrc ./bashrc/backup
+ echo "Backup saved in ./bashrc/backup"
+ cat ./bashrc/source >> ~/.bashrc
+ echo "Bashrc Mod Applied!"
+}
+
 function applyBazMod {
  local shouldChangeBashrc
  askUser shouldChangeBashrc "Mod bashrc?"
@@ -30,13 +37,12 @@ function applyBazMod {
    askUser shouldOverWrite "Overwrite it?"
    if [ $shouldOverWrite == true ]; then
      echo "Overwriting backup file ..."
-     cp ~/.bashrc ./bashrc/backup
-     echo "Backup saved in ./bashrc/backup"
-     cat ./bashrc/source >> ~/.bashrc
-     echo "Bashrc Mod Applied!"
+     applyBashMod
    else
      echo "Skipping bashrc ..."
    fi
+  else
+   applyBashMod
   fi
 
  else
