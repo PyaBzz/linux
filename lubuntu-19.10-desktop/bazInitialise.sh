@@ -24,7 +24,6 @@ apt autoremove
 #=================  Install  =================
 
 apt-get update
-#apt install git-all
-#git clone http://pyabzz@github.com/pyabzz/bazLinux
-
+git config --global user.name pyabzz
+git config --global user.email ""
 
