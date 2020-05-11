@@ -19,24 +19,31 @@ function askUser {
 }
 
 function applyBazMod {
- if [ -f bashrc/backup ];
+ local shouldApplyMod
+ askUser shouldApplyMod
+ if [ $shouldApplyMod == true ]
  then
-  echo "Backup file exists!"
-  local shouldOverWrite
-  askUser shouldOverWrite "Shall we?"
-  echo $shouldOverWrite
-  if [ $shouldOverWrite == true ]; then
-    echo "Overwriting backup file ..."
-  else
-    return
+  if [ -f bashrc/backup ];
+  then
+   echo "Backup file exists!"
+   local shouldOverWrite
+   askUser shouldOverWrite "Overwrite it?"
+   if [ $shouldOverWrite == true ]; then
+     echo "Overwriting backup file ..."
+   else
+     echo "Aborting ..."
+     return
+   fi
   fi
+
+  cp ~/.bashrc ./bashrc/backup
+  echo "Backup saved in ./bashrc/backup"
+
+  cat ./bashrc/source >> ~/.bashrc
+  echo "Bash Mod Applied!"
+ else
+  echo "Quitting ..."
  fi
-
-cp ~/.bashrc ./bashrc/backup
-echo "Backup saved in ./bashrc/backup"
-
-cat ./bashrc/source >> ~/.bashrc
-echo "Bash Mod Applied!"
 }
 
 applyBazMod
