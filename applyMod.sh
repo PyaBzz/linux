@@ -19,9 +19,9 @@ function askUser {
 }
 
 function applyBazMod {
- local shouldApplyMod
- askUser shouldApplyMod
- if [ $shouldApplyMod == true ]
+ local shouldChangeBashrc
+ askUser shouldChangeBashrc "Mod bashrc?"
+ if [ $shouldChangeBashrc == true ]
  then
   if [ -f bashrc/backup ];
   then
@@ -30,17 +30,25 @@ function applyBazMod {
    askUser shouldOverWrite "Overwrite it?"
    if [ $shouldOverWrite == true ]; then
      echo "Overwriting backup file ..."
+     cp ~/.bashrc ./bashrc/backup
+     echo "Backup saved in ./bashrc/backup"
+     cat ./bashrc/source >> ~/.bashrc
+     echo "Bashrc Mod Applied!"
    else
-     echo "Aborting ..."
-     return
+     echo "Skipping bashrc ..."
    fi
   fi
 
-  cp ~/.bashrc ./bashrc/backup
-  echo "Backup saved in ./bashrc/backup"
+ else
+  echo "Skipping bashrc ..."
+ fi
 
-  cat ./bashrc/source >> ~/.bashrc
-  echo "Bash Mod Applied!"
+ local shouldModifyPackages
+ askUser shouldModifyPackages "Mod packages?"
+ if [ $shouldModifyPackages == true ]
+ then
+  source lubuntu-19.10/initialise.sh
+  echo "All done!"
  else
   echo "Quitting ..."
  fi
