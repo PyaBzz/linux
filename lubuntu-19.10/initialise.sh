@@ -1,29 +1,29 @@
 
 #=================  Uninstall  =================
 
-apt-get purge libreoffice*
-apt-get purge 2048-qt
-apt-get purge qtpass
-apt-get purge qlipper
-apt-get purge noblenote
-apt-get purge kcalc
-apt-get purge k3b*
-apt-get purge trojita
-apt-get purge pulseaudio*
-apt-get purge screengrab
-apt-get purge skanlite
-apt-get purge lximage-qt
-apt-get purge vlc*
-apt-get purge transmission-*
-apt-get purge qpdfview*
+sudo pt-get purge libreoffice*
+sudo apt-get purge 2048-qt
+sudo apt-get purge qtpass
+sudo apt-get purge qlipper
+sudo apt-get purge noblenote
+sudo apt-get purge kcalc
+sudo apt-get purge k3b*
+sudo apt-get purge trojita
+sudo apt-get purge pulseaudio*
+sudo apt-get purge screengrab
+sudo apt-get purge skanlite
+sudo apt-get purge lximage-qt
+sudo apt-get purge vlc*
+sudo apt-get purge transmission-*
+sudo apt-get purge qpdfview*
 
 #=================  Cleanup  =================
 
-apt autoremove
+sudo apt autoremove
 
 #=================  Install  =================
 
-apt-get update
+sudo apt-get update
 git config --global user.name pyabzz
 git config --global user.email ""
 
