@@ -4,10 +4,6 @@
 ##############                        ##############
 ####################################################
 
-#===================  Aliases  ===================
-
-#ToDo
-
 #=============  Function Definitions  ============
 
 function repeatText {
@@ -72,3 +68,6 @@ printGreeting
 setPromptStyle
 #showDateTime &   # To run in background
 
+#===================  Aliases  ===================
+
+alias baz='ls -la'
