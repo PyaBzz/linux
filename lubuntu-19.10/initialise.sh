@@ -24,6 +24,7 @@ sudo apt autoremove
 #=================  Install  =================
 
 sudo apt-get update
+sudo apt-get install git
 git config --global user.name pyabzz
 git config --global user.email ""
 
