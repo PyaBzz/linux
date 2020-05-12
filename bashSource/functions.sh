@@ -18,8 +18,7 @@ function askUser {
 function fileExists {
     # synopsis: fileExists <PathToFile>
     # No quotes needed around the path
-    if [ -f "$1" ]
-    then
+    if [ -f "$1" ]; then
         true
     else
         false

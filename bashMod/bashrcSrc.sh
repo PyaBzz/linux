@@ -10,8 +10,7 @@ function repeatText {
     # synopsis: repeatText <NumberOfRepetitions> [<StringToRepeat>]
     local stringToRepeat=" "
     
-    if ! [ -z "$2" ]
-    then
+    if [ ! -z "$2" ]; then
         stringToRepeat="$2"
     fi
     
