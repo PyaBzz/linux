@@ -6,8 +6,7 @@ function undoBazBash {
     askUser shouldUndoBazBash "Undo modification to .bashrc?"
     if [ $shouldUndoBazBash == true ]
     then
-        if [ -f ./bashrcBak ];
-        then
+        if (fileExists ./bashrcBak) then
             cp ./bashrcBak ~/.bashrc
             rm ~/.bashrcBaz
             rm ./bashrcBak

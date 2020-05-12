@@ -17,3 +17,14 @@ function askUser {
         eval $res=false
     fi
 }
+
+function fileExists {
+    # synopsis: fileExists <PathToFile>
+    # No quotes needed around the path
+    if [ -f "$1" ]
+    then
+        true
+    else
+        false
+    fi
+}

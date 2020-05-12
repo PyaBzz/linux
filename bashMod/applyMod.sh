@@ -6,8 +6,7 @@ function applyBazBash {
     askUser shouldChangeBashrc "Mod bashrc?"
     if [ $shouldChangeBashrc == true ]
     then
-        if [ -f ./bashrcBak ];
-        then
+        if (fileExists ./bashrcBak) then
             echo "Backup file exists!"
             local shouldOverWrite
             askUser shouldOverWrite "Overwrite it?"
