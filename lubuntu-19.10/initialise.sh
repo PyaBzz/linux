@@ -27,6 +27,9 @@ printLine 60 "#"
 
 #=================  Cleanup  =================
 
+printLine 60 "#"
+printLine 60 "#"
+echo "Purging unused packages"
 sudo apt autoremove
 printLine 60 "#"
 
@@ -45,6 +48,8 @@ done
 printLine 60 "#"
 
 #=================  Config  =================
+
+echo "Applying configs"
 
 git config --global user.name pyabzz
 git config --global user.email ""
