@@ -20,7 +20,9 @@ function applyBazBash {
         fi
         cp ~/.bashrc ./bashrcBak
         echo "Backup saved in ./bashrcBak"
-        cat ./bashrcSrc >> ~/.bashrc
+        cp ./bashrcSrc.sh ~/.bashrcBaz
+        echo "" >> ~/.bashrc
+        echo "source ./.bashrcBaz" >> ~/.bashrc
         echo "Bashrc Mod Applied!"
         
     else
