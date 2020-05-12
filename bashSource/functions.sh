@@ -24,3 +24,29 @@ function fileExists {
         false
     fi
 }
+
+function repeatText {
+    # synopsis: repeatText <NumberOfRepetitions> [<StringToRepeat>]
+    local stringToRepeat=" "
+    
+    if [ ! -z "$2" ]; then
+        stringToRepeat="$2"
+    fi
+    
+    for ((i=1; i<=$1; i++))
+    do
+        printf "$stringToRepeat"
+    done
+}
+
+function printLine {
+    # synopsis: printLine <LineLengthInCharacters> [<StringToRepeat>]
+    local stringToRepeat="="
+    
+    if [ ! -z "$2" ]; then
+        stringToRepeat="$2"
+    fi
+    
+    repeatText $1 $stringToRepeat
+    echo
+}
