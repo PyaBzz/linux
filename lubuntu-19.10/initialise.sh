@@ -22,16 +22,6 @@ do
     echo "Purging $packageName"
     sudo apt-get purge $packageName
 done
-printLine 60 "#"
-
-
-#=================  Cleanup  =================
-
-printLine 60 "#"
-printLine 60 "#"
-echo "Purging unused packages"
-sudo apt autoremove
-printLine 60 "#"
 
 #=================  Install  =================
 
@@ -45,12 +35,26 @@ do
     echo "Installing $packageName"
     sudo apt-get install $packageName
 done
+
+#=================  Cleanup  =================
+
+clear
 printLine 60 "#"
+printLine 60 "#"
+echo "Purging unused packages"
+sudo apt autoremove
 
 #=================  Config  =================
 
+clear
+printLine 60 "#"
 echo "Applying configs"
 
 git config --global user.name pyabzz
 git config --global user.email ""
+
+#=================  Finish  =================
+
+clear
 printLine 60 "#"
+echo "All done!"
