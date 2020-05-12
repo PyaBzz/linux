@@ -2,10 +2,7 @@
 source ../bashSource/functions.sh
 
 function applyBazMod {
-    local shouldModifyPackages
-    askUser shouldModifyPackages "Mod packages?"
-    if [ $shouldModifyPackages == true ]
-    then
+    if (askUser "Mod packages?") then
         source ./initialise.sh
         echo "All done!"
     else

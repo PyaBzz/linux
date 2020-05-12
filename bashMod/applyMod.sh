@@ -2,15 +2,10 @@
 source ../bashSource/functions.sh
 
 function applyBazBash {
-    local shouldChangeBashrc
-    askUser shouldChangeBashrc "Mod bashrc?"
-    if [ $shouldChangeBashrc == true ]
-    then
+    if ( askUser "Mod bashrc?" ) then
         if (fileExists ./bashrcBak) then
             echo "Backup file exists!"
-            local shouldOverWrite
-            askUser shouldOverWrite "Overwrite it?"
-            if [ $shouldOverWrite == true ]; then
+            if (askUser "Overwrite it?") then
                 echo "Overwriting backup file ..."
             else
                 echo "Skipping bashMod ..."

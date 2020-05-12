@@ -2,10 +2,7 @@
 source ../bashSource/functions.sh
 
 function undoBazBash {
-    local shouldUndoBazBash
-    askUser shouldUndoBazBash "Undo modification to .bashrc?"
-    if [ $shouldUndoBazBash == true ]
-    then
+    if (askUser "Undo modification to .bashrc?") then
         if (fileExists ./bashrcBak) then
             cp ./bashrcBak ~/.bashrc
             rm ~/.bashrcBaz
