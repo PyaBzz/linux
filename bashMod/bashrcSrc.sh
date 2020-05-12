@@ -7,18 +7,18 @@
 #=============  Function Definitions  ============
 
 function repeatText {
-    if [ -z "$2" ]
+    # synopsis: repeatText <NumberOfRepetitions> [<StringToRepeat>]
+    local stringToRepeat=" "
+    
+    if ! [ -z "$2" ]
     then
-        for ((i=1; i<=$1; i++))
-        do
-            printf " "
-        done
-    else
-        for ((i=1; i<=$1; i++))
-        do
-            printf $2
-        done
+        stringToRepeat="$2"
     fi
+    
+    for ((i=1; i<=$1; i++))
+    do
+        printf "$stringToRepeat"
+    done
 }
 
 function printGreeting {
