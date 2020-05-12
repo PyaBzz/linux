@@ -1,5 +1,12 @@
+source ../bashSource/functions.sh
 
 #=================  Uninstall  =================
+
+local aggressivePurge=false
+if (askUser "Aggressive purge?") then
+    aggressivePurge=true
+fi
+
 for packageName in \
 transmission-* \
 libreoffice* \
@@ -19,8 +26,13 @@ vlc*
 do
     clear
     printLine 60 "#"
-    echo "Purging $packageName"
-    sudo apt-get purge $packageName
+    if $aggressivePurge; then
+        echo "Purging $packageName"
+        sudo apt-get purge $packageName
+    else
+        echo "Removing $packageName"
+        sudo apt-get remove $packageName
+    fi
 done
 
 #=================  Install  =================
@@ -41,8 +53,9 @@ done
 clear
 printLine 60 "#"
 printLine 60 "#"
-echo "Purging unused packages"
-sudo apt autoremove
+if (askUser "Clean-up seemingly unused packages?") then
+    sudo apt autoremove
+fi
 
 #=================  Config  =================
 
