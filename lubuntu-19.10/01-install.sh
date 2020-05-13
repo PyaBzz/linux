@@ -1,5 +1,6 @@
 #=================  Install  =================
 
+#_________________  Apt-Get  _________________
 sudo apt-get update
 
 for packageName in \
@@ -10,3 +11,6 @@ do
     echo "Installing $packageName"
     sudo apt-get install $packageName
 done
+
+#_________________  Snap  _________________
+sudo snap install --classic code
