@@ -5,17 +5,17 @@ function applyBazMod {
     clear
     printLine 60 "#"
     if (askUser "Uninstall unnecessary packages?") then
-        source ./00-uninstal.sh
+        source ./00-uninstall.sh
     else
-        echo "Skipped uninstal ..."
+        echo "Skipped uninstall ..."
     fi
     
     clear
     printLine 60 "#"
     if (askUser "Install necessary packages?") then
-        source ./01-instal.sh
+        source ./01-install.sh
     else
-        echo "Skipped instal ..."
+        echo "Skipped install ..."
     fi
     
     clear
