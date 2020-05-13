@@ -34,6 +34,7 @@ printLine 60 "#"
 if (askUser "Install Google Chrome?") then
     wget -O ~/Downloads/GoogleChrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo apt install ~/Downloads/GoogleChrome.deb
+    rm -rf ~/Downloads/*.*
 else
     echo "Skipped Google Chrome ..."
 fi
