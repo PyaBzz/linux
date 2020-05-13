@@ -13,4 +13,8 @@ do
 done
 
 #_________________  Snap  _________________
+
+clear
+printLine 60 "#"
+echo "Installing VisualStudio Code"
 sudo snap install --classic code
