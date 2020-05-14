@@ -69,4 +69,4 @@ setPromptStyle
 
 #===================  Aliases  ===================
 
-alias baz='ls -la'
+alias baz='clear && ls -la'
