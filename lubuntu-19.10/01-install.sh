@@ -16,6 +16,22 @@ do
     fi
 done
 
+#_________________  Apt  _________________
+sudo apt update
+
+for packageName in \
+keepass2
+do
+    clear
+    printLine 60 "#"
+    if (askUser "Install $packageName?") then
+        echo "Installing $packageName"
+        sudo apt install $packageName
+    else
+        echo "Skipped $packageName ..."
+    fi
+done
+
 #_________________  Snap  _________________
 
 clear
