@@ -78,3 +78,5 @@ if (askUser "Install Dropbox?") then
 else
     echo "Skipped Dropbox ..."
 fi
+
+# Todo: Add installation of PulseAudio Equaliser
