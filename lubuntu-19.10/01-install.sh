@@ -16,6 +16,16 @@ do
     fi
 done
 
+clear
+printLine 60 "#"
+packageName="pulseaudio-equalizer"
+if (askUser "Install $packageName?"); then
+    sudo apt-get install $packageName
+    cp pulseaudio-eq.desktop ~/Desktop
+else
+    echo "Skipped $packageName ..."
+fi
+
 #_________________  Apt  _________________
 sudo apt update
 
@@ -102,5 +112,3 @@ if (askUser "Install Dropbox?") then
 else
     echo "Skipped Dropbox ..."
 fi
-
-# Todo: Add installation of PulseAudio Equaliser
