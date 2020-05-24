@@ -14,9 +14,8 @@ function applyBazBash {
         fi
         cp ~/.bashrc ./bashrcBak
         echo "Backup saved in ./bashrcBak"
-        cp ./bashrcSrc.sh ~/.bashrcBaz
         echo "" >> ~/.bashrc
-        echo "source ./.bashrcBaz" >> ~/.bashrc
+        echo "source ./projects/bazLinux/bashMod/bashrcSrc.sh" >> ~/.bashrc
         echo "Bashrc Mod Applied!"
         
     else

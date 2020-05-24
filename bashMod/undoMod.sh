@@ -5,7 +5,6 @@ function undoBazBash {
     if (askUser "Undo modification to .bashrc?") then
         if (fileExists ./bashrcBak) then
             cp ./bashrcBak ~/.bashrc
-            rm ~/.bashrcBaz
             rm ./bashrcBak
             echo "Original .bashrc file restored!"
         else
