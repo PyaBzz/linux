@@ -57,37 +57,40 @@ fi
 
 clear
 printLine 60 "#"
-if (askUser "Install VisualStudio Code?"); then
-    echo "Installing VisualStudio Code"
+packageName="VS Code"
+if (askUser "Install $packageName?"); then
+    echo "Installing $packageName"
     sudo snap install --classic code
 else
-    echo "Skipped VisualStudio Code ..."
+    echo "Skipped $packageName ..."
 fi
 
 #_________________  Misc Repos  _________________
 
 clear
 printLine 60 "#"
-if (askUser "Install MS SQL server?"); then
+packageName="MS SQL server"
+if (askUser "Install $packageName?"); then
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
     sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/18.04/mssql-server-2019.list)"
     sudo apt-get update
     sudo apt-get install -y mssql-server
     sudo /opt/mssql/bin/mssql-conf setup
 else
-    echo "Skipped Google Chrome ..."
+    echo "Skipped $packageName ..."
 fi
 
 #_________________  Direct Download  _________________
 
 clear
 printLine 60 "#"
-if (askUser "Install Google Chrome?"); then
+packageName="Google Chrome"
+if (askUser "Install $packageName?"); then
     wget -O ~/Downloads/GoogleChrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo apt install ~/Downloads/GoogleChrome.deb
     rm -rf ~/Downloads/*.*
 else
-    echo "Skipped Google Chrome ..."
+    echo "Skipped $packageName ..."
 fi
 
 clear
