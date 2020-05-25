@@ -4,11 +4,10 @@
 sudo apt-get update
 
 for packageName in \
-git
-do
+    git; do
     clear
     printLine 60 "#"
-    if (askUser "Install $packageName?") then
+    if (askUser "Install $packageName?"); then
         echo "Installing $packageName"
         sudo apt-get install $packageName
     else
@@ -31,11 +30,10 @@ fi
 sudo apt update
 
 for packageName in \
-keepass2
-do
+    keepass2; do
     clear
     printLine 60 "#"
-    if (askUser "Install $packageName?") then
+    if (askUser "Install $packageName?"); then
         echo "Installing $packageName"
         sudo apt install $packageName
     else
@@ -59,7 +57,7 @@ fi
 
 clear
 printLine 60 "#"
-if (askUser "Install VisualStudio Code?") then
+if (askUser "Install VisualStudio Code?"); then
     echo "Installing VisualStudio Code"
     sudo snap install --classic code
 else
@@ -70,7 +68,7 @@ fi
 
 clear
 printLine 60 "#"
-if (askUser "Install MS SQL server?") then
+if (askUser "Install MS SQL server?"); then
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
     sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/18.04/mssql-server-2019.list)"
     sudo apt-get update
@@ -84,7 +82,7 @@ fi
 
 clear
 printLine 60 "#"
-if (askUser "Install Google Chrome?") then
+if (askUser "Install Google Chrome?"); then
     wget -O ~/Downloads/GoogleChrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo apt install ~/Downloads/GoogleChrome.deb
     rm -rf ~/Downloads/*.*
@@ -94,7 +92,7 @@ fi
 
 clear
 printLine 60 "#"
-if (askUser "Install Dropbox?") then
+if (askUser "Install Dropbox?"); then
     wget -O ~/Downloads/Dropbox.tar.gz "https://www.dropbox.com/download?plat=lnx.x86_64"
     tar xzf ~/Downloads/Dropbox.tar.gz -C ~
     ~/.dropbox-dist/dropboxd
