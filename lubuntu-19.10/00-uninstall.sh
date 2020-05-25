@@ -1,8 +1,8 @@
 #=================  Uninstall  =================
 
-local aggressivePurge=false
+local action="remove"
 if (askUser "Aggressive purge?"); then
-    aggressivePurge=true
+    action="purge"
 fi
 
 for packageName in \
@@ -23,11 +23,10 @@ for packageName in \
     vlc*; do
     clear
     printLine 60 "#"
-    if $aggressivePurge; then
-        echo "Purging $packageName"
-        sudo apt-get purge $packageName
+    if (askUser "$action $packageName"); then
+        echo "Uninstalling $packageName"
+        sudo apt-get $action $packageName
     else
-        echo "Removing $packageName"
-        sudo apt-get remove $packageName
+        echo "Skipping $packageName"
     fi
 done
