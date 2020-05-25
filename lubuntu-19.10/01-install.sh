@@ -92,10 +92,11 @@ fi
 
 clear
 printLine 60 "#"
-if (askUser "Install Dropbox?"); then
+packageName="Dropbox"
+if (askUser "Install $packageName"); then
     wget -O ~/Downloads/Dropbox.tar.gz "https://www.dropbox.com/download?plat=lnx.x86_64"
     tar xzf ~/Downloads/Dropbox.tar.gz -C ~
-    ~/.dropbox-dist/dropboxd
+    cp source/dropbox.desktop ~/Desktop
 else
-    echo "Skipped Dropbox ..."
+    echo "Skipped $packageName ..."
 fi
