@@ -10,8 +10,8 @@ fi
 
 step="SDDM customisation"
 if (askUser "Apply $step?"); then
-    cp theme.conf /usr/share/sddm/themes/lubuntu
-    cp source/diamondPlate.jpg /usr/share/sddm/themes/lubuntu
+    sudo cp source/theme.conf /usr/share/sddm/themes/lubuntu
+    sudo cp source/diamondPlate.jpg /usr/share/sddm/themes/lubuntu
 else
     echo "Skipped $step ..."
 fi
