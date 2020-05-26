@@ -1,6 +1,18 @@
 #=================  Config  =================
 
-echo "Applying configs ..."
+step="Git config"
+if (askUser "Apply $step?"); then
+    git config --global user.name pyabzz
+    git config --global user.email ""
+else
+    echo "Skipped $step ..."
+fi
 
-git config --global user.name pyabzz
-git config --global user.email ""
+step="SDDM customisation"
+if (askUser "Apply $step?"); then
+    cp theme.conf /usr/share/sddm/themes/lubuntu
+    cp source/diamondPlate.jpg /usr/share/sddm/themes/lubuntu
+else
+    echo "Skipped $step ..."
+fi
+
