@@ -21,7 +21,6 @@ packageName="pulseaudio-equalizer"
 if (askUser "Install $packageName?"); then
     sudo apt-get install $packageName
     cp source/pulseaudio-eq.desktop ~/Desktop
-    cp /usr/share/applications/pavucontrol-qt.desktop ~/Desktop
 else
     echo "Skipped $packageName ..."
 fi
