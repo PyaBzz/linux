@@ -20,7 +20,8 @@ printLine 60 "#"
 packageName="pulseaudio-equalizer"
 if (askUser "Install $packageName?"); then
     sudo apt-get install $packageName
-    cp source/pulseaudio-eq.desktop ~/Desktop
+    cp source/Equaliser.desktop ~/Desktop
+    cp source/equaliserServiceStart.desktop /etc/xdg/autostart
 else
     echo "Skipped $packageName ..."
 fi
