@@ -21,7 +21,8 @@ packageName="pulseaudio-equalizer"
 if (askUser "Install $packageName?"); then
     sudo apt-get install $packageName
     cp source/Equaliser.desktop ~/Desktop
-    cp source/equaliserServiceStart.desktop /etc/xdg/autostart
+    echo "" >> /etc/pulse/default.pa
+    echo "load-module module-dbus-protocol" >> /etc/pulse/default.pa
 else
     echo "Skipped $packageName ..."
 fi
