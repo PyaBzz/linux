@@ -3,18 +3,6 @@
 #_________________  Apt-Get  _________________
 sudo apt-get update
 
-for packageName in \
-    git; do
-    clear
-    printLine 60 "#"
-    if (askUser "Install $packageName?"); then
-        echo "Installing $packageName"
-        sudo apt-get install $packageName
-    else
-        echo "Skipped $packageName ..."
-    fi
-done
-
 clear
 printLine 60 "#"
 packageName="pulseaudio-equalizer"
