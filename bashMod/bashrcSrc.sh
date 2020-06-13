@@ -4,21 +4,9 @@
 ##############                        ##############
 ####################################################
 
-#=============  Function Definitions  ============
+source ~/projects/bazLinux/bashSource/functions.sh
 
-function repeatText {
-    # synopsis: repeatText <NumberOfRepetitions> [<StringToRepeat>]
-    local stringToRepeat=" "
-    
-    if [ ! -z "$2" ]; then
-        stringToRepeat="$2"
-    fi
-    
-    for ((i=1; i<=$1; i++))
-    do
-        printf "$stringToRepeat"
-    done
-}
+#=============  Function Definitions  ============
 
 function printGreeting {
     
@@ -28,13 +16,11 @@ function printGreeting {
     local lineLen=2*paddingLen+textLen
     
     echo
-    repeatText lineLen "#" && echo
-    repeatText lineLen "#" && echo
+    printLine lineLen "#"
     repeatText paddingLen "#" && repeatText textLen && repeatText paddingLen "#" && echo
     repeatText paddingLen "#" && printf "  Welcome $USER  " && repeatText paddingLen "#" && echo
     repeatText paddingLen "#" && repeatText textLen && repeatText paddingLen "#" && echo
-    repeatText lineLen "#" && echo
-    repeatText lineLen "#" && echo
+    printLine lineLen "#"
     echo
     
 }
