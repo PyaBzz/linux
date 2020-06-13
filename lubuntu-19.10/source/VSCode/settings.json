@@ -1,0 +1,36 @@
+{
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 0,
+    "git.enabled": false,
+    "breadcrumbs.enabled": false,
+    "mssql.connections": [
+        {
+            "server": ".",
+            "database": "master",
+            "authenticationType": "SqlLogin",
+            "user": "sa",
+            "password": "",
+            "emptyPasswordInput": false,
+            "savePassword": true,
+            "profileName": "local"
+        }
+    ],
+    "workbench.colorCustomizations": {
+        //=========================  Editor  =========================
+        "editor.background": "#000000",
+        // "editor.foreground": "#FFFFFF",
+        // "editor.lineHighlightBackground": "#000000",
+        "editor.occurrencesHighlight": true,
+        //=========================  Selection  =========================
+        "editor.selectionBackground": "#00FF00", //Current selection
+        // "editor.selectionHighlightBackground": "#00FFFF", //Same content as selection
+        // "editor.selectionHighlightBorder ": "#FFFFFF",
+        // "editor.inactiveSelectionBackground": "#00FF00",
+        //=========================  Find  =========================
+        "editor.findMatchBackground": "#00FF00", //Current search match
+        // "editor.findMatchHighlightBackground": "#0000FF", //Other search matches
+        // "editor.findRangeHighlightBackground": "#000000",
+        //=========================  Semantic  =========================
+        // "editor.semanticHighlighting.enabled": false,
+    }
+}

@@ -42,18 +42,6 @@ else
     echo "Skipped $packageName ..."
 fi
 
-#_________________  Snap  _________________
-
-clear
-printLine 60 "#"
-packageName="VS Code"
-if (askUser "Install $packageName?"); then
-    echo "Installing $packageName"
-    sudo snap install --classic code
-else
-    echo "Skipped $packageName ..."
-fi
-
 #_________________  Misc Repos  _________________
 
 clear
