@@ -21,14 +21,16 @@
         // "editor.foreground": "#FFFFFF",
         // "editor.lineHighlightBackground": "#000000",
         "editor.occurrencesHighlight": true,
+        "editorCursor.foreground": "#FF0000", //Cursor colour
         //=========================  Selection  =========================
-        "editor.selectionBackground": "#00FF00", //Current selection
-        // "editor.selectionHighlightBackground": "#00FFFF", //Same content as selection
-        // "editor.selectionHighlightBorder ": "#FFFFFF",
+        "editor.selectionBackground": "#880000", //Current selection
+        "editor.selectionHighlightBackground": "#000000", //Same content as selection
+        "editor.selectionHighlightBorder": "#008800",
         // "editor.inactiveSelectionBackground": "#00FF00",
         //=========================  Find  =========================
-        "editor.findMatchBackground": "#00FF00", //Current search match
-        // "editor.findMatchHighlightBackground": "#0000FF", //Other search matches
+        "editor.findMatchBackground": "#880000", //Current search match
+        "editor.findMatchHighlightBackground": "#000000", //Other search matches
+        "editor.findMatchHighlightBorder": "#008800", //Other search matches
         // "editor.findRangeHighlightBackground": "#000000",
         //=========================  Semantic  =========================
         // "editor.semanticHighlighting.enabled": false,
