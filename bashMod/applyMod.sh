@@ -17,22 +17,30 @@ function applyBazBash {
         cp ~/.bashrc ./bashrcBak
         echo "Backup saved in ./bashrcBak"
 
-        #===================  Change bashrc  ===================
+        #===================  Bashrc  ===================
         echo "" >> ~/.bashrc
         echo "" >> ~/.bashrc
         echo "#===================  BazMod  ===================" >> ~/.bashrc
         echo "" >> ~/.bashrc
-        echo "source ./projects/bazLinux/bashMod/bashrcSrc.sh" >> ~/.bashrc
-        echo "source ./projects/bazLinux/bashMod/bashrcSrcDynamic.sh" >> ~/.bashrc
+        echo 'source "$(getScriptPath)/bashrcSrc.sh"' >> ~/.bashrc
         echo "" >> ~/.bashrc
 
-        #===================  Change bashrc dynamic  ===================
-        echo "" > ./bashrcSrcDynamic.sh
-        echo "#===================  Aliases  ===================" > ./bashrcSrcDynamic.sh
+        #===================  Bashrc dynamic  ===================
+        if (fileExists ./bashrcSrcDynamic.sh) then
+            echo "Dynamic file exists!"
+            if (askUser "Overwrite it?") then
+                echo "Overwriting dynamic file ..."
+                echo "" > ./bashrcSrcDynamic.sh
+            else
+                echo "Using existing dynamic file"
+                return
+            fi
+        fi
+        echo "#===================  Aliases  ===================" >> ./bashrcSrcDynamic.sh
         echo "" >> ./bashrcSrcDynamic.sh
         echo "Bashrc Mod Applied!"
     else
-        echo "Skipping bashMod ..."
+        echo "Skipped bashMod"
     fi
 }
 

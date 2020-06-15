@@ -4,7 +4,11 @@
 ##############                        ##############
 ####################################################
 
-source ~/projects/bazLinux/bashSource/functions.sh
+function getScriptPath {
+    echo "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+}
+
+source "$(getScriptPath)/../bashSource/functions.sh"
 
 #=============  Function Definitions  ============
 
@@ -56,3 +60,7 @@ setPromptStyle
 #===================  Aliases  ===================
 
 alias baz='clear && ls -la'
+
+#===================  Dynamic part  ===================
+
+source "$(getScriptPath)/bashrcSrcDynamic.sh"
