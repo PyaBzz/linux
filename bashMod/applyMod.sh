@@ -22,7 +22,7 @@ function applyBazBash {
         echo "" >> ~/.bashrc
         echo "#===================  BazMod  ===================" >> ~/.bashrc
         echo "" >> ~/.bashrc
-        echo 'source "$(getScriptPath)/bashrcSrc.sh"' >> ~/.bashrc
+        echo 'source "$(getScriptDir)/bashrcSrc.sh"' >> ~/.bashrc
         echo "" >> ~/.bashrc
 
         #===================  Bashrc dynamic  ===================

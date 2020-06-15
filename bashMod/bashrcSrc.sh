@@ -4,11 +4,11 @@
 ##############                        ##############
 ####################################################
 
-function getScriptPath {
+function getScriptDir {
     echo "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 }
 
-source "$(getScriptPath)/../bashSource/functions.sh"
+source "$(getScriptDir)/../bashSource/functions.sh"
 
 #=============  Function Definitions  ============
 
@@ -63,4 +63,4 @@ alias baz='clear && ls -la'
 
 #===================  Dynamic part  ===================
 
-source "$(getScriptPath)/bashrcSrcDynamic.sh"
+source "$(getScriptDir)/bashrcSrcDynamic.sh"
