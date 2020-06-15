@@ -1,6 +1,10 @@
 #!/bin/bash
 source ../bashSource/functions.sh
 
+function getScriptDir {
+    echo "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+}
+
 function applyBazBash {
     if ( askUser "Mod bashrc?" ) then
         if (fileExists ./bashrcBak) then
@@ -22,7 +26,7 @@ function applyBazBash {
         echo "" >> ~/.bashrc
         echo "#===================  BazMod  ===================" >> ~/.bashrc
         echo "" >> ~/.bashrc
-        echo 'source "$(getScriptDir)/bashrcSrc.sh"' >> ~/.bashrc
+        echo "source $(getScriptDir)/bashrcSrc.sh" >> ~/.bashrc
         echo "" >> ~/.bashrc
 
         #===================  Bashrc dynamic  ===================

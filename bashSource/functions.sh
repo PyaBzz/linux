@@ -15,10 +15,6 @@ function askUser {
     fi
 }
 
-function getScriptDir {
-    echo "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-}
-
 function fileExists {
     # synopsis: fileExists <PathToFile>
     # No quotes needed around the path
