@@ -6,7 +6,7 @@ packageName="VS Code"
 if (askUser "Install $packageName?"); then
     echo "Installing $packageName"
     sudo snap install --classic code
-    cp ../source/VSCode/settings.json ~/.config/Code/User
+    cp ./settings.json ~/.config/Code/User
 else
     echo "Skipped $packageName"
 fi
