@@ -17,8 +17,38 @@ function askUser {
 
 function fileExists {
     # synopsis: fileExists <PathToFile>
-    # No quotes needed around the path
+    # No quotes around the path!
     if [ -f "$1" ]; then
+        true
+    else
+        false
+    fi
+}
+
+function fileMissing {
+    # synopsis: fileMissing <PathToFile>
+    # No quotes around the path!
+    if [ ! -f "$1" ]; then
+        true
+    else
+        false
+    fi
+}
+
+function dirExists {
+    # synopsis: dirExists <PathToDir>
+    # No quotes around the path!
+    if [ -d "$1" ]; then
+        true
+    else
+        false
+    fi
+}
+
+function dirMissing {
+    # synopsis: dirMissing <PathToDir>
+    # No quotes around the path!
+    if [ ! -d "$1" ]; then
         true
     else
         false
