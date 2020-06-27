@@ -9,7 +9,7 @@ function getScriptDir {
 
 function applyBazBash {
     if ( askUser "Mod bashrc?" ) then
-        if (fileExists ./bashrcBak) then
+        if (fileExists ./bashrc.bak) then
             echo "Backup file exists!"
             if (askUser "Overwrite it?") then
                 echo "Overwriting backup file ..."
@@ -20,8 +20,8 @@ function applyBazBash {
         fi
 
         #===================  Make backup  ===================
-        cp ~/.bashrc ./bashrcBak
-        echo "Backup saved in ./bashrcBak"
+        cp ~/.bashrc ./bashrc.bak
+        echo "Backup saved in ./bashrc.bak"
 
         #===================  Bashrc  ===================
         echo "" >> ~/.bashrc

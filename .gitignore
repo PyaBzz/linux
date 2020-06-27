@@ -1,4 +1,3 @@
-bashMod/bashrcBak
-bashMod/bashrcSrcDynamic.sh
-**/test.sh
 **/*.bak
+**/test.sh
+bashMod/bashrcSrcDynamic.sh
