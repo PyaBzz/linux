@@ -1,4 +1,4 @@
-source ../../bashSource/functions.sh
+source ../../../bashSource/functions.sh
 
 clear
 printLine 60 "#"
