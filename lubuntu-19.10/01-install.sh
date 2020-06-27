@@ -9,8 +9,8 @@ packageName="pulseaudio-equalizer"
 if (askUser "Install $packageName?"); then
     sudo apt-get install $packageName
     cp source/Equaliser.desktop ~/Desktop
-    echo "" >> /etc/pulse/default.pa
-    echo "load-module module-dbus-protocol" >> /etc/pulse/default.pa
+    echo "" >>/etc/pulse/default.pa
+    echo "load-module module-dbus-protocol" >>/etc/pulse/default.pa
 else
     echo "Skipped $packageName ..."
 fi
@@ -41,19 +41,6 @@ if (askUser "Install $packageName?"); then
     sudo apt-get update
     sudo apt-get install -y mssql-server
     sudo /opt/mssql/bin/mssql-conf setup
-else
-    echo "Skipped $packageName ..."
-fi
-
-#_________________  Direct Download  _________________
-
-clear
-printLine 60 "#"
-packageName="Google Chrome"
-if (askUser "Install $packageName?"); then
-    wget -O ~/Downloads/GoogleChrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo apt install ~/Downloads/GoogleChrome.deb
-    rm -rf ~/Downloads/*.*
 else
     echo "Skipped $packageName ..."
 fi
