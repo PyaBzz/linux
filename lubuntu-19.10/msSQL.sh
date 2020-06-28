@@ -1,5 +1,4 @@
-
-#_________________  Misc Repos  _________________
+source ../bashSource/functions.sh
 
 clear
 printLine 60 "#"
@@ -11,5 +10,5 @@ if (askUser "Install $packageName?"); then
     sudo apt-get install -y mssql-server
     sudo /opt/mssql/bin/mssql-conf setup
 else
-    echo "Skipped $packageName ..."
+    echo "Skipped $packageName"
 fi
