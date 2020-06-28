@@ -1,14 +1,13 @@
-source ../../bashSource/functions.sh
+source ../bashSource/functions.sh
 
 sudo apt-get update
 
 clear
 printLine 60 "#"
-packageName="xscreensaver-gl"
+packageName="gimp"
 if (askUser "Install $packageName?"); then
     echo "Installing $packageName"
     sudo apt-get install $packageName
-    cp ../source/.xscreensaver ~
 else
     echo "Skipped $packageName"
 fi

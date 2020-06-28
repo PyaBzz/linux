@@ -1,4 +1,4 @@
-source ../../../bashSource/functions.sh
+source ../../bashSource/functions.sh
 
 function applyOpenboxMod() {
     if (fileExists ./lxqt-rc.bak); then
