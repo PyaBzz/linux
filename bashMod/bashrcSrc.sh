@@ -14,19 +14,30 @@ source "$(getScriptDir)/../bashSource/functions.sh"
 
 function printGreeting {
     
-    local paddingLen=20
-    local text="  Welcome $USER  "
+    local lineLen=41
+    local text="Welcome $USER"
     local textLen=${#text}
-    local lineLen=2*paddingLen+textLen
-    
-    echo
-    printLine lineLen "#"
-    repeatText paddingLen "#" && repeatText textLen && repeatText paddingLen "#" && echo
-    repeatText paddingLen "#" && printf "  Welcome $USER  " && repeatText paddingLen "#" && echo
-    repeatText paddingLen "#" && repeatText textLen && repeatText paddingLen "#" && echo
-    printLine lineLen "#"
-    echo
-    
+    local paddingLen=$(((lineLen - textLen - 2) / 2))
+    if [ $(($textLen % 2)) -eq 0 ]; then
+        text="$text "
+    fi
+
+    cat << EOF
+╔═══════════════════════════════════════╗
+║ ##################################### ║
+║ ##################################### ║
+║ ########### # ########## # ########## ║
+║          ######       ######          ║
+║        ##########   ##########        ║
+║          ######   #   ######          ║
+║            #   ######   #             ║
+║              ##########               ║
+║                ######                 ║
+║                  #                    ║
+╠═══════════════════════════════════════╣
+EOF
+    printf "║" && repeatText paddingLen && printf "$text" && repeatText paddingLen && printf "║" && echo
+    echo "╚═══════════════════════════════════════╝"
 }
 
 function setPromptStyle {
