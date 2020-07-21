@@ -92,6 +92,5 @@ function printLine {
         stringToRepeat="$2"
     fi
     
-    repeatText $1 $stringToRepeat
-    echo
+    echoRepeatText $1 $stringToRepeat
 }
