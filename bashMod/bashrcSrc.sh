@@ -15,7 +15,7 @@ source "$(getScriptDir)/../bashSource/functions.sh"
 function printGreeting {
     
     local lineLen=41
-    local text="Welcome $USER"
+    local text="Hi $USER !"
     local textLen=${#text}
     local paddingLen=$(((lineLen - textLen - 2) / 2))
     if [ $(($textLen % 2)) -eq 0 ]; then
