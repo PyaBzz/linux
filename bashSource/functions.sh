@@ -69,6 +69,21 @@ function repeatText {
     done
 }
 
+function echoRepeatText {
+    # synopsis: echoRepeatText <NumberOfRepetitions> [<StringToRepeat>]
+    local stringToRepeat=" "
+    
+    if [ ! -z "$2" ]; then
+        stringToRepeat="$2"
+    fi
+    local output=""
+    for ((i=1; i<=$1; i++))
+    do
+        output+="$stringToRepeat"
+    done
+    echo "$output"
+}
+
 function printLine {
     # synopsis: printLine <LineLengthInCharacters> [<StringToRepeat>]
     local stringToRepeat="="

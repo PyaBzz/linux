@@ -15,12 +15,16 @@ source "$(getScriptDir)/../bashSource/functions.sh"
 function printGreeting {
     
     local lineLen=41
-    local text="Hi $USER !"
-    local textLen=${#text}
-    local paddingLen=$(((lineLen - textLen - 2) / 2))
-    if [ $(($textLen % 2)) -eq 0 ]; then
-        text="$text "
+    local greeting="Hi $USER !"
+    local greetingLen=${#greeting}
+    if [ $(($greetingLen % 2)) -eq 0 ]; then
+        greeting+=" "
     fi
+
+    local paddingLen=$(((lineLen - greetingLen - 2) / 2))
+    padding=$(echoRepeatText paddingLen)
+
+    local greetingLine="║$padding$greeting$padding║"
 
     cat << EOF
 ╔═══════════════════════════════════════╗
@@ -35,9 +39,9 @@ function printGreeting {
 ║                ######                 ║
 ║                  #                    ║
 ╠═══════════════════════════════════════╣
+$greetingLine
+╚═══════════════════════════════════════╝
 EOF
-    printf "║" && repeatText paddingLen && printf "$text" && repeatText paddingLen && printf "║" && echo
-    echo "╚═══════════════════════════════════════╝"
 }
 
 function setPromptStyle {
