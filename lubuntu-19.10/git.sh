@@ -20,6 +20,7 @@ if (askUser "Install $packageName?"); then
         echo "alias gush='clear && git push'" >>../bashMod/bashrcSrcDynamic.sh
         echo "alias geckout='clear && git checkout'" >>../bashMod/bashrcSrcDynamic.sh
         echo "alias gistash='clear && git stash'" >>../bashMod/bashrcSrcDynamic.sh
+        echo "alias granch='clear && git branch'" >>../bashMod/bashrcSrcDynamic.sh
     else
         echo "Skipped config"
     fi
