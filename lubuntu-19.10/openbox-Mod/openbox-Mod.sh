@@ -15,6 +15,7 @@ function applyOpenboxMod() {
     echo "Backup saved in ./lxqt-rc.bak"
     cp ./lxqt-rc.xml ~/.config/openbox/lxqt-rc.xml
     openbox --reconfigure
+    echo "numlock=true" >> ~/.config/lxqt/session.conf
     echo "$packageName Applied!"
 }
 
