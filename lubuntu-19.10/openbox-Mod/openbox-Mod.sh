@@ -13,7 +13,7 @@ function applyOpenboxMod() {
     echo "Applying $packageName"
     cp ~/.config/openbox/lxqt-rc.xml ./lxqt-rc.bak
     echo "Backup saved in ./lxqt-rc.bak"
-    cp ./lxqt-rc.xml ~/.config/openbox/lxqt-rc.xml
+    sed -i "/<\/keyboard>/r ./lxqt-rc-baz.xml" ~/.config/openbox/lxqt-rc.xml
     openbox --reconfigure
     echo "numlock=true" >> ~/.config/lxqt/session.conf
     echo "$packageName Applied!"

@@ -1,0 +1,79 @@
+
+    #===============================================================
+    #============================  Baz  ============================
+    #===============================================================
+
+  <keyboard>
+    <keybind key="C-W-Up">        # Full-Height / Full-Screen
+      <action name="If">
+        <query target="default">
+          <maximizedvertical>yes</maximizedvertical>
+        </query>
+        <then>
+          <action name="Maximize"/>
+        </then>
+        <else>
+          <action name="Maximize"><direction>vertical</direction></action>
+        </else>
+      </action>
+    </keybind>
+
+    <keybind key="C-W-Down">        # Middle screen
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>center</x><y>center</y><width>50%</width><height>50%</height></action>
+    </keybind>
+
+    <keybind key="C-W-Left">        # Dock Left
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>0</x><width>50%</width></action>
+      <!-- <action name="Maximize"><direction>vertical</direction></action> -->
+    </keybind>
+
+    <keybind key="C-W-Right">        # Dock Right
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>-0</x><width>50%</width></action>
+      <!-- <action name="Maximize"><direction>vertical</direction></action> -->
+    </keybind>
+
+    <keybind key="C-W-1">        # UpperQuarterLeft
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>0</x><y>0</y><height>50%</height><width>50%</width></action>
+    </keybind>
+
+    <keybind key="C-W-2">        # LowerQuarterLeft
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>0</x><y>-0</y><height>50%</height><width>50%</width></action>
+    </keybind>
+
+    <keybind key="C-W-3">        # LowerQuarterRight
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>-0</x><y>-0</y><height>50%</height><width>50%</width></action>
+    </keybind>
+
+    <keybind key="C-W-4">        # UpperQuarterRight
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>-0</x><y>0</y><height>50%</height><width>50%</width></action>
+    </keybind>
+
+    <keybind key="XF86AudioPause">
+      <action name="Execute">
+        <command>playerctl play-pause</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioPlay">
+      <action name="Execute">
+        <command>playerctl play-pause</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioNext">
+      <action name="Execute">
+        <command>playerctl next</command>
+      </action>
+    </keybind>
+  </keyboard>
+
+    #===============================================================
+    #===============================================================
+    #===============================================================
