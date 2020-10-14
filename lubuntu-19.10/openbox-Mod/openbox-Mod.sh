@@ -1,8 +1,8 @@
 source ../../bashSource/functions.sh
 
 function applyOpenboxMod() {
-    backupFilePath=./lxqt-rc.xml.bak
     configFilePath=~/.config/openbox/lxqt-rc.xml
+    backupFilePath=~/.config/openbox/lxqt-rc.xml.bak
     if (fileExists $backupFilePath); then
         echo "Backup file found"
         echo "Restoring ..."
