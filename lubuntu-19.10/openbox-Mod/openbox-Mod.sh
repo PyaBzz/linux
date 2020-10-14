@@ -1,21 +1,22 @@
 source ../../bashSource/functions.sh
 
 function applyOpenboxMod() {
-    if (fileExists ./lxqt-rc.bak); then
-        echo "Backup file exists!"
-        if (askUser "Overwrite it?"); then
-            echo "Overwriting backup file ..."
-        else
-            echo "Skipped $packageName"
-            return
-        fi
+    backupFilePath=./lxqt-rc.xml.bak
+    configFilePath=~/.config/openbox/lxqt-rc.xml
+    if (fileExists $backupFilePath); then
+        echo "Backup file found"
+        echo "Restoring ..."
+        cp $backupFilePath $configFilePath
+        echo "Restored"
+    else
+        echo "Backup file not found"
+        cp $configFilePath $backupFilePath
+        echo "Backup saved in $backupFilePath"
     fi
+
     echo "Applying $packageName"
-    cp ~/.config/openbox/lxqt-rc.xml ./lxqt-rc.bak
-    echo "Backup saved in ./lxqt-rc.bak"
-    sed -i "/<\/keyboard>/r ./lxqt-rc-baz.xml" ~/.config/openbox/lxqt-rc.xml
+    sed -i "/<\/keyboard>/r ./lxqt-rc-baz.xml" $configFilePath
     openbox --reconfigure
-    echo "numlock=true" >> ~/.config/lxqt/session.conf
     echo "$packageName Applied!"
 }
 
@@ -24,6 +25,7 @@ printLine 60 "#"
 packageName="Openbox Mod"
 if (askUser "Apply $packageName?"); then
     applyOpenboxMod
+    echo "numlock=true" >> ~/.config/lxqt/session.conf
 else
     echo "Skipped $packageName"
 fi
