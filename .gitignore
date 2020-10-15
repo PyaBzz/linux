@@ -1,3 +1,4 @@
 **/*.bak
+**/*.bazbak
 **/test.sh
 bashMod/bashrcSrcDynamic.sh

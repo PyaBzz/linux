@@ -8,8 +8,11 @@ function getScriptDir {
 }
 
 function applyBazBash {
+    bashrcFilePath=~/.bashrc
+    backupFilePath=~/.bashrc.bazbak
+    dynamicBashrcFilePath=./bashrcSrcDynamic.sh
     if ( askUser "Mod bashrc?" ) then
-        if (fileExists ./bashrc.bak) then
+        if (fileExists $backupFilePath) then
             echo "Backup file exists!"
             if (askUser "Overwrite it?") then
                 echo "Overwriting backup file ..."
@@ -20,30 +23,30 @@ function applyBazBash {
         fi
 
         #===================  Make backup  ===================
-        cp ~/.bashrc ./bashrc.bak
-        echo "Backup saved in ./bashrc.bak"
+        cp $bashrcFilePath $backupFilePath
+        echo "Backup saved in $backupFilePath"
 
         #===================  Bashrc  ===================
-        echo "" >> ~/.bashrc
-        echo "" >> ~/.bashrc
-        echo "#===================  BazMod  ===================" >> ~/.bashrc
-        echo "" >> ~/.bashrc
-        echo "source $(getScriptDir)/bashrcSrc.sh" >> ~/.bashrc
-        echo "" >> ~/.bashrc
+        echo "" >> $bashrcFilePath  # Todo: Replace with multi line echo
+        echo "" >> $bashrcFilePath
+        echo "#===================  BazMod  ===================" >> $bashrcFilePath
+        echo "" >> $bashrcFilePath
+        echo "source $(getScriptDir)/bashrcSrc.sh" >> $bashrcFilePath
+        echo "" >> $bashrcFilePath
 
         #===================  Bashrc dynamic  ===================
-        if (fileExists ./bashrcSrcDynamic.sh) then
+        if (fileExists $dynamicBashrcFilePath) then
             echo "Dynamic file exists!"
             if (askUser "Overwrite it?") then
                 echo "Overwriting dynamic file ..."
-                echo "" > ./bashrcSrcDynamic.sh
+                echo "" > $dynamicBashrcFilePath
             else
                 echo "Using existing dynamic file"
                 return
             fi
         fi
-        echo "#===================  Aliases  ===================" >> ./bashrcSrcDynamic.sh
-        echo "" >> ./bashrcSrcDynamic.sh
+        echo "#===================  Aliases  ===================" >> $dynamicBashrcFilePath
+        echo "" >> $dynamicBashrcFilePath
         echo "Bashrc Mod Applied!"
     else
         echo "Skipped bashMod"
