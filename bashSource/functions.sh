@@ -1,4 +1,11 @@
 
+function getScriptDir() {
+    # We cannot source this from another file as the returned
+    # value reflects the directory where this script exists
+    # so copy this function to the target script file and run
+    echo "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+}
+
 function askUser {
     # synopsis: askUser [<QuestionString>]
     if [ -z "$1" ]; then

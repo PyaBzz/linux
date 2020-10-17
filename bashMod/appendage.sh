@@ -4,11 +4,8 @@
 ##############                        ##############
 ####################################################
 
-function getScriptDir {
-    echo "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-}
-
-source "$(getScriptDir)/../bashSource/functions.sh"
+cd ~/.bashMod
+source "functions.sh"
 
 #=============  Function Definitions  ============
 
@@ -74,8 +71,6 @@ setPromptStyle
 
 #===================  Aliases  ===================
 
-alias baz='clear && ls -la'
+for f in aliases/*.sh; do source $f; done
 
-#===================  Dynamic part  ===================
-
-source "$(getScriptDir)/bashrcSrcDynamic.sh"
+cd ~
