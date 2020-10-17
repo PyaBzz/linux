@@ -1,4 +1,4 @@
-source ../../bashSource/functions.sh
+source ../../bashMod/functions.sh
 
 function applyOpenboxMod() {
     configFilePath=~/.config/openbox/lxqt-rc.xml

@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../bashSource/functions.sh
+source ../bashMod/functions.sh
 
 function cleanup() {
     clear

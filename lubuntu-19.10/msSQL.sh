@@ -1,4 +1,4 @@
-source ../bashSource/functions.sh
+source ../bashMod/functions.sh
 
 clear
 printLine 60 "#"

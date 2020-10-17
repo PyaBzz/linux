@@ -1,4 +1,4 @@
-source ../../bashSource/functions.sh
+source ../../bashMod/functions.sh
 
 function applySddmMod() {
     sudo cp ./theme.conf /usr/share/sddm/themes/lubuntu

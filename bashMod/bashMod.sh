@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../bashSource/functions.sh
+source ./functions.sh
 
 function undoBazBash() {
     if (fileExists $backupFilePath); then
@@ -45,7 +45,7 @@ function applyBazBash() {
 
     #===================  Appendage File  ===================
     cp ./appendage.sh $modDirPath
-    cp ../bashSource/functions.sh $modDirPath
+    cp ./functions.sh $modDirPath
 
     #===================  Aliases  ===================
     cp aliases.sh $modAliasesFilePath
