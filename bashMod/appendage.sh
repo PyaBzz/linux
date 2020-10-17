@@ -4,8 +4,7 @@
 ##############                        ##############
 ####################################################
 
-cd ~/.bashMod
-source "functions.sh"
+source ~/.bashMod/functions.sh
 
 #=============  Function Definitions  ============
 
@@ -71,6 +70,4 @@ setPromptStyle
 
 #===================  Aliases  ===================
 
-for f in aliases/*.sh; do source $f; done
-
-cd ~
+for f in ~/.bashMod/aliases/*.sh; do source $f; done
