@@ -5,7 +5,6 @@ function undoBazBash() {
     if (fileExists $backupFilePath); then
         mv $backupFilePath $bashrcFilePath
         rm $modDirPath/*.sh
-        rm $modAliasesFilePath
         echo "bashMod removed!"
     else
         echo "Original .bashrc file not found!"
@@ -48,7 +47,7 @@ function applyBazBash() {
     cp ./functions.sh $modDirPath
 
     #===================  Aliases  ===================
-    cp aliases.sh $modAliasesFilePath
+    cp ./alias $aliasesDirPath/mod.sh
     echo "Bashrc Mod Applied!"
 }
 
@@ -57,8 +56,7 @@ modDirPath=~/.bashMod
 backupFilePath=~/.bashMod/.bashrc.bazbak
 appendageFilePath=~/.bashMod/appendage.sh
 aliasesDirPath=~/.bashMod/aliases
-modAliasesFilePath=~/.bashMod/aliases/modAliases.sh
-# backupFilePath=./bashrc.bak
+
 if [[ $1 == "restore" ]]; then
     if (askUser "Undo modification to .bashrc?"); then
         undoBazBash
