@@ -113,3 +113,8 @@ function printColours() {
     done
     echo ""
 }
+
+function insertContentInFileAfterMarker() {
+    # synopsis: insertContentInFile <sourceFile> <destinationFile> <markerText>
+    sed -i "/$markerText/r $sourceFile" $destinationFile
+}
