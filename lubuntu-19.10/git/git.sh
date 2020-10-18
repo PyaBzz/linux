@@ -14,8 +14,8 @@ else
 fi
 
 if (askUser "Apply config?"); then
-    # git config --global user.name pyabzz
-    # git config --global user.email ""
+    git config --global user.name pyabzz
+    git config --global user.email ""
     cp ./alias $aliasesDirPath/git.sh
 else
     echo "Skipped config"
