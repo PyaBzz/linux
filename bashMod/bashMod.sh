@@ -12,6 +12,17 @@ function undoBazBash() {
     fi
 }
 
+function appendToBashrc() {
+    cat <<EOT >>$bashrcFilePath
+
+
+#===================  BazMod  ===================
+
+source $appendageFilePath
+
+EOT
+}
+
 function applyBazBash() {
     if (fileExists $backupFilePath); then
         # This machine has already been modded
@@ -34,12 +45,7 @@ function applyBazBash() {
         echo "Backup saved in $backupFilePath"
 
         #===================  Append to bashrc  ===================
-        echo "" >>$bashrcFilePath # Todo: Replace with multi line echo
-        echo "" >>$bashrcFilePath
-        echo "#===================  BazMod  ===================" >>$bashrcFilePath
-        echo "" >>$bashrcFilePath
-        echo "source $appendageFilePath" >>$bashrcFilePath
-        echo "" >>$bashrcFilePath
+        appendToBashrc
     fi
 
     #===================  Appendage File  ===================
