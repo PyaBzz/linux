@@ -13,10 +13,15 @@ else
     echo "Skipped $packageName"
 fi
 
-if (askUser "Apply config?"); then
+if (askUser "Add aliases?"); then
+    cp ./alias $aliasesDirPath/git.sh
+else
+    echo "Skipped aliases"
+fi
+
+if (askUser "Apply global config?"); then
     git config --global user.name pyabzz
     git config --global user.email ""
-    cp ./alias $aliasesDirPath/git.sh
 else
     echo "Skipped config"
 fi
