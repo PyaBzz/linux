@@ -1,16 +1,6 @@
-// Iranian keyboard layout
-
-////////////////////////////////////////
+// Bazed Iranian keyboard layout
 // Persian layout,
-// based on
-// Information Technology – Layout of Persian Letters and Symbols on Computer Keyboards
-// ISIRI 9147 – 1st Edition
-// Institute of Standards and Industrial Research of Iran
-// http://www.isiri.org/UserStd/DownloadStd.aspx?id=9147
-// http://behnam.esfahbod.info/standards/isiri-keyboard-9147.pdf
-//
-// Author: Behnam Esfahbod <behnam@esfahbod.info>
-//
+
 
 default  partial alphanumeric_keys
 xkb_symbols "pes" {
