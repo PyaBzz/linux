@@ -81,7 +81,7 @@ xkb_symbols "pes_part_basic" {
     key <TLDE> { [ 0x100200d,		division,		asciitilde	] };
     key <AE11> { [ minus,		Arabic_tatweel,		underscore	] };
     key <AE12> { [ equal,		plus,			0x1002212	] };
-    key <BKSL> { [ backslash,		bar,			0x1002010	] };
+    key <BKSL> { [ Arabic_peh, 	    Arabic_peh,     Arabic_peh ] };
 };
 
 hidden partial alphanumeric_keys
