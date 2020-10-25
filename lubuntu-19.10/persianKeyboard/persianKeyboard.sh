@@ -23,7 +23,7 @@ function apply() {
     else
 
         #===================  Make backup  ===================
-        cp $targetFilePath $backupFilePath
+        sudo cp $targetFilePath $backupFilePath
         echo "Backup saved in $backupFilePath"
     fi
 
