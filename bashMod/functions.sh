@@ -133,6 +133,15 @@ replaceFile() {
         return
     fi
 
+    addOrReplaceFile $targetFile with $replacementFile
+}
+
+addOrReplaceFile() {
+    # synopsis: replaceFile <PathToTargetFile> with <PathToNewFile>
+    local targetFile=$1
+    local secondParameter=$2
+    local replacementFile=$3
+
     if [[ $secondParameter != "with" ]]; then
         echo "${FUNCNAME[0]} function: The 2nd parameter must be the word 'with'"
         return
