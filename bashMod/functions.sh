@@ -1,5 +1,4 @@
-
-function getScriptDir() {
+getScriptDir() {
     # We cannot source this from another file as the returned
     # value reflects the directory where this script exists
     # so copy this function to the target script file and run
@@ -10,7 +9,7 @@ getMyDir() {
     dirname "$(readlink -f "$0")"
 }
 
-function askUser {
+askUser() {
     # synopsis: askUser [<QuestionString>]
     if [ -z "$1" ]; then
         local confirm
@@ -26,7 +25,7 @@ function askUser {
     fi
 }
 
-function fileExists {
+fileExists() {
     # synopsis: fileExists <PathToFile>
     # No quotes around the path!
     if [ -f "$1" ]; then
@@ -36,7 +35,7 @@ function fileExists {
     fi
 }
 
-function fileMissing {
+fileMissing() {
     # synopsis: fileMissing <PathToFile>
     # No quotes around the path!
     if [ ! -f "$1" ]; then
@@ -46,7 +45,7 @@ function fileMissing {
     fi
 }
 
-function dirExists {
+dirExists() {
     # synopsis: dirExists <PathToDir>
     # No quotes around the path!
     if [ -d "$1" ]; then
@@ -56,7 +55,7 @@ function dirExists {
     fi
 }
 
-function dirMissing {
+dirMissing() {
     # synopsis: dirMissing <PathToDir>
     # No quotes around the path!
     if [ ! -d "$1" ]; then
@@ -66,7 +65,7 @@ function dirMissing {
     fi
 }
 
-function repeatText {
+repeatText() {
     # synopsis: repeatText <NumberOfRepetitions> [<StringToRepeat>]
     local stringToRepeat=" "
     
@@ -80,7 +79,7 @@ function repeatText {
     done
 }
 
-function echoRepeatText {
+echoRepeatText() {
     # synopsis: echoRepeatText <NumberOfRepetitions> [<StringToRepeat>]
     local stringToRepeat=" "
     
@@ -95,7 +94,7 @@ function echoRepeatText {
     echo "$output"
 }
 
-function printLine {
+printLine() {
     # synopsis: printLine <LineLengthInCharacters> [<StringToRepeat>]
     local stringToRepeat="="
     
@@ -106,7 +105,7 @@ function printLine {
     echoRepeatText $1 $stringToRepeat
 }
 
-function printColours() {
+printColours() {
     for x in {0..8}; do
         for i in {30..37}; do
             for a in {40..47}; do
@@ -118,12 +117,12 @@ function printColours() {
     echo ""
 }
 
-function insertContentInFileAfterMarker() {
+insertContentInFileAfterMarker() {
     # synopsis: insertContentInFile <sourceFile> <destinationFile> <markerText>
     sed -i "/$markerText/r $sourceFile" $destinationFile
 }
 
-function replaceFile() {
+replaceFile() {
     local targetFile=$1
     local secondParameter=$2
     local replacementFile=$3
