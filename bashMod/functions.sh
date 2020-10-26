@@ -6,6 +6,10 @@ function getScriptDir() {
     echo "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 }
 
+getMyDir() {
+    dirname "$(readlink -f "$0")"
+}
+
 function askUser {
     # synopsis: askUser [<QuestionString>]
     if [ -z "$1" ]; then
