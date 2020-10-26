@@ -145,3 +145,17 @@ replaceFile() {
 
     cp $replacementFile $targetFile
 }
+
+backupFile() {
+    # synopsis: backupFile <PathToTargetFile>
+    # Puts a backup of the file next to it
+    local targetFile=$1
+    local backupFile="$1.bazbak"
+
+    if (fileMissing $targetFile); then
+        echo "${FUNCNAME[0]} function: Target file not found at $targetFile"
+        exit 1
+    fi
+
+    cp $targetFile $backupFile
+}
