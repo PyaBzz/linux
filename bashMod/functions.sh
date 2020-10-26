@@ -122,3 +122,26 @@ function insertContentInFileAfterMarker() {
     # synopsis: insertContentInFile <sourceFile> <destinationFile> <markerText>
     sed -i "/$markerText/r $sourceFile" $destinationFile
 }
+
+function replaceFile() {
+    local targetFile=$1
+    local secondParameter=$2
+    local replacementFile=$3
+
+    if (fileMissing $targetFile); then
+        echo "${FUNCNAME[0]} function: Target file not found at $targetFile"
+        exit 1
+    fi
+
+    if [[ $secondParameter != "with" ]]; then
+        echo "${FUNCNAME[0]} function: The 2nd parameter must be the word 'with'"
+        exit 1
+    fi
+
+    if (fileMissing $replacementFile); then
+        echo "${FUNCNAME[0]} function: Replacement file not found at $replacementFile"
+        exit 1
+    fi
+
+    cp $replacementFile $targetFile
+}
