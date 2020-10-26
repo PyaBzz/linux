@@ -130,17 +130,17 @@ replaceFile() {
 
     if (fileMissing $targetFile); then
         echo "${FUNCNAME[0]} function: Target file not found at $targetFile"
-        exit 1
+        return
     fi
 
     if [[ $secondParameter != "with" ]]; then
         echo "${FUNCNAME[0]} function: The 2nd parameter must be the word 'with'"
-        exit 1
+        return
     fi
 
     if (fileMissing $replacementFile); then
         echo "${FUNCNAME[0]} function: Replacement file not found at $replacementFile"
-        exit 1
+        return
     fi
 
     cp $replacementFile $targetFile
@@ -154,7 +154,7 @@ backupFile() {
 
     if (fileMissing $targetFile); then
         echo "${FUNCNAME[0]} function: Target file not found at $targetFile"
-        exit 1
+        return
     fi
 
     cp $targetFile $backupFile
