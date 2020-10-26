@@ -122,11 +122,11 @@ insertContentInFileAfterMarker() {
     sed -i "/$markerText/r $sourceFile" $destinationFile
 }
 
-replaceFile() {
-    # synopsis: replaceFile <PathToTargetFile> with <PathToNewFile>
-    local targetFile=$1
+overwriteFile() {
+    # synopsis: overwriteFile <SourceFilePath> to <TargetFilePath>
+    local sourceFile=$1
     local secondParameter=$2
-    local replacementFile=$3
+    local targetFile=$3
 
     if (fileMissing $targetFile); then
         echo "${FUNCNAME[0]} function: Target file not found at $targetFile"
