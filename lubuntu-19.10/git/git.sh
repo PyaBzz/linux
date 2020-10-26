@@ -9,19 +9,24 @@ if (askUser "Install $packageName?"); then
     sudo apt-get update
     echo "Installing $packageName"
     sudo apt-get install $packageName
+    echo "$packageName installed"
 else
     echo "Skipped $packageName"
 fi
 
-if (askUser "Add aliases?"); then
-    cp ./alias $aliasesDirPath/git.sh
+packageName="aliases"
+if (askUser "Apply $packageName?"); then
+    addOrReplaceFile $aliasesDirPath/git.sh with ./alias
+    echo "$packageName applied"
 else
-    echo "Skipped aliases"
+    echo "Skipped $packageName"
 fi
 
-if (askUser "Apply global config?"); then
+packageName="global config"
+if (askUser "Apply $packageName?"); then
     git config --global user.name pyabzz
     git config --global user.email ""
+    echo "$packageName applied"
 else
-    echo "Skipped config"
+    echo "Skipped $packageName"
 fi
