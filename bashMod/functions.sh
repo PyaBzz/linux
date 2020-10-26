@@ -133,26 +133,26 @@ replaceFile() {
         return
     fi
 
-    addOrReplaceFile $targetFile with $replacementFile
+    copyOrReplaceFile $replacementFile to $targetFile
 }
 
-addOrReplaceFile() {
-    # synopsis: replaceFile <PathToTargetFile> with <PathToNewFile>
-    local targetFile=$1
+copyOrReplaceFile() {
+    # synopsis: copyOrReplaceFile <SourceFilePath> to <TargetFilePath>
+    local sourceFile=$1
     local secondParameter=$2
-    local replacementFile=$3
+    local targetFile=$3
 
-    if [[ $secondParameter != "with" ]]; then
-        echo "${FUNCNAME[0]} function: The 2nd parameter must be the word 'with'"
+    if (fileMissing $sourceFile); then
+        echo "${FUNCNAME[0]} function: Source file not found at $sourceFile"
         return
     fi
 
-    if (fileMissing $replacementFile); then
-        echo "${FUNCNAME[0]} function: Replacement file not found at $replacementFile"
+    if [[ $secondParameter != "to" ]]; then
+        echo "${FUNCNAME[0]} function: The 2nd parameter must be the word 'to'"
         return
     fi
 
-    cp $replacementFile $targetFile
+    cp $sourceFile $targetFile
 }
 
 backupFile() {
