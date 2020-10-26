@@ -157,5 +157,10 @@ backupFile() {
         return
     fi
 
+    if (fileExists $backupFile); then
+        echo "function ${FUNCNAME[0]}: Skipping, backup file already exists at $backupFile"
+        return
+    fi
+
     cp $targetFile $backupFile
 }
