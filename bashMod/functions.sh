@@ -123,6 +123,7 @@ insertContentInFileAfterMarker() {
 }
 
 replaceFile() {
+    # synopsis: replaceFile <PathToTargetFile> with <PathToNewFile>
     local targetFile=$1
     local secondParameter=$2
     local replacementFile=$3
