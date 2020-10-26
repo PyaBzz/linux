@@ -30,7 +30,7 @@ function apply() {
     #===================  Apply Mod  ===================
     echo "Applying $packageName"
     sudo cp $myFilePath $targetFilePath
-    # setxkbmap -option grp:switch,grp:alt_shift_toggle gb,ir
+    # setxkbmap -model pc105 -layout gb,ir -option grp:switch,grp:alt_shift_toggle
     echo "$packageName Applied!"
 }
 
