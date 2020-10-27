@@ -4,17 +4,14 @@ function apply() {
     makeBackupOf $targetFilePath
 
     if [[ $? == 2 ]]; then 
-        # You've already been modded. Just update.
-        if (askUser "Overwrite the existing mod?"); then
-            echo "Overwriting mod ..."
+        if (askUser "You've already been modded. Update?"); then
+            echo "Updating $packageName"
         else
             echo "Aborted"
             return
         fi
     fi
 
-    #===================  Apply Mod  ===================
-    echo "Applying $packageName"
     overwriteFile $myFilePath to $targetFilePath
     # setxkbmap -model pc105 -layout gb,ir -option grp:switch,grp:alt_shift_toggle
     echo "$packageName Applied!"
