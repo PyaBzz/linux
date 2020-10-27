@@ -178,7 +178,7 @@ makeBackupOf() {
 
     cp $targetFile $backupFile
 
-    if [ "$?" -ne "0" ]; then
+    if [[ $? != 0 ]]; then # Check result of the last command
         echo "Trying operation as root ..."
         sudo cp $targetFile $backupFile
     fi
@@ -201,7 +201,7 @@ restoreFile() {
 
     mv $backupFile $targetFile
 
-    if [[ $? != 0 ]]; then
+    if [[ $? != 0 ]]; then # Check result of the last command
         echo "Trying operation as root ..."
         sudo mv $backupFile $targetFile
     fi
