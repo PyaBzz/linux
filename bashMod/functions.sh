@@ -153,6 +153,11 @@ copyOrReplaceFile() {
     fi
 
     cp $sourceFile $targetFile
+
+    if [ "$?" -ne "0" ]; then
+        echo "Trying operation as root ..."
+        sudo cp $sourceFile $targetFile
+    fi
 }
 
 makeBackupOf() {
@@ -172,5 +177,13 @@ makeBackupOf() {
     fi
 
     cp $targetFile $backupFile
-    echo "function ${FUNCNAME[0]}: Backup saved in $backupFile"
+
+    if [ "$?" -ne "0" ]; then
+        echo "Trying operation as root ..."
+        sudo cp $targetFile $backupFile
+    fi
+
+    if (fileExists $backupFile); then
+        echo "function ${FUNCNAME[0]}: Backup saved in $backupFile"
+    fi
 }
