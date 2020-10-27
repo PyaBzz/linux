@@ -23,8 +23,7 @@ function apply() {
     else
 
         #===================  Make backup  ===================
-        sudo cp $targetFilePath $backupFilePath
-        echo "Backup saved in $backupFilePath"
+        makeBackupOf $targetFilePath
     fi
 
     #===================  Apply Mod  ===================
@@ -39,7 +38,8 @@ printLine 60 "#"
 packageName="persian keyboard correction"
 myFilePath=./ir
 targetFilePath=/usr/share/X11/xkb/symbols/ir
-backupFilePath=/usr/share/X11/xkb/symbols/ir.bazbak
+backupFilePath=$targetFilePath.bazbak
+
 if [[ $1 == "restore" ]]; then
     if (askUser "Undo $packageName?"); then
         restore

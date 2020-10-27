@@ -155,8 +155,8 @@ copyOrReplaceFile() {
     cp $sourceFile $targetFile
 }
 
-backupFile() {
-    # synopsis: backupFile <PathToTargetFile>
+makeBackupOf() {
+    # synopsis: makeBackupOf <PathToTargetFile>
     # Puts a backup of the file next to it
     local targetFile=$1
     local backupFile="$1.bazbak"
