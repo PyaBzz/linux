@@ -164,7 +164,7 @@ makeBackupOf() {
     # synopsis: makeBackupOf <PathToTargetFile>
     # Puts a backup of the file next to it
     local targetFile=$1
-    local backupFile="$1.bazbak"
+    local backupFile=$targetFile.bazbak
 
     if (fileMissing $targetFile); then
         echo "${FUNCNAME[0]} function: Target file not found at $targetFile"
@@ -173,7 +173,7 @@ makeBackupOf() {
 
     if (fileExists $backupFile); then
         echo "function ${FUNCNAME[0]}: Skipped backup file as it exists at $backupFile"
-        return
+        return 2  # 2 means that backup already exists
     fi
 
     cp $targetFile $backupFile
@@ -185,5 +185,30 @@ makeBackupOf() {
 
     if (fileExists $backupFile); then
         echo "function ${FUNCNAME[0]}: Backup saved in $backupFile"
+    fi
+}
+
+restoreFile() {
+    # synopsis: restoreFile <PathToTargetFile>
+    # Restores the original file and removes backup
+    local targetFile=$1
+    local backupFile=$targetFile.bazbak
+
+    if (fileMissing $backupFile); then
+        echo "function ${FUNCNAME[0]}: Backup file not found at $backupFile"
+        return
+    fi
+
+    mv $backupFile $targetFile
+
+    if [[ $? != 0 ]]; then
+        echo "Trying operation as root ..."
+        sudo mv $backupFile $targetFile
+    fi
+
+    if (fileMissing $backupFile); then
+        echo "function ${FUNCNAME[0]}: File restored in $targetFile"
+    else
+        echo "function ${FUNCNAME[0]}: Could not restore $targetFile"
     fi
 }
