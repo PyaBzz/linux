@@ -133,7 +133,7 @@ overwriteFile() {
         return
     fi
 
-    copyOrReplaceFile $replacementFile to $targetFile
+    copyOrReplaceFile $sourceFile to $targetFile
 }
 
 copyOrReplaceFile() {
