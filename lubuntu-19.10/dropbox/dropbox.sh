@@ -3,11 +3,14 @@ source ../../bashMod/functions.sh
 clear
 printLine 60 "#"
 packageName="Dropbox"
+downloadedArchive=~/Downloads/Dropbox.tar.gz
+desktopShortcut=./dropbox.desktop
+
 if (askUser "Install $packageName"); then
-    wget "https://www.dropbox.com/download?plat=lnx.x86_64" -O ~/Downloads/Dropbox.tar.gz
-    tar xzf ~/Downloads/Dropbox.tar.gz -C ~
-    cp ./dropbox.desktop ~/Desktop
-    rm ~/Downloads/Dropbox.tar.gz
+    wget "https://www.dropbox.com/download?plat=lnx.x86_64" -O $downloadedArchive
+    tar xzf $downloadedArchive -C ~
+    cp $desktopShortcut ~/Desktop
+    rm $downloadedArchive
 else
     echo "Skipped $packageName"
 fi
