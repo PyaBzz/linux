@@ -17,20 +17,18 @@ function apply() {
     echo "$packageName Applied!"
 }
 
-clear
-printLine 60 "#"
 packageName="persian keyboard layout fix"
 myFilePath=./ir
 targetFilePath=/usr/share/X11/xkb/symbols/ir
 
 if [[ $1 == "restore" ]]; then
-    if (askUser "Undo $packageName?"); then
+    if (askUserClear "Undo $packageName?"); then
         restoreFile $targetFilePath
     else
         echo "Aborted"
     fi
 else
-    if (askUser "Apply $packageName?"); then
+    if (askUserClear "Apply $packageName?"); then
         apply
     else
         echo "Aborted"

@@ -1,10 +1,8 @@
 source ../../bashMod/functions.sh
 
-clear
-printLine 60 "#"
 packageName="pulseaudio-equalizer"
 
-if (askUser "Install $packageName?"); then
+if (askUserClear "Install $packageName?"); then
     sudo apt-get update
     sudo apt-get install $packageName
     cp ./Equaliser.desktop ~/Desktop

@@ -1,10 +1,8 @@
 source ../../bashMod/functions.sh
 
-clear
-printLine 60 "#"
 packageName="VS Code"
 
-if (askUser "Install $packageName?"); then
+if (askUserClear "Install $packageName?"); then
     echo "Installing $packageName"
     sudo snap install --classic code
 else

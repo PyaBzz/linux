@@ -1,12 +1,10 @@
 source ../../bashMod/functions.sh
 
-clear
-printLine 60 "#"
 packageName="Dropbox"
 downloadedArchive=~/Downloads/Dropbox.tar.gz
 desktopShortcut=./dropbox.desktop
 
-if (askUser "Install $packageName"); then
+if (askUserClear "Install $packageName"); then
     wget "https://www.dropbox.com/download?plat=lnx.x86_64" -O $downloadedArchive
     tar xzf $downloadedArchive -C ~
     cp $desktopShortcut ~/Desktop

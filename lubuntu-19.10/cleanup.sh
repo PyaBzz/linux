@@ -2,9 +2,7 @@
 source ../bashMod/functions.sh
 
 function cleanup() {
-    clear
-    printLine 60 "#"
-    if (askUser "Uninstall unnecessary packages?"); then
+    if (askUserClear "Uninstall unnecessary packages?"); then
         local action="remove"
         if (askUser "Aggressive purge?"); then
             action="purge"
@@ -26,9 +24,7 @@ function cleanup() {
             kcalc \
             k3b* \
             vlc*; do
-            clear
-            printLine 60 "#"
-            if (askUser "$action $packageName"); then
+            if (askUserClear "$action $packageName"); then
                 echo "Uninstalling $packageName"
                 sudo apt-get $action $packageName
             else
@@ -39,17 +35,13 @@ function cleanup() {
         echo "Skipped uninstall"
     fi
 
-    clear
-    printLine 60 "#"
-    if (askUser "Clean-up seemingly unused packages?"); then
+    if (askUserClear "Clean-up seemingly unused packages?"); then
         echo "Cleaning-up packages"
         sudo apt autoremove
     else
         echo "Skipped clean-up"
     fi
 
-    clear
-    printLine 60 "#"
     echo "All done!"
 }
 

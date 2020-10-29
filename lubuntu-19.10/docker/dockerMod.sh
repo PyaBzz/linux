@@ -1,13 +1,11 @@
 source ../../bashMod/functions.sh
 
-clear
-printLine 60 "#"
 packageName="Docker aliases"
 payloadFile=./alias
 targetFile=~/.bashMod/aliases/docker.sh
 
 if [[ $1 == "restore" ]]; then
-    if (askUser "Undo $packageName?"); then
+    if (askUserClear "Undo $packageName?"); then
         rm $targetFile
         echo "Removed"
         return
@@ -17,7 +15,8 @@ if [[ $1 == "restore" ]]; then
     fi
 fi
 
-if (askUser "Apply $packageName?"); then
+
+if (askUserClear "Apply $packageName?"); then
     copyOrReplaceFile $payloadFile to $targetFile
     echo "Applied"
 else

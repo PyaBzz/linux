@@ -1,9 +1,8 @@
 source ../bashMod/functions.sh
 
-clear
-printLine 60 "#"
 packageName="blueman"
-if (askUser "Install $packageName?"); then
+
+if (askUserClear "Install $packageName?"); then
 
     sudo apt-get update
     echo "Installing $packageName"

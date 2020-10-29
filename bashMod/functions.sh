@@ -1,12 +1,20 @@
-getScriptDir() {
+getMyDir() {
     # We cannot source this from another file as the returned
     # value reflects the directory where this script exists
     # so copy this function to the target script file and run
     echo "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 }
 
-getMyDir() {
+getCallingScriptDir() {
+    # Gets the absolute path to the calling script that started this all
     dirname "$(readlink -f "$0")"
+}
+
+askUserClear() {
+    # synopsis: askUser [<QuestionString>]
+    clear
+    printLine 60 "#"
+    askUser $1
 }
 
 askUser() {

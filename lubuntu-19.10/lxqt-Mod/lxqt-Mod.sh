@@ -35,20 +35,19 @@ function applyBazBash() {
     echo "$packageName Applied!"
 }
 
-clear
-printLine 60 "#"
 packageName="Openbox Mod"
 modPath=./lxqt-rc-baz.xml
 configPath=~/.config/openbox/lxqt-rc.xml
 backupPath=~/.config/openbox/lxqt-rc.xml.bazbak
+
 if [[ $1 == "restore" ]]; then
-    if (askUser "Undo $packageName?"); then
+    if (askUserClear "Undo $packageName?"); then
         restore
     else
         echo "Aborted"
     fi
 else
-    if (askUser "Apply $packageName?"); then
+    if (askUserClear "Apply $packageName?"); then
         applyBazBash
     else
         echo "Aborted"

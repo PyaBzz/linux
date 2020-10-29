@@ -10,9 +10,7 @@ targetIconFile=~/.face.icon
 targetConfigFile=/usr/share/sddm/themes/lubuntu/theme.conf
 targetImageFile=/usr/share/sddm/themes/lubuntu/bazWallpaper
 
-clear
-printLine 60 "#"  #Todo: Refactor to askUserClear
-if (askUser "Apply $package?"); then
+if (askUserClear "Apply $package?"); then
     copyOrReplaceFile $myConfigFile to $targetConfigFile
     copyOrReplaceFile $myImageFile to $targetImageFile
     copyOrReplaceFile $myIconFile to $targetIconFile
