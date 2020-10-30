@@ -14,7 +14,7 @@ askUserClear() {
     # synopsis: askUser [<QuestionString>]
     clear
     printLine 60 "#"
-    askUser $1
+    askUser "$1"
 }
 
 askUser() {
