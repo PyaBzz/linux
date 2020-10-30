@@ -1,12 +1,12 @@
 getMyDir() {
-    # We cannot source this from another file as the returned
-    # value reflects the directory where this script exists
-    # so copy this function to the target script file and run
-    echo "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+    # Copy this function to the target script file instead of sourcing it from here
+    # as it gets the directory where the function definition exists
+    echo "$(readlink -f "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)")"
 }
 
 getCallingScriptDir() {
     # Gets the absolute path to the calling script that started this all
+    # It's OK to source from here
     dirname "$(readlink -f "$0")"
 }
 
