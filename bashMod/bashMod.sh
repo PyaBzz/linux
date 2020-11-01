@@ -1,14 +1,5 @@
 source ../bashExtension/imports.sh
 
-function undoBashMod() {
-    if (hasBeenBackedUp $targetFilePath); then
-        restoreFile $targetFilePath
-        echo "bashMod removed!"
-    else
-        echo "Aborted. Original file not found!"
-    fi
-}
-
 function appendToBashrc() {
     cat <<EOT >>$targetFilePath
 
@@ -52,13 +43,13 @@ appendageFilePath=$modDirPath/appendage.sh
 aliasesDirPath=$modDirPath/aliases
 
 if [[ $1 == "restore" ]]; then
-    if (askUser "Undo modification to .bashrc?"); then
-        undoBashMod
+    if (askUserClear "Undo mod?"); then
+        restoreFile $targetFilePath
     else
         echo "Aborted"
     fi
 else
-    if (askUser "Mod bashrc?"); then
+    if (askUserClear "Mod bashrc?"); then
         applyBashMod
     else
         echo "Aborted"
