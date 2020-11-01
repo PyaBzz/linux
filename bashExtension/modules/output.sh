@@ -29,7 +29,7 @@ echoRepeatText() {
 
 printLine() {
     # synopsis: printLine <LineLengthInCharacters> [<StringToRepeat>]
-    local stringToRepeat="="
+    local stringToRepeat="═"
     
     if [ ! -z "$2" ]; then
         stringToRepeat="$2"

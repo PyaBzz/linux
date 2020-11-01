@@ -1,10 +1,4 @@
-####################################################
-##############                        ##############
-##############  PyaBzz Customisation  ##############
-##############                        ##############
-####################################################
-
-#=============  Function Definitions  ============
+#══════════════════  Function Definitions  ══════════════════
 
 echoRepeatSpace() {
     # synopsis: echoRepeatSpace <NumberOfRepetitions>
@@ -71,12 +65,12 @@ function showDateTime {
     done
 }
 
-#=====================  Apply  ===================
+#══════════════════  Apply  ══════════════════
 
 printGreeting
 setPromptStyle
 #showDateTime &   # To run in background
 
-#===================  Aliases  ===================
+#══════════════════  Aliases  ══════════════════
 
 for f in ~/.bashMod/aliases/*.sh; do source $f; done

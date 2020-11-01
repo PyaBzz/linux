@@ -22,12 +22,12 @@ function applyBazBash() {
         fi
     else
 
-        #===================  Make backup  ===================
+        #══════════════════  Make backup  ══════════════════
         cp $configPath $backupPath
         echo "Backup saved in $backupPath"
     fi
 
-    #===================  Apply Mod  ===================
+    #══════════════════  Apply Mod  ══════════════════
     echo "Applying $packageName"
     cp $modPath $configPath
     openbox --reconfigure

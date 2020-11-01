@@ -3,7 +3,7 @@ source ../bashExtension/imports.sh
 function appendToBashrc() {
     cat <<EOT >>$targetFilePath
 
-#===================  BazMod  ===================
+#══════════════════  BazMod  ══════════════════
 source $appendageFilePath
 
 EOT
@@ -20,7 +20,7 @@ function applyBashMod() {
             return
         fi
     else
-        #===================  Make Directory  ===================
+        #══════════════════  Make Directory  ══════════════════
         if (dirMissing $aliasesDirPath); then
             mkdir -p $aliasesDirPath
         fi
@@ -29,10 +29,10 @@ function applyBashMod() {
         appendToBashrc
     fi
 
-    #===================  Appendage File  ===================
+    #══════════════════  Appendage File  ══════════════════
     cp ./appendage.sh $modDirPath
 
-    #===================  Aliases  ===================
+    #══════════════════  Aliases  ══════════════════
     cp ./alias $aliasesDirPath/mod.sh
     echo "Applied!"
 }
