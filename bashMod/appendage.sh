@@ -4,9 +4,18 @@
 ##############                        ##############
 ####################################################
 
-source ~/.bashMod/functions.sh
-
 #=============  Function Definitions  ============
+
+echoRepeatSpace() {
+    # synopsis: echoRepeatSpace <NumberOfRepetitions>
+    local stringToRepeat=" "
+    local output=""
+    for ((i=1; i<=$1; i++))
+    do
+        output+="$stringToRepeat"
+    done
+    echo "$output"
+}
 
 function printGreeting {
     
@@ -18,7 +27,7 @@ function printGreeting {
     fi
 
     local paddingLen=$(((lineLen - greetingLen - 2) / 2))
-    padding=$(echoRepeatText paddingLen)
+    padding=$(echoRepeatSpace paddingLen)
 
     local greetingLine="║$padding$greeting$padding║"
 

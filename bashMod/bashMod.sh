@@ -50,7 +50,6 @@ function applyBazBash() {
 
     #===================  Appendage File  ===================
     cp ./appendage.sh $modDirPath
-    cp ./functions.sh $modDirPath
 
     #===================  Aliases  ===================
     cp ./alias $aliasesDirPath/mod.sh
