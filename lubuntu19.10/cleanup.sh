@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../bashMod/functions.sh
+source ../bashExtension/imports.sh
 
 function cleanup() {
     if (askUserClear "Uninstall unnecessary packages?"); then

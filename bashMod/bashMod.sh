@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./functions.sh
+source ../bashExtension/imports.sh
 
 function undoBazBash() {
     if (fileExists $backupFilePath); then

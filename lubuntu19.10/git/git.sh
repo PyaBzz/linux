@@ -1,7 +1,7 @@
-source ../../bashMod/functions.sh
+source ../../bashExtension/imports.sh
 
 packageName="git"
-aliasesDirPath=~/.bashMod/aliases
+aliasesDirPath=~/.bashExtension/aliases
 
 if (askUserClear "Install $packageName?"); then
     sudo apt-get update
