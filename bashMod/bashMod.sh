@@ -1,32 +1,26 @@
-#!/bin/bash
 source ../bashExtension/imports.sh
 
-function undoBazBash() {
-    if (fileExists $backupFilePath); then
-        mv $backupFilePath $bashrcFilePath
-        rm $modDirPath/*.sh
+function undoBashMod() {
+    if (hasBeenBackedUp $targetFilePath); then
+        restoreFile $targetFilePath
         echo "bashMod removed!"
     else
-        echo "Original .bashrc file not found!"
-        echo "Aborted"
+        echo "Aborted. Original file not found!"
     fi
 }
 
 function appendToBashrc() {
-    cat <<EOT >>$bashrcFilePath
-
+    cat <<EOT >>$targetFilePath
 
 #===================  BazMod  ===================
-
 source $appendageFilePath
 
 EOT
 }
 
-function applyBazBash() {
-    if (fileExists $backupFilePath); then
-        # This machine has already been modded
-        # Just update the dynamic part
+function applyBashMod() {
+    if (hasBeenBackedUp $targetFilePath); then
+        # You've already been modded. Just update
         echo "Backup skipped because it exists"
         if (askUser "Overwrite the existing mod?"); then
             echo "Overwriting mod ..."
@@ -40,11 +34,7 @@ function applyBazBash() {
             mkdir -p $aliasesDirPath
         fi
 
-        #===================  Make backup  ===================
-        cp $bashrcFilePath $backupFilePath
-        echo "Backup saved in $backupFilePath"
-
-        #===================  Append to bashrc  ===================
+        makeBackupOf $targetFilePath
         appendToBashrc
     fi
 
@@ -53,24 +43,23 @@ function applyBazBash() {
 
     #===================  Aliases  ===================
     cp ./alias $aliasesDirPath/mod.sh
-    echo "Bashrc Mod Applied!"
+    echo "Applied!"
 }
 
-bashrcFilePath=~/.bashrc
+targetFilePath=~/.bashrc
 modDirPath=~/.bashMod
-backupFilePath=~/.bashMod/.bashrc.bazbak
-appendageFilePath=~/.bashMod/appendage.sh
-aliasesDirPath=~/.bashMod/aliases
+appendageFilePath=$modDirPath/appendage.sh
+aliasesDirPath=$modDirPath/aliases
 
 if [[ $1 == "restore" ]]; then
     if (askUser "Undo modification to .bashrc?"); then
-        undoBazBash
+        undoBashMod
     else
         echo "Aborted"
     fi
 else
     if (askUser "Mod bashrc?"); then
-        applyBazBash
+        applyBashMod
     else
         echo "Aborted"
     fi

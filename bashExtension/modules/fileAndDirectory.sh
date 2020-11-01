@@ -116,6 +116,14 @@ makeBackupOf() {
     fi
 }
 
+hasBeenBackedUp() {
+    # synopsis: hasBeenModded <PathToTargetFile>
+    # Checks if target file has been backed up
+    local targetFile=$1
+    local backupFile=$targetFile.bazbak
+    echo $(fileExists $backupFile)
+}
+
 restoreFile() {
     # synopsis: restoreFile <PathToTargetFile>
     # Restores the original file and removes backup
