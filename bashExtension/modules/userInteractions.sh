@@ -22,17 +22,31 @@ askUser() {
 }
 
 askUserChoice() {
-    # synopsis: askUserChoice
-    echo $1
-    local index=1
-    local choiceCount=$#
+    # synopsis: askUserChoice [<option1> <option2> <option3>] <promptMessage> 
+    clear
+    local optionsCount="$(($# - 1))"
+    local choice=0
 
-    echo $choiceCount
+    for index in $(seq 1 $optionsCount); do
+        echo "$index: ${!index}"
+    done
 
-    for param in "$@"; do
-        if [[ $index != 1 ]]; then
-            echo "$index: $param"
-            ((index++))
+    while :; do
+        read -p "${!#}" choice # gets the last parameter
+
+        if [[ $choice =~ ^[0-9]+$ ]]; then
+            : # do nothing
+        else
+            echo "Invalid number"
+            continue
+        fi
+
+        if (($choice < 1 || $choice > $optionsCount)); then
+            echo "Number out of range"
+        else
+            break
         fi
     done
+
+    return $choice
 }
