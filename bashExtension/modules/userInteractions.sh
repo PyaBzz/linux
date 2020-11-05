@@ -22,10 +22,11 @@ askUser() {
 }
 
 askUserChoice() {
-    # synopsis: askUserChoice [<option1> <option2> <option3>] <promptMessage> 
+    # synopsis: askUserChoice [<option1> <option2> <option3>] <promptMessage>
+    # In the calling code use the global variable 'choice' to read the result
     clear
     local optionsCount="$(($# - 1))"
-    local choice=0
+    choice=0
 
     for index in $(seq 1 $optionsCount); do
         echo "$index: ${!index}"
@@ -47,6 +48,4 @@ askUserChoice() {
             break
         fi
     done
-
-    return $choice
 }
