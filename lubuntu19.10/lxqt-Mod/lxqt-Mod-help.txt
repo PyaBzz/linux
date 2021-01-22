@@ -2,6 +2,7 @@ If multimedia keys play up for example if pause doesn't work do the following:
 Use these commands to see what key symbols translate to what key codes:
 
 xev
+xmodmap -e "keycode 172 = blabla"
 xmodmap -pk | grep -i audio
 
 The output should look like this:
@@ -23,4 +24,5 @@ The output should look like this:
 
 If XF86AudioPlay or XF86AudioPause appear on more than one line, remove the ones that seem to be irrelevant based on the output of "xev" and only let relevant ones remain.
 This should fix the issue.
-In the example above line 172 was a duplicate of XF86AudioPlay which I removed and fixed the problem.
+In the example above 172 and 215 were duplicates of XF86AudioPlay which I removed and fixed the problem.
+
