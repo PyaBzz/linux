@@ -344,15 +344,15 @@
       <action name="MoveResizeTo"><x>-0</x><y>0</y><height>50%</height><width>50%</width></action>
     </keybind>
 
-    <keybind key="XF86AudioPause">
+    <keybind key="XF86AudioPlay">
       <action name="Execute">
-        <command>playerctl play-pause</command>
+        <command>playerctl play</command>
       </action>
     </keybind>
 
-    <keybind key="XF86AudioPlay">
+    <keybind key="XF86AudioPause">
       <action name="Execute">
-        <command>playerctl play-pause</command>
+        <command>playerctl pause</command>
       </action>
     </keybind>
 
