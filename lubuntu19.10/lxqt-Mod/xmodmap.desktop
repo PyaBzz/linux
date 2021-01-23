@@ -1,8 +1,8 @@
 [Desktop Entry]
+Version=1.0
 Comment=Fix multimedia buttons
-Exec=xmodmap ~/projects/bazLinux/lubuntu19.10/lxqt-Mod/xmodmap-baz
 GenericName=xmodmap-mod
 Name=xmodmap-mod
 Terminal=false
 Type=Application
-Version=1.0
+Exec=bash -c "xmodmap ~/projects/bazLinux/lubuntu19.10/lxqt-Mod/xmodmap-baz"

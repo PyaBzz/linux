@@ -25,3 +25,11 @@ The output should look like this:
 If XF86AudioPlay or XF86AudioPause appear on more than one line, remove the ones that seem to be irrelevant based on the output of "xev" and only let relevant ones remain.
 In the example above 172 and 215 were duplicates of XF86AudioPlay. I removed them and this fixed the problem.
 However, the changes don't persist! We need to add a session autostart item to repeat this everytime an X session starts.
+
+Use this command to validate .desktop files:
+
+desktop-file-validate /path/to/desktop/file
+
+If you invoke a .desktop file manually, the tilde character in its Exec statements won't work unless you use something like this:
+
+Exec=bash -c "xmodmap ~/projects/bazLinux/lubuntu19.10/lxqt-Mod/xmodmap-baz"
