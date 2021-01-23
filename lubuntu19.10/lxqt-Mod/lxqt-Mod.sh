@@ -32,6 +32,7 @@ function applyBazBash() {
     cp $modPath $configPath
     openbox --reconfigure
     echo "numlock=true" >>~/.config/lxqt/session.conf
+    cp ./xmodmap.desktop ~/Desktop
     echo "$packageName Applied!"
 }
 
