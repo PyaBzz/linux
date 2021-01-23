@@ -23,6 +23,5 @@ The output should look like this:
 234         0x1008ff32 (XF86AudioMedia)     0x0000 (NoSymbol)       0x1008ff32 (XF86AudioMedia)
 
 If XF86AudioPlay or XF86AudioPause appear on more than one line, remove the ones that seem to be irrelevant based on the output of "xev" and only let relevant ones remain.
-This should fix the issue.
-In the example above 172 and 215 were duplicates of XF86AudioPlay which I removed and fixed the problem.
-
+In the example above 172 and 215 were duplicates of XF86AudioPlay. I removed them and this fixed the problem.
+However, the changes don't persist! We need to add a session autostart item to repeat this everytime an X session starts.
