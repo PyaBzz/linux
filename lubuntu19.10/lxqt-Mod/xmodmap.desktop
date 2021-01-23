@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=xmodmap-mod
+GenericName=xmodmap-mod
+Comment=Fix multimedia buttons
+Exec=xmodmap /home/pyabzz/projects/bazLinux/lubuntu19.10/lxqt-Mod/xmodmap-baz
+Terminal=false
+Type=Application
