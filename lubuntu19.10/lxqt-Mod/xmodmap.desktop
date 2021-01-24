@@ -5,4 +5,4 @@ GenericName=xmodmap-mod
 Name=xmodmap-mod
 Terminal=false
 Type=Application
-Exec=bash -c "exec xmodmap ~/projects/bazLinux/lubuntu19.10/lxqt-Mod/xmodmap-baz"
+Exec=bash -c "xmodmap -e 'keycode 172 = ' && xmodmap -e 'keycode 215 = '"

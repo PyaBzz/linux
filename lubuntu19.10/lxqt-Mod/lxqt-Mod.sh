@@ -1,57 +1,43 @@
 source ../../bashExtension/imports.sh
 
-function restore() {
-    if (fileExists $backupPath); then
-        mv $backupPath $configPath
-        echo "Restored!"
-    else
-        echo "Original config file not found!"
-        echo "Aborted"
-    fi
-}
+function apply() {
+    makeBackupOf $targetFilePath
 
-function applyBazBash() {
-    if (fileExists $backupPath); then
-        # You've already been modded. Just update.
-        echo "Backup skipped because it exists"
-        if (askUser "Overwrite the existing mod?"); then
-            echo "Overwriting mod ..."
+    if [[ $? == 2 ]]; then
+        if (askUser "You've already been modded. Update?"); then
+            echo "Updating $packageName"
         else
             echo "Aborted"
             return
         fi
-    else
-
-        #══════════════════  Make backup  ══════════════════
-        cp $configPath $backupPath
-        echo "Backup saved in $backupPath"
     fi
 
-    #══════════════════  Apply Mod  ══════════════════
-    echo "Applying $packageName"
-    cp $modPath $configPath
+    overwriteFile $myFilePath to $targetFilePath
     openbox --reconfigure
     echo "numlock=true" >>~/.config/lxqt/session.conf
     mkdir -p ~/.config/autostart
-    cp ./xmodmap.desktop ~/.config/autostart
-    cp ./xmodmap.desktop ~/Desktop
+    cp $shortcutFilePath $dest1
+    cp $shortcutFilePath $dest2
     echo "$packageName Applied!"
 }
 
 packageName="Openbox Mod"
-modPath=./lxqt-rc-baz.xml
-configPath=~/.config/openbox/lxqt-rc.xml
+myFilePath=./lxqt-rc-baz.xml
+targetFilePath=~/.config/openbox/lxqt-rc.xml
 backupPath=~/.config/openbox/lxqt-rc.xml.bazbak
+shortcutFilePath=./xmodmap.desktop
+dest1=~/.config/autostart
+dest2=~/Desktop
 
 if [[ $1 == "restore" ]]; then
     if (askUserClear "Undo $packageName?"); then
-        restore
+        restoreFile $targetFilePath
     else
         echo "Aborted"
     fi
 else
     if (askUserClear "Apply $packageName?"); then
-        applyBazBash
+        apply
     else
         echo "Aborted"
     fi
