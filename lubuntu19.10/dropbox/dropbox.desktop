@@ -3,6 +3,6 @@ Version=1.0
 Name=dropbox
 GenericName=dropbox
 Comment=Sync your files
-Exec=~/.dropbox-dist/dropboxd
+Exec=bash -c "exec ~/.dropbox-dist/dropboxd"
 Terminal=false
 Type=Application
