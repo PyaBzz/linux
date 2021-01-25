@@ -4,7 +4,6 @@ getCallingScriptDir() {
     dirname "$(readlink -f "$0")"
 }
 
-
 fileExists() {
     # synopsis: fileExists <PathToFile>
     # No quotes around the path!
@@ -52,6 +51,7 @@ insertContentInFileAfterMarker() {
 
 overwriteFile() {
     # synopsis: overwriteFile <SourceFilePath> to <TargetFilePath>
+    # Explicitly expects the target file to exist
     local sourceFile=$1
     local secondParameter=$2
     local targetFile=$3
@@ -101,7 +101,7 @@ makeBackupOf() {
 
     if (fileExists $backupFile); then
         echo "function ${FUNCNAME[0]}: Skipped backup file as it exists at $backupFile"
-        return 2  # 2 means that backup already exists
+        return 2 # 2 means that backup already exists
     fi
 
     cp $targetFile $backupFile
@@ -147,4 +147,17 @@ restoreFile() {
     else
         echo "function ${FUNCNAME[0]}: Could not restore $targetFile"
     fi
+}
+
+sourcesExist() {
+    # synopsis: filesExist ${filesToCopy[@]}
+    # Where filesToCopy is a array or associative array of paths
+    local dict=($@)
+    local res=true
+    for file in "${dict[@]}"; do
+        if (fileMissing $file); then
+            res=false
+        fi
+    done
+    $res
 }
