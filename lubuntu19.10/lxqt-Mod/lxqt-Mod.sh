@@ -22,7 +22,7 @@ function apply() {
 }
 
 packageName="Openbox Mod"
-myFilePath=./lxqt-rc-baz.xml
+myFilePath=./lxqt-rc-baz.xml #Todo: Use new plural functions to simplify script
 targetFilePath=~/.config/openbox/lxqt-rc.xml
 backupPath=~/.config/openbox/lxqt-rc.xml.bazbak
 shortcutFilePath=./xmodmap.desktop

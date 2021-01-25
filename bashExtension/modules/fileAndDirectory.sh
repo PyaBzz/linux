@@ -14,6 +14,20 @@ fileExists() {
     fi
 }
 
+filesExist() {
+    # synopsis: filesExist ${array[@]}
+    # Where array is an array or associative array of paths
+    local dict=($@)
+    local res=true
+    for file in "${dict[@]}"; do
+        if (fileMissing $file); then
+            echo "Missing file: $file"
+            res=false
+        fi
+    done
+    $res
+}
+
 fileMissing() {
     # synopsis: fileMissing <PathToFile>
     # No quotes around the path!
@@ -22,6 +36,20 @@ fileMissing() {
     else
         false
     fi
+}
+
+anyFilesMissing() {
+    # synopsis: anyFilesMissing ${array[@]}
+    # Where array is an array or associative array of paths
+    local dict=($@)
+    local res=false
+    for file in "${dict[@]}"; do
+        if (fileMissing $file); then
+            echo "Missing file: $file"
+            res=true
+        fi
+    done
+    $res
 }
 
 dirExists() {
@@ -88,7 +116,22 @@ copyOrReplaceFile() {
     fi
 }
 
-makeBackupOf() {
+copyOrReplaceFiles() { #Todo: Add tests
+    # synopsis: copyOrReplaceAll ${array[@]}
+    # Where array is an associative array of paths
+    local dict=($@)
+
+    if (anyFilesMissing ${dict[@]}); then
+        return
+    fi
+
+    for destination in "${!dict[@]}"; do
+        local source=$dict[$destination]
+        copyOrReplaceFile $source to @destination
+    done
+}
+
+makeBackupOf() { #Todo: Rename to backupFile and make a plural function as well
     # synopsis: makeBackupOf <PathToTargetFile>
     # Puts a backup of the file next to it
     local targetFile=$1
@@ -147,17 +190,4 @@ restoreFile() {
     else
         echo "function ${FUNCNAME[0]}: Could not restore $targetFile"
     fi
-}
-
-sourcesExist() {
-    # synopsis: filesExist ${filesToCopy[@]}
-    # Where filesToCopy is a array or associative array of paths
-    local dict=($@)
-    local res=true
-    for file in "${dict[@]}"; do
-        if (fileMissing $file); then
-            res=false
-        fi
-    done
-    $res
 }
