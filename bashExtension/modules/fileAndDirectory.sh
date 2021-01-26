@@ -41,12 +41,17 @@ fileMissing() {
 anyFilesMissing() {
     # synopsis: anyFilesMissing ${array[@]}
     # Where array is an array or associative array of paths
-    local dict=($@)
     local res=false
-    for file in "${dict[@]}"; do
+    _Array.getByRef
+    for key in ${!_Array[@]}; do
+        local file=$key
+        local path=${_Array[$key]}
         if (fileMissing $file); then
-            echo "Missing file: $file"
+            # echo "Missing: $file"
             res=true
+        else
+            # echo "Found: $file"
+            :
         fi
     done
     $res

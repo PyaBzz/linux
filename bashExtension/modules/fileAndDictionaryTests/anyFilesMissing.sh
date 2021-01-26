@@ -1,11 +1,13 @@
 source ../../imports.sh
 
-declare -A filesToCheck
-filesToCheck["target path 1"]="./non.existent.source1"
-filesToCheck["target path 2"]="./non.existent.source2"
-filesToCheck["target path 3"]="./anyFilesMissing.sh"
+scriptName=$0
 
-if (anyFilesMissing ${filesToCheck[@]}); then
+declare -A filesToCheck
+filesToCheck["./non.existent.source1"]="targetPath1"
+filesToCheck["./non.existent.source2"]="targetPath2"
+filesToCheck[$scriptName]="targetPath3"
+
+if (anyFilesMissing filesToCheck); then
     echo "Some missing"
 else
     echo "All found"
