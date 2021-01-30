@@ -44,9 +44,9 @@ dirMissing() {
     fi
 }
 
-insertContentInFileAfterMarker() {
-    # synopsis: insertContentInFile <sourceFile> <destinationFile> <markerText>
-    sed -i "/$markerText/r $sourceFile" $destinationFile
+insertFileInFileAfterMarker() {
+    # synopsis: insertInFileAfterMarker <sourceFile> <targetFile> <markerText>
+    sed -i "/$3/r $1" $2
 }
 
 overwriteFile() {
