@@ -1,18 +1,18 @@
 source ../../imports.sh
 
 clear
-scriptFile=$0
+thisFile=$0
 
-if (fileExists $scriptFile); then
-    echo -e "${testPassed} finding $scriptFile"
+if (fileExists $thisFile); then
+    echo -e "${testPassed} finding $thisFile"
 else
-    echo -e "${testFailed} finding $scriptFile"
+    echo -e "${testFailed} finding $thisFile"
 fi
 
-nonExistentFile="nonExistentFile"
+noSuchFile="noSuchFile"
 
-if (fileExists $nonExistentFile); then
-    echo -e "${testFailed} not finding $nonExistentFile"
+if (fileExists $noSuchFile); then
+    echo -e "${testFailed} not finding $noSuchFile"
 else
-    echo -e "${testPassed} not finding $nonExistentFile"
+    echo -e "${testPassed} not finding $noSuchFile"
 fi
