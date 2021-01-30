@@ -1,4 +1,4 @@
-getMyDir() {
+getCallingScriptDir() {
     # Gets the absolute path to the calling script that started this all
     # It's OK to source from here
     dirname "$(readlink -f "$0")"
@@ -14,20 +14,6 @@ fileExists() {
     fi
 }
 
-filesExist() { #Todo: Test
-    # synopsis: filesExist ${array[@]}
-    # Where array is an array or associative array of paths
-    local dict=($@)
-    local res=true
-    for file in "${dict[@]}"; do
-        if (fileMissing $file); then
-            echo "Missing file: $file"
-            res=false
-        fi
-    done
-    $res
-}
-
 fileMissing() {
     # synopsis: fileMissing <PathToFile>
     # No quotes around the path!
@@ -36,25 +22,6 @@ fileMissing() {
     else
         false
     fi
-}
-
-anyFilesMissing() {
-    # synopsis: anyFilesMissing ${array[@]}
-    # Where array is an array or associative array of paths
-    local res=false
-    _Array.getByRef
-    for key in ${!_Array[@]}; do
-        local file=$key
-        local path=${_Array[$key]}
-        if (fileMissing $file); then
-            # echo "Missing: $file"
-            res=true
-        else
-            # echo "Found: $file"
-            :
-        fi
-    done
-    $res
 }
 
 dirExists() {
@@ -121,21 +88,6 @@ copyOrReplaceFile() {
     fi
 }
 
-copyOrReplaceFiles() { #Todo: Add tests
-    # synopsis: copyOrReplaceAll ${array[@]}
-    # Where array is an associative array of paths
-    local dict=($@)
-
-    if (anyFilesMissing ${dict[@]}); then
-        return
-    fi
-
-    for destination in "${!dict[@]}"; do
-        local source=$dict[$destination]
-        copyOrReplaceFile $source to @destination
-    done
-}
-
 makeBackupOf() { #Todo: Rename to backupFile and make a plural function as well
     # synopsis: makeBackupOf <PathToTargetFile>
     # Puts a backup of the file next to it
@@ -196,3 +148,51 @@ restoreFile() {
         echo "function ${FUNCNAME[0]}: Could not restore $targetFile"
     fi
 }
+
+# filesExist() { #Todo: Complete rewrite and test
+#     # synopsis: filesExist ${array[@]}
+#     # Where array is an array or associative array of paths
+#     local dict=($@)
+#     local res=true
+#     for file in "${dict[@]}"; do
+#         if (fileMissing $file); then
+#             echo "Missing file: $file"
+#             res=false
+#         fi
+#     done
+#     $res
+# }
+
+# anyFilesMissing() { #Todo: Complete rewrite and test
+#     # synopsis: anyFilesMissing ${array[@]}
+#     # Where array is an array or associative array of paths
+#     local res=false
+#     _Array.getByRef
+#     for key in ${!_Array[@]}; do
+#         local file=$key
+#         local path=${_Array[$key]}
+#         if (fileMissing $file); then
+#             # echo "Missing: $file"
+#             res=true
+#         else
+#             # echo "Found: $file"
+#             :
+#         fi
+#     done
+#     $res
+# }
+
+# copyOrReplaceFiles() { #Todo: Complete rewrite and test
+#     # synopsis: copyOrReplaceAll ${array[@]}
+#     # Where array is an associative array of paths
+#     local dict=($@)
+
+#     if (anyFilesMissing ${dict[@]}); then
+#         return
+#     fi
+
+#     for destination in "${!dict[@]}"; do
+#         local source=$dict[$destination]
+#         copyOrReplaceFile $source to @destination
+#     done
+# }

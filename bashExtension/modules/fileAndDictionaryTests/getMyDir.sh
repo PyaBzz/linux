@@ -2,7 +2,7 @@ source ../../imports.sh
 
 clear
 scriptDir=$(pwd)
-result=$(getMyDir)
+result=$(getCallingScriptDir)
 
 echo $scriptDir
 echo $result
