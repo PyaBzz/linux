@@ -1,4 +1,4 @@
-getCallingScriptDir() {
+getCallingScriptDir() { #Todo: Test
     # Gets the absolute path to the calling script that started this all
     # It's OK to source from here
     dirname "$(readlink -f "$0")"
@@ -14,7 +14,7 @@ fileExists() {
     fi
 }
 
-filesExist() {
+filesExist() { #Todo: Test
     # synopsis: filesExist ${array[@]}
     # Where array is an array or associative array of paths
     local dict=($@)
