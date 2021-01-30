@@ -1,3 +1,10 @@
+colourNc='\033[0m'
+colourRed='\033[0;31m'
+colourGreen='\033[0;32m'
+
+testPassed="${colourGreen}Passed${colourNc}"
+testFailed="${colourRed}Failed${colourNc}"
+
 repeatText() {
     # synopsis: repeatText <NumberOfRepetitions> [<StringToRepeat>]
     local stringToRepeat=" "

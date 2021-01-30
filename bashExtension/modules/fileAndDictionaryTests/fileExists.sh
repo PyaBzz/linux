@@ -1,18 +1,18 @@
 source ../../imports.sh
 
+clear
 scriptFile=$0
 
-# Todo: Colour output
 if (fileExists $scriptFile); then
-    echo "Passed finding $scriptFile"
+    echo -e "${testPassed} finding $scriptFile"
 else
-    echo "Failed finding $scriptFile"
+    echo -e "${testFailed} finding $scriptFile"
 fi
 
 nonExistentFile="nonExistentFile"
 
 if (fileExists $nonExistentFile); then
-    echo "Failed missing $nonExistentFile"
+    echo -e "${testFailed} not finding $nonExistentFile"
 else
-    echo "Passed not finding $nonExistentFile"
+    echo -e "${testPassed} not finding $nonExistentFile"
 fi
