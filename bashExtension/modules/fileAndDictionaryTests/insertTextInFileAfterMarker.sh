@@ -9,8 +9,7 @@ targetFile="$scratchDir/targetFile"
 
 mkdir -p $scratchDir
 
-text="dasoo"
-echo $text >$sourceFile
+text="b"
 
 echo "a" >$targetFile
 echo "c" >>$targetFile
@@ -18,7 +17,7 @@ echo "d" >>$targetFile
 markerText="a"
 
 # Act
-insertFileInFileAfterMarker $sourceFile $targetFile $markerText
+insertTextInFileAfterMarker $text $targetFile $markerText
 
 # Verify
 targetLine=$(sed '2q;d' $targetFile)
