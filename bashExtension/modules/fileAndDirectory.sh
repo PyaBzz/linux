@@ -101,7 +101,7 @@ isBackedUp() {
     # Checks if target file has been backed up
     local targetFile=$1
     local backupFile=$targetFile.bazbak
-    echo $(fileExists $backupFile)
+    $(fileExists $backupFile)
 }
 
 restoreFile() {
