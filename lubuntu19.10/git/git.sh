@@ -1,7 +1,7 @@
 source ../../bashExtension/imports.sh
 
 package="git"
-aliasesDir=~/.bashMod/aliases
+aliasesDir=$bashModDir/aliases
 
 if (askUserClear "Install $package?"); then
     sudo apt-get update
@@ -14,8 +14,12 @@ fi
 
 package="aliases"
 if (askUser "Apply $package?"); then
-    copyFile ./alias to $aliasesDir/git.sh
-    echo "$package applied"
+    if (isBashModded); then
+        copyFile ./alias to $aliasesDir/git.sh
+        echo "$package applied"
+    else
+        echo "Skipped $package as bashMod hasn't been applied yet"
+    fi
 else
     echo "Skipped $package"
 fi

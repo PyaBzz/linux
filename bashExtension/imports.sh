@@ -10,7 +10,13 @@ sourceFromDir() {
     for f in $1/*.sh; do source $f; done
 }
 
-myDir=$(getRunningScriptDir)
-modulesDir=$myDir/modules
+importsDir=$(getRunningScriptDir)
+modulesDir=$importsDir/modules
 
 sourceFromDir $modulesDir
+
+bashModDir=~/.bashMod
+
+isBashModded() {
+    dirExists $bashModDir
+}

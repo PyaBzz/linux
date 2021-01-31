@@ -38,7 +38,7 @@ function applyBashMod() {
 }
 
 targetFilePath=~/.bashrc
-modDirPath=~/.bashMod
+modDirPath=$bashModDir
 appendageFilePath=$modDirPath/appendage.sh
 aliasesDirPath=$modDirPath/aliases
 
