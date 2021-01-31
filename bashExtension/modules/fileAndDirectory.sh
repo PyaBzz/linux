@@ -68,7 +68,7 @@ copyFile() { #Todo: Test
     fi
 }
 
-backUp() { #Todo: Test and make a plural func as well
+backUp() {
     # synopsis: backUp <PathToTargetFile>
     # Puts a backup of the file next to it
     local targetFile=$1
