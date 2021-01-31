@@ -1,7 +1,7 @@
 source ../../bashExtension/imports.sh
 
 function apply() {
-    makeBackupOf $targetFilePath
+    backupFile $targetFilePath
 
     if [[ $? == 2 ]]; then
         if (askUser "You've already been modded. Update?"); then

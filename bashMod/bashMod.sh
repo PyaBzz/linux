@@ -10,7 +10,7 @@ EOT
 }
 
 function applyBashMod() {
-    if (hasBeenBackedUp $targetFilePath); then
+    if (isBackedUp $targetFilePath); then
         # You've already been modded. Just update
         echo "Backup skipped because it exists"
         if (askUser "Overwrite the existing mod?"); then
@@ -25,7 +25,7 @@ function applyBashMod() {
             mkdir -p $aliasesDirPath
         fi
 
-        makeBackupOf $targetFilePath
+        backupFile $targetFilePath
         appendToBashrc
     fi
 

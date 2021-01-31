@@ -44,7 +44,7 @@ addFileInFileAfterMarker() {
     sed -i "/$marker/r $sourceFile" $targetFile
 }
 
-copyFile() {
+copyFile() { #Todo: Test
     # synopsis: copyFile <SourceFilePath> to <TargetFilePath>
     local sourceFile=$1
     local secondParameter=$2
@@ -68,8 +68,8 @@ copyFile() {
     fi
 }
 
-makeBackupOf() { #Todo: Rename to backupFile and make a plural function as well
-    # synopsis: makeBackupOf <PathToTargetFile>
+backupFile() { #Todo: Test and make a plural func as well
+    # synopsis: backupFile <PathToTargetFile>
     # Puts a backup of the file next to it
     local targetFile=$1
     local backupFile=$targetFile.bazbak
@@ -96,8 +96,8 @@ makeBackupOf() { #Todo: Rename to backupFile and make a plural function as well
     fi
 }
 
-hasBeenBackedUp() {
-    # synopsis: hasBeenModded <PathToTargetFile>
+isBackedUp() {
+    # synopsis: isBackedUp <PathToTargetFile>
     # Checks if target file has been backed up
     local targetFile=$1
     local backupFile=$targetFile.bazbak
