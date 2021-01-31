@@ -23,10 +23,11 @@ addTextInFileAfterMarker $text $targetFile $markerText
 targetLine=$(sed '2q;d' $targetFile)
 
 if [ $targetLine == $text ]; then
-    echo -e "${testPassed} inserting into $targetFile"
+    result=${testPassed}
 else
-    echo -e "${testFailed} inserting into $targetFile"
+    result=${testFailed}
 fi
+echo -e "${result} inserting into $targetFile"
 
 # Clean up
 rm -rf $scratchDir

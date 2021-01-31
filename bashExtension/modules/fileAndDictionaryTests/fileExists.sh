@@ -4,15 +4,17 @@ clear
 thisFile=$0
 
 if (fileExists $thisFile); then
-    echo -e "${testPassed} finding $thisFile"
+    result=${testPassed}
 else
-    echo -e "${testFailed} finding $thisFile"
+    result=${testFailed}
 fi
+echo -e "${result} finding $thisFile"
 
 noSuchFile="noSuchFile"
 
 if (fileExists $noSuchFile); then
-    echo -e "${testFailed} not finding $noSuchFile"
+    result=${testFailed}
 else
-    echo -e "${testPassed} not finding $noSuchFile"
+    result=${testPassed}
 fi
+echo -e "${result} not finding $noSuchFile"

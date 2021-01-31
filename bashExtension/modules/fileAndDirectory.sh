@@ -7,51 +7,41 @@ getCallingScriptDir() {
 fileExists() {
     # synopsis: fileExists <PathToFile>
     # No quotes around the path!
-    if [ -f "$1" ]; then
-        true
-    else
-        false
-    fi
+    if [ -f $1 ]; then true; else false; fi
 }
 
 fileMissing() {
     # synopsis: fileMissing <PathToFile>
     # No quotes around the path!
-    if [ ! -f "$1" ]; then
-        true
-    else
-        false
-    fi
+    if [ ! -f $1 ]; then true; else false; fi
 }
 
 dirExists() {
     # synopsis: dirExists <PathToDir>
     # No quotes around the path!
-    if [ -d "$1" ]; then
-        true
-    else
-        false
-    fi
+    if [ -d $1 ]; then true; else false; fi
 }
 
 dirMissing() {
     # synopsis: dirMissing <PathToDir>
     # No quotes around the path!
-    if [ ! -d "$1" ]; then
-        true
-    else
-        false
-    fi
+    if [ ! -d $1 ]; then true; else false; fi
 }
 
 addTextInFileAfterMarker() {
     # synopsis: addTextInFileAfterMarker <text> <targetFile> <markerText>
-    sed -i "/$3/a $1" $2
+    local text=$1
+    local targetFile=$2
+    local marker=$3
+    sed -i "/$marker/a $text" $targetFile
 }
 
 addFileInFileAfterMarker() {
     # synopsis: addFileInFileAfterMarker <sourceFile> <targetFile> <markerText>
-    sed -i "/$3/r $1" $2
+    local sourceFile=$1
+    local targetFile=$2
+    local marker=$3
+    sed -i "/$marker/r $sourceFile" $targetFile
 }
 
 overwriteFile() {

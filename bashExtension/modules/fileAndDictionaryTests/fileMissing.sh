@@ -4,15 +4,17 @@ clear
 scriptFile=$0
 
 if (fileMissing $scriptFile); then
-    echo -e "${testFailed} finding $scriptFile"
+    result=${testFailed}
 else
-    echo -e "${testPassed} finding $scriptFile"
+    result=${testPassed}
 fi
+echo -e "${result} finding $scriptFile"
 
 nonExistentFile="nonExistentFile"
 
 if (fileMissing $nonExistentFile); then
-    echo -e "${testPassed} not finding $nonExistentFile"
+    result=${testPassed}
 else
-    echo -e "${testFailed} not finding $nonExistentFile"
+    result=${testFailed}
 fi
+echo -e "${result} not finding $nonExistentFile"

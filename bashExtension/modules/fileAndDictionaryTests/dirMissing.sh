@@ -4,15 +4,17 @@ clear
 thisDir=$(pwd)
 
 if (dirMissing $thisDir); then
-    echo -e "${testFailed} finding $thisDir"
+    result=${testFailed}
 else
-    echo -e "${testPassed} finding $thisDir"
+    result=${testPassed}
 fi
+echo -e "${result} finding $thisDir"
 
 noSuchDir="noSuchDir"
 
 if (dirMissing $noSuchDir); then
-    echo -e "${testPassed} not finding $noSuchDir"
+    result=${testPassed}
 else
-    echo -e "${testFailed} not finding $noSuchDir"
+    result=${testFailed}
 fi
+echo -e "${result} not finding $noSuchDir"

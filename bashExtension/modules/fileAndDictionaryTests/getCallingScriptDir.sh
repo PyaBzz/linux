@@ -8,7 +8,8 @@ echo $scriptDir
 echo $result
 
 if [ $scriptDir == $result ]; then
-    echo -e "${testPassed} getting directory"
+    result=${testPassed}
 else
-    echo -e "${testFailed} getting directory"
+    result=${testFailed}
 fi
+echo -e "${result} getting directory"
