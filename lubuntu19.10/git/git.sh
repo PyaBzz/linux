@@ -1,30 +1,30 @@
 source ../../bashExtension/imports.sh
 
-packageName="git"
-aliasesDirPath=~/.bashMod/aliases
+package="git"
+aliasesDir=~/.bashMod/aliases
 
-if (askUserClear "Install $packageName?"); then
+if (askUserClear "Install $package?"); then
     sudo apt-get update
-    echo "Installing $packageName"
-    sudo apt-get install $packageName
-    echo "$packageName installed"
+    echo "Installing $package"
+    sudo apt-get install $package
+    echo "$package installed"
 else
-    echo "Skipped $packageName"
+    echo "Skipped $package"
 fi
 
-packageName="aliases"
-if (askUser "Apply $packageName?"); then
-    copyFile ./alias to $aliasesDirPath/git.sh
-    echo "$packageName applied"
+package="aliases"
+if (askUser "Apply $package?"); then
+    copyFile ./alias to $aliasesDir/git.sh
+    echo "$package applied"
 else
-    echo "Skipped $packageName"
+    echo "Skipped $package"
 fi
 
-packageName="global config"
-if (askUser "Apply $packageName?"); then
+package="global config"
+if (askUser "Apply $package?"); then
     git config --global user.name pyabzz
     git config --global user.email ""
-    echo "$packageName applied"
+    echo "$package applied"
 else
-    echo "Skipped $packageName"
+    echo "Skipped $package"
 fi
