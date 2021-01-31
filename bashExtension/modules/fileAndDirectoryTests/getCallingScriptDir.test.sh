@@ -1,7 +1,7 @@
 source ../../importsForTesting.sh
 
 scriptDir=$(pwd)
-result=$(getCallingScriptDir)
+result=$(getCallingScriptDir) #In this case it is the same as running script directory
 
 echo $scriptDir
 echo $result
