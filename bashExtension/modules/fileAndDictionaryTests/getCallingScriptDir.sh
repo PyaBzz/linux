@@ -1,4 +1,4 @@
-source ../../imports.sh
+source ../../importsForTesting.sh
 
 clear
 scriptDir=$(pwd)

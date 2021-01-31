@@ -1,9 +1,6 @@
-colourNc='\033[0m'
-colourRed='\033[0;31m'
-colourGreen='\033[0;32m'
-
-testPassed="${colourGreen}Passed${colourNc}"
-testFailed="${colourRed}Failed${colourNc}"
+colourNc='\e[0m'
+colourRed='\e[1;31;40m'
+colourGreen='\e[1;32;40m'
 
 repeatText() {
     # synopsis: repeatText <NumberOfRepetitions> [<StringToRepeat>]
