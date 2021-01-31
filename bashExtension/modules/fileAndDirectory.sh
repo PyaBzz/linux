@@ -44,21 +44,6 @@ addFileInFileAfterMarker() {
     sed -i "/$marker/r $sourceFile" $targetFile
 }
 
-overwriteFile() {
-    # synopsis: overwriteFile <SourceFilePath> to <TargetFilePath>
-    # Explicitly expects the target file to exist
-    local sourceFile=$1
-    local secondParameter=$2
-    local targetFile=$3
-
-    if (fileMissing $targetFile); then
-        echo "${FUNCNAME[0]} function: Target file not found at $targetFile"
-        return
-    fi
-
-    copyFile $sourceFile to $targetFile
-}
-
 copyFile() {
     # synopsis: copyFile <SourceFilePath> to <TargetFilePath>
     local sourceFile=$1

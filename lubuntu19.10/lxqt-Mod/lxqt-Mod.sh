@@ -12,7 +12,7 @@ function apply() {
         fi
     fi
 
-    overwriteFile $myFilePath to $targetFilePath
+    copyFile $myFilePath to $targetFilePath # Todo: Verify all files exist (including targets to be overwritten) before making any change to the computer
     openbox --reconfigure
     echo "numlock=true" >>~/.config/lxqt/session.conf
     mkdir -p ~/.config/autostart

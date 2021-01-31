@@ -12,7 +12,7 @@ function apply() {
         fi
     fi
 
-    overwriteFile $myFilePath to $targetFilePath
+    copyFile $myFilePath to $targetFilePath # Todo: Verify all files exist (including targets to be overwritten) before making any change to the computer
     # setxkbmap -model pc105 -layout gb,ir -option grp:switch,grp:alt_shift_toggle
     echo "$packageName Applied!"
 }
