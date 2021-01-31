@@ -13,7 +13,7 @@ unusedFile="$scratchDir/unusedFile"
 touch $unusedFile
 
 # Act
-backupFile $targetFile
+backUp $targetFile
 
 # Verify
 if (isBackedUp $targetFile); then

@@ -68,8 +68,8 @@ copyFile() { #Todo: Test
     fi
 }
 
-backupFile() { #Todo: Test and make a plural func as well
-    # synopsis: backupFile <PathToTargetFile>
+backUp() { #Todo: Test and make a plural func as well
+    # synopsis: backUp <PathToTargetFile>
     # Puts a backup of the file next to it
     local targetFile=$1
     local backupFile=$targetFile.bazbak

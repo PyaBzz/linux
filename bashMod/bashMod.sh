@@ -25,7 +25,7 @@ function applyBashMod() {
             mkdir -p $aliasesDirPath
         fi
 
-        backupFile $targetFilePath
+        backUp $targetFilePath
         appendToBashrc
     fi
 

@@ -13,7 +13,7 @@ echo $initialContent >$targetFile
 backupFile=$targetFile.bazbak
 
 # Act
-backupFile $targetFile
+backUp $targetFile
 overWriteContent="overWriteContent"
 echo $overWriteContent >$targetFile
 
