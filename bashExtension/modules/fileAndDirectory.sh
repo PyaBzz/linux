@@ -44,14 +44,14 @@ dirMissing() {
     fi
 }
 
-insertFileInFileAfterMarker() {
-    # synopsis: insertFileInFileAfterMarker <sourceFile> <targetFile> <markerText>
-    sed -i "/$3/r $1" $2
+addTextInFileAfterMarker() {
+    # synopsis: addTextInFileAfterMarker <text> <targetFile> <markerText>
+    sed -i "/$3/a $1" $2
 }
 
-insertTextInFileAfterMarker() {
-    # synopsis: insertFileInFileAfterMarker <text> <targetFile> <markerText>
-    sed -i "/$3/a $1" $2
+addFileInFileAfterMarker() {
+    # synopsis: addFileInFileAfterMarker <sourceFile> <targetFile> <markerText>
+    sed -i "/$3/r $1" $2
 }
 
 overwriteFile() {

@@ -8,7 +8,7 @@ if (askUserClear "Install $packageName?"); then
     rm -rf ~/Downloads/GoogleChrome.deb
 
     # Set Chrome as your default browser
-    insertTextInFileAfterMarker "BROWSER=/usr/bin/google-chrome" ~/.config/lxqt/session.conf "\[Environment\]"
+    addTextInFileAfterMarker "BROWSER=/usr/bin/google-chrome" ~/.config/lxqt/session.conf "\[Environment\]"
 else
     echo "Skipped $packageName ..."
 fi
