@@ -1,6 +1,5 @@
 source ../../importsForTesting.sh
 
-clear
 thisDir=$(pwd)
 
 if (dirExists $thisDir); then

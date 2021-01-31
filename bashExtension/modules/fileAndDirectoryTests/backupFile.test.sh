@@ -1,7 +1,5 @@
 source ../../importsForTesting.sh
 
-clear
-
 # Arrange
 scratchDir=./scratchDir
 mkdir -p $scratchDir

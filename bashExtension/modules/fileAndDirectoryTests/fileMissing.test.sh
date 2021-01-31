@@ -1,6 +1,5 @@
 source ../../importsForTesting.sh
 
-clear
 scriptFile=$0
 
 if (fileMissing $scriptFile); then

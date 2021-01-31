@@ -8,3 +8,12 @@ source "$myDir/imports.sh"
 
 testPassed="${colourGreen}Passed${colourNc}"
 testFailed="${colourRed}Failed${colourNc}"
+
+printTestTodo() {
+    echo -e "${colourPurple}Todo${colourNc}"
+}
+
+printTestName() {
+    local testName=$1
+    echo -e "${colourCyan}${f}${colourNc}"
+}

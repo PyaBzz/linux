@@ -1,6 +1,5 @@
 source ../../importsForTesting.sh
 
-clear
 scriptDir=$(pwd)
 result=$(getCallingScriptDir)
 

@@ -1,4 +1,4 @@
-# source ../../importsForTesting.sh
+source ../../importsForTesting.sh
 
 # declare -A filesToCheck
 # filesToCheck["target path 1"]="./non.existent.source1"
@@ -10,3 +10,5 @@
 # else
 #     echo "Some missing"
 # fi
+
+printTestTodo

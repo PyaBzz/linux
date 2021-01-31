@@ -1,4 +1,4 @@
-# source ../../importsForTesting.sh
+source ../../importsForTesting.sh
 
 # scriptName=$0
 
@@ -12,3 +12,5 @@
 # else
 #     echo "All found"
 # fi
+
+printTestTodo

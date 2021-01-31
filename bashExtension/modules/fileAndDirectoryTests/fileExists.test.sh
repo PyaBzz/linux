@@ -1,6 +1,5 @@
 source ../../importsForTesting.sh
 
-clear
 thisFile=$0
 
 if (fileExists $thisFile); then
