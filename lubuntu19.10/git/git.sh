@@ -14,7 +14,7 @@ fi
 
 packageName="aliases"
 if (askUser "Apply $packageName?"); then
-    copyOrReplaceFile ./alias to $aliasesDirPath/git.sh
+    copyFile ./alias to $aliasesDirPath/git.sh
     echo "$packageName applied"
 else
     echo "Skipped $packageName"

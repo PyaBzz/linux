@@ -17,7 +17,7 @@ fi
 
 
 if (askUserClear "Apply $packageName?"); then
-    copyOrReplaceFile $payloadFile to $targetFile
+    copyFile $payloadFile to $targetFile
     echo "Applied"
 else
     echo "Aborted"

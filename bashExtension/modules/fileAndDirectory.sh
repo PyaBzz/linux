@@ -56,11 +56,11 @@ overwriteFile() {
         return
     fi
 
-    copyOrReplaceFile $sourceFile to $targetFile
+    copyFile $sourceFile to $targetFile
 }
 
-copyOrReplaceFile() {
-    # synopsis: copyOrReplaceFile <SourceFilePath> to <TargetFilePath>
+copyFile() {
+    # synopsis: copyFile <SourceFilePath> to <TargetFilePath>
     local sourceFile=$1
     local secondParameter=$2
     local targetFile=$3
@@ -177,7 +177,7 @@ restoreFile() {
 #     $res
 # }
 
-# copyOrReplaceFiles() { #Todo: Complete rewrite and test
+# copyFiles() { #Todo: Complete rewrite and test
 #     # synopsis: copyOrReplaceAll ${array[@]}
 #     # Where array is an associative array of paths
 #     local dict=($@)
@@ -188,6 +188,6 @@ restoreFile() {
 
 #     for destination in "${!dict[@]}"; do
 #         local source=$dict[$destination]
-#         copyOrReplaceFile $source to @destination
+#         copyFile $source to @destination
 #     done
 # }
