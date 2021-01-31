@@ -15,8 +15,10 @@ modulesDir=$importsDir/modules
 
 sourceFromDir $modulesDir
 
+bashrcFile=~/.bashrc
 bashModDir=~/.bashMod
+aliasesDir=$bashModDir/aliases
 
 isBashModded() {
-    dirExists $bashModDir
+    isBackedUp $bashrcFile
 }

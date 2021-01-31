@@ -1,18 +1,17 @@
 source ../bashExtension/imports.sh
 
-function appendToBashrc() {
-    cat <<EOT >>$targetFilePath
+appendToBashrc() {
+    cat <<EOT >>$bashrcFile
 
 #══════════════════  BazMod  ══════════════════
-source $appendageFilePath
+source $appendageFile
 
 EOT
 }
 
-function applyBashMod() {
-    if (isBackedUp $targetFilePath); then
+applyBashMod() {
+    if (isBashModded); then
         # You've already been modded. Just update
-        echo "Backup skipped because it exists"
         if (askUser "Overwrite the existing mod?"); then
             echo "Overwriting mod ..."
         else
@@ -20,31 +19,28 @@ function applyBashMod() {
             return
         fi
     else
-        #══════════════════  Make Directory  ══════════════════
-        if (dirMissing $aliasesDirPath); then
-            mkdir -p $aliasesDirPath
-        fi
-
-        backUp $targetFilePath
+        backUp $bashrcFile
         appendToBashrc
+
+        if (dirMissing $aliasesDir); then
+            mkdir -p $aliasesDir
+        fi
     fi
 
-    #══════════════════  Appendage File  ══════════════════
-    cp ./appendage.sh $modDirPath
+    copyFile $appendageSource to $appendageFile
 
     #══════════════════  Aliases  ══════════════════
-    cp ./alias $aliasesDirPath/mod.sh
+    copyFile $aliasSource to $aliasesDir/mod.sh
     echo "Applied!"
 }
 
-targetFilePath=~/.bashrc
-modDirPath=$bashModDir
-appendageFilePath=$modDirPath/appendage.sh
-aliasesDirPath=$modDirPath/aliases
+appendageSource=./appendage.sh
+appendageFile=$bashModDir/appendage.sh
+aliasSource=./alias
 
 if [[ $1 == "restore" ]]; then
     if (askUserClear "Undo mod?"); then
-        restoreFile $targetFilePath
+        restoreFile $bashrcFile
     else
         echo "Aborted"
     fi

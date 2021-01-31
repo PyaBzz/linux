@@ -1,7 +1,6 @@
 source ../../bashExtension/imports.sh
 
 package="git"
-aliasesDir=$bashModDir/aliases
 
 if (askUserClear "Install $package?"); then
     sudo apt-get update
