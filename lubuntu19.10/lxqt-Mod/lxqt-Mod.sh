@@ -1,7 +1,7 @@
 source ../../bashExtension/imports.sh
 
 function apply() {
-    backUp $targetFilePath
+    backUp $targetFile
 
     if [[ $? == 2 ]]; then
         if (askUser "You've already been modded. Update?"); then
@@ -12,26 +12,32 @@ function apply() {
         fi
     fi
 
-    copyFile $myFilePath to $targetFilePath # Todo: Verify all files exist (including targets to be overwritten) before making any change to the computer
+    copyFile $myFile to $targetFile
     openbox --reconfigure
-    echo "numlock=true" >>~/.config/lxqt/session.conf
-    mkdir -p ~/.config/autostart
-    cp $shortcutFilePath $dest1
-    cp $shortcutFilePath $dest2
+
+    echo "numlock=true" >>$sessionConfigFile
+
+    mkdir -p $autostartDir
+    copy $shortcutFile to $autostartDir
+    copy $shortcutFile to $dest2
+
     echo "$packageName Applied!"
 }
 
 packageName="Openbox Mod"
-myFilePath=./lxqt-rc-baz.xml #Todo: Use new plural functions to simplify script
-targetFilePath=~/.config/openbox/lxqt-rc.xml
-backupPath=~/.config/openbox/lxqt-rc.xml.bazbak
-shortcutFilePath=./xmodmap.desktop
-dest1=~/.config/autostart
-dest2=~/Desktop
+
+myFile=./lxqt-rc-baz.xml
+targetFile="$HOME/.config/openbox/lxqt-rc.xml"
+
+shortcutFile=./xmodmap.desktop
+autostartDir="$HOME/.config/autostart"
+dest2="$HOME/Desktop"
+
+sessionConfigFile="$HOME/.config/lxqt/session.conf"
 
 if [[ $1 == "restore" ]]; then
     if (askUserClear "Undo $packageName?"); then
-        restoreFile $targetFilePath
+        restoreFile $targetFile
     else
         echo "Aborted"
     fi
