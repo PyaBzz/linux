@@ -8,7 +8,7 @@ sourceFiles+=("./theme.conf")
 sourceFiles+=("./bazWallpaper.jpg")
 
 targetFiles=()
-targetFiles+=("~/.face.icon")
+targetFiles+=("$HOME/.face.icon")
 targetFiles+=("/usr/share/sddm/themes/lubuntu/theme.conf")
 targetFiles+=("/usr/share/sddm/themes/lubuntu/bazWallpaper")
 
