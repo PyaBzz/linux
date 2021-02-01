@@ -2,18 +2,18 @@ source ../../bashExtension/imports.sh
 
 package="SDDM customisation"
 
-myIconFile=./baz.icon
-myConfigFile=./theme.conf
-myImageFile=./bazWallpaper.jpg
+sourceFiles=()
+sourceFiles+=("./baz.icon")
+sourceFiles+=("./theme.conf")
+sourceFiles+=("./bazWallpaper.jpg")
 
-targetIconFile=~/.face.icon
-targetConfigFile=/usr/share/sddm/themes/lubuntu/theme.conf
-targetImageFile=/usr/share/sddm/themes/lubuntu/bazWallpaper
+targetFiles=()
+targetFiles+=("~/.face.icon")
+targetFiles+=("/usr/share/sddm/themes/lubuntu/theme.conf")
+targetFiles+=("/usr/share/sddm/themes/lubuntu/bazWallpaper")
 
 if (askUserClear "Apply $package?"); then
-    copyFile $myConfigFile to $targetConfigFile
-    copyFile $myImageFile to $targetImageFile
-    copyFile $myIconFile to $targetIconFile
+    copyFiles $sourceFiles to $targetFiles
     echo "Applied $package"
 else
     echo "Skipped $package"
