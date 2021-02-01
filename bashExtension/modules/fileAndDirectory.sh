@@ -10,10 +10,37 @@ fileExists() {
     if [ -f $1 ]; then true; else false; fi
 }
 
+allFilesExist() {
+    # synopsis: allFilesExist <arrayOfPaths>
+    local -n files=$1
+    local res=true
+    for file in "${files[@]}"; do
+        if (fileMissing $file); then
+            res=false
+        fi
+    done
+    $res
+}
+
 fileMissing() {
     # synopsis: fileMissing <PathToFile>
     # No quotes around the path!
     if [ ! -f $1 ]; then true; else false; fi
+}
+
+anyFileMissing() {
+    # synopsis: anyFileMissing <arrayOfPaths>
+    local -n files=$1
+    local res=false
+
+    for file in ${files[@]}; do
+        if (fileMissing $file); then
+            res=true
+        else
+            :
+        fi
+    done
+    $res
 }
 
 dirExists() {
@@ -44,7 +71,7 @@ addFileInFileAfterMarker() {
     sed -i "/$marker/r $sourceFile" $targetFile
 }
 
-copyFile() { #Todo: Test
+copyFile() { #Todo: Test although covered in copyFiles
     # synopsis: copyFile <SourceFilePath> to <TargetFilePath>
     local sourceFile=$1
     local secondParameter=$2
@@ -66,6 +93,35 @@ copyFile() { #Todo: Test
         echo "Trying operation as root ..."
         sudo cp $sourceFile $targetFile
     fi
+}
+
+copyFiles() {
+    # synopsis: copyFile <ArrayOfSourcePaths> to <ArrayOfTargetPaths>
+    local -n sources=$1
+    local secondParameter=$2
+    local -n targets=$3
+
+    if [[ $secondParameter != "to" ]]; then
+        echo "${FUNCNAME[0]} function: The 2nd parameter must be the word 'to'"
+        return
+    fi
+
+    local sourcesCount=${#sources[@]}
+    local targetsCount=${#targets[@]}
+
+    if [[ $sourcesCount != $targetsCount ]]; then
+        echo "${FUNCNAME[0]} requires the same number of sources and targets"
+        return
+    fi
+
+    if (anyFileMissing sources); then
+        echo "${FUNCNAME[0]} some of the source files are missing"
+        return
+    fi
+
+    for index in "${!sources[@]}"; do
+        copyFile ${sources[$index]} to ${targets[$index]}
+    done
 }
 
 backUp() {
@@ -128,51 +184,3 @@ restoreFile() {
         echo "function ${FUNCNAME[0]}: Could not restore $targetFile"
     fi
 }
-
-# filesExist() { #Todo: Complete rewrite and test
-#     # synopsis: filesExist ${array[@]}
-#     # Where array is an array or associative array of paths
-#     local dict=($@)
-#     local res=true
-#     for file in "${dict[@]}"; do
-#         if (fileMissing $file); then
-#             echo "Missing file: $file"
-#             res=false
-#         fi
-#     done
-#     $res
-# }
-
-# anyFilesMissing() { #Todo: Complete rewrite and test
-#     # synopsis: anyFilesMissing ${array[@]}
-#     # Where array is an array or associative array of paths
-#     local res=false
-#     _Array.getByRef
-#     for key in ${!_Array[@]}; do
-#         local file=$key
-#         local path=${_Array[$key]}
-#         if (fileMissing $file); then
-#             # echo "Missing: $file"
-#             res=true
-#         else
-#             # echo "Found: $file"
-#             :
-#         fi
-#     done
-#     $res
-# }
-
-# copyFiles() { #Todo: Complete rewrite and test
-#     # synopsis: copyOrReplaceAll ${array[@]}
-#     # Where array is an associative array of paths
-#     local dict=($@)
-
-#     if (anyFilesMissing ${dict[@]}); then
-#         return
-#     fi
-
-#     for destination in "${!dict[@]}"; do
-#         local source=$dict[$destination]
-#         copyFile $source to @destination
-#     done
-# }

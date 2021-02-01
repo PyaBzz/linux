@@ -28,8 +28,6 @@ applyBashMod() {
     fi
 
     copyFile $appendageSource to $appendageFile
-
-    #══════════════════  Aliases  ══════════════════
     copyFile $aliasSource to $aliasesDir/mod.sh
     echo "Applied!"
 }
