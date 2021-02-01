@@ -140,12 +140,7 @@ backUp() {
         return 2 # 2 means that backup already exists
     fi
 
-    cp $targetFile $backupFile
-
-    if [[ $? != 0 ]]; then # Check result of the last command
-        echo "Trying operation as root ..."
-        sudo cp $targetFile $backupFile
-    fi
+    copyFile $targetFile to $backupFile
 
     if (fileExists $backupFile); then
         echo "function ${FUNCNAME[0]}: Backup saved in $backupFile"
