@@ -18,8 +18,8 @@ function apply() {
     echo "numlock=true" >>$sessionConfigFile
 
     mkdir -p $autostartDir
-    copy $shortcutFile to $autostartDir
-    copy $shortcutFile to $dest2
+    copyFile $shortcutFile to $autostartDir
+    copyFile $shortcutFile to $dest2
 
     echo "$packageName Applied!"
 }
