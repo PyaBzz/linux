@@ -1,8 +1,5 @@
-getRunningScriptDir() {
-    # Copy this function to the target script file instead of sourcing it from here
-    # as it gets the directory where the function definition exists
-    echo "$(readlink -f "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)")"
-}
+# Copy this function to any script instead of sourcing it
+getMyDir() { echo "$(readlink -f "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)")"; }
 
 sourceFromDir() {
     # synopsis: sourceFromDir <PathToDir>
@@ -10,6 +7,6 @@ sourceFromDir() {
     for f in $1/*.sh; do source $f; done
 }
 
-importsDir=$(getRunningScriptDir) #Todo: Need this?
+importsDir=$(getMyDir)
 modulesDir=$importsDir/modules
 sourceFromDir $modulesDir
