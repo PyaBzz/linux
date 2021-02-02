@@ -7,13 +7,12 @@ colourPurple='\e[0;35;40m'
 repeatText() {
     # synopsis: repeatText <NumberOfRepetitions> [<StringToRepeat>]
     local stringToRepeat=" "
-    
+
     if [ ! -z "$2" ]; then
         stringToRepeat="$2"
     fi
-    
-    for ((i=1; i<=$1; i++))
-    do
+
+    for ((i = 1; i <= $1; i++)); do
         printf "$stringToRepeat"
     done
 }
@@ -21,13 +20,12 @@ repeatText() {
 echoRepeatText() {
     # synopsis: echoRepeatText <NumberOfRepetitions> [<StringToRepeat>]
     local stringToRepeat=" "
-    
+
     if [ ! -z "$2" ]; then
         stringToRepeat="$2"
     fi
     local output=""
-    for ((i=1; i<=$1; i++))
-    do
+    for ((i = 1; i <= $1; i++)); do
         output+="$stringToRepeat"
     done
     echo "$output"
@@ -36,11 +34,11 @@ echoRepeatText() {
 printLine() {
     # synopsis: printLine <LineLengthInCharacters> [<StringToRepeat>]
     local stringToRepeat="═"
-    
+
     if [ ! -z "$2" ]; then
         stringToRepeat="$2"
     fi
-    
+
     echoRepeatText $1 $stringToRepeat
 }
 
@@ -54,4 +52,22 @@ printColours() {
         done
     done
     echo ""
+}
+
+postInUpRightCorner() {
+    local len=${#1}
+    local colour='\033[30;42m'
+
+    tput sc
+    tput cup 0 $(($(tput cols) - len))
+    printf "${colour}$1"
+    tput rc
+}
+
+showDateTime() {
+    # synopsis: showDateTime &
+    # The ampersand runs it in background
+    while sleep 1; do
+        postInUpRightCorner "$(date +"%F @ %T")"
+    done
 }

@@ -1,7 +1,7 @@
 #!/bin/bash
 source ../bashExtension/imports.sh
 
-function cleanup() {
+cleanup() {
     if (askUserClear "Uninstall unnecessary packages?"); then
         local action="remove"
         if (askUser "Aggressive purge?"); then

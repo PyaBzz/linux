@@ -10,15 +10,6 @@ sourceFromDir() {
     for f in $1/*.sh; do source $f; done
 }
 
-importsDir=$(getRunningScriptDir)
+importsDir=$(getRunningScriptDir) #Todo: Need this?
 modulesDir=$importsDir/modules
-
 sourceFromDir $modulesDir
-
-bashrcFile=~/.bashrc
-bashModDir=~/.bashMod
-aliasesDir=$bashModDir/aliases
-
-isBashModded() {
-    isBackedUp $bashrcFile
-}

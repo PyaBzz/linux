@@ -1,6 +1,6 @@
 source ../../bashExtension/imports.sh
 
-function apply() {
+apply() {
     backUp $targetFilePath
 
     if [[ $? == 2 ]]; then 
