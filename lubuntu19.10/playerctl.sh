@@ -1,4 +1,4 @@
-source ../../bash/extension/imports.sh
+source ../source.sh
 
 packageName="playerctl"
 
