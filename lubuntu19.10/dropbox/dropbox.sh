@@ -1,4 +1,4 @@
-source ../../bashExtension/imports.sh
+source ../../../bash/extension/imports.sh
 
 packageName="Dropbox"
 downloadedArchive=~/Downloads/Dropbox.tar.gz

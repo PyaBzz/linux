@@ -1,4 +1,4 @@
-source ../../bashExtension/imports.sh
+source ../../../bash/extension/imports.sh
 
 packageName=".NET Core SDK 3.1 and runtime"
 

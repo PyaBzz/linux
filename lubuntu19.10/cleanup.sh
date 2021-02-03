@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../bashExtension/imports.sh
+source ../../bash/extension/imports.sh
 
 cleanup() {
     if (askUserClear "Uninstall unnecessary packages?"); then
