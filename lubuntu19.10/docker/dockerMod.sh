@@ -2,7 +2,7 @@ source ../../source.sh
 
 packageName="Docker aliases"
 payloadFile=./alias
-targetFile=~/.bashExtension/aliases/docker.sh #Todo: Is the path correct?
+targetFile=$aliasDir/docker.sh
 
 if [[ $1 == "restore" ]]; then
     if (askUserClear "Undo $packageName?"); then
@@ -14,7 +14,6 @@ if [[ $1 == "restore" ]]; then
         return
     fi
 fi
-
 
 if (askUserClear "Apply $packageName?"); then
     copyFile $payloadFile to $targetFile
