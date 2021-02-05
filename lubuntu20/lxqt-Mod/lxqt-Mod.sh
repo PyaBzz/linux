@@ -19,7 +19,7 @@ apply() {
 
     mkdir -p $autostartDir
     copyFile $shortcutFile to $autostartDir
-    copyFile $shortcutFile to $dest2
+    copyFile $shortcutFile to $desktop
 
     echo "$packageName Applied!"
 }
@@ -31,7 +31,7 @@ targetFile="$HOME/.config/openbox/lxqt-rc.xml"
 
 shortcutFile=./xmodmap.desktop
 autostartDir="$HOME/.config/autostart"
-dest2="$HOME/Desktop"
+desktop="$HOME/Desktop"
 
 sessionConfigFile="$HOME/.config/lxqt/session.conf"
 

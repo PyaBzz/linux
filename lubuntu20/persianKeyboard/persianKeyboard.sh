@@ -1,7 +1,7 @@
 source ../../source.sh
 
 apply() {
-    if (isBackedUp $targetFile); then
+    if (isBackedUp $targetLayoutFile); then
         if (askUser "You've already been modded. Update?"); then
             echo "Updating $packageName"
         else
@@ -9,21 +9,29 @@ apply() {
             return
         fi
     else
-        backUp $targetFile
+        backUp $targetLayoutFile
     fi
 
-    copyFile $myFile to $targetFile
-    setxkbmap -model pc105 -layout gb,ir -option grp:switch,grp:alt_shift_toggle #Todo: Find a way for this to persist after reboot
+    copyFile $myLayoutFile to $targetLayoutFile
+
+    mkdir -p $autostartDir
+    copyFile $shortcutFile to $autostartDir
+    copyFile $shortcutFile to $desktop
+
     echo "$packageName Applied!"
 }
 
 packageName="persian keyboard layout fix"
-myFile=./ir
-targetFile=/usr/share/X11/xkb/symbols/ir
+myLayoutFile=./ir
+targetLayoutFile=/usr/share/X11/xkb/symbols/ir
+
+shortcutFile=./persianKeys.desktop
+autostartDir="$HOME/.config/autostart"
+desktop="$HOME/Desktop"
 
 if [[ $1 == "restore" ]]; then
     if (askUserClear "Undo $packageName?"); then
-        restoreFile $targetFile
+        restoreFile $targetLayoutFile
     else
         echo "Aborted"
     fi
