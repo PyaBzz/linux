@@ -13,7 +13,7 @@ apply() {
     fi
 
     copyFile $myFile to $targetFile
-    setxkbmap -model pc105 -layout gb,ir -option grp:switch,grp:alt_shift_toggle
+    setxkbmap -model pc105 -layout gb,ir -option grp:switch,grp:alt_shift_toggle #Todo: Find a way for this to persist after reboot
     echo "$packageName Applied!"
 }
 
