@@ -5,4 +5,5 @@ GenericName=dropbox
 Comment=Sync your files
 Exec=bash -c "exec ~/.dropbox-dist/dropboxd"
 Terminal=false
+StartupNotify=false
 Type=Application

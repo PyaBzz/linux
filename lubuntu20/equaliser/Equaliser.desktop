@@ -5,6 +5,6 @@ GenericName=Equaliser
 Comment=Equalise Sound  
 Exec=qpaeq
 Icon=multimedia-volume-control
-StartupNotify=true
+StartupNotify=false
 Type=Application
 Categories=AudioVideo;Audio;Mixer;Qt;
