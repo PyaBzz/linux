@@ -1,14 +1,15 @@
 source ../../source.sh
 
 packageName="Dropbox"
-downloadedArchive=~/Downloads/Dropbox.tar.gz
-desktopShortcut=./dropbox.desktop
+downloadUrl="https://www.dropbox.com/download?plat=lnx.x86_64"
+downloadedFile=$HOME/Downloads/Dropbox.tar.gz
+shortcut=./dropbox.desktop
 
 if (askUserClear "Install $packageName"); then
-    wget "https://www.dropbox.com/download?plat=lnx.x86_64" -O $downloadedArchive
-    tar xzf $downloadedArchive -C ~
-    cp $desktopShortcut ~/Desktop
-    rm $downloadedArchive
+    wget $downloadUrl -O $downloadedFile
+    tar xzf $downloadedFile -C $HOME
+    copyFile $shortcut to $desktopDir
+    rm $downloadedFile
 else
-    echo "Skipped $packageName"
+    echo "Aborted"
 fi
