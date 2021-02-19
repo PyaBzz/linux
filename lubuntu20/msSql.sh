@@ -4,7 +4,7 @@ packageName="MS SQL server"
 aptKeyUrl="https://packages.microsoft.com/keys/microsoft.asc"
 repoEntryUrl="wget -qO- https://packages.microsoft.com/config/ubuntu/18.04/mssql-server-2019.list"
 
-# Use adminPass1 ot server setup step
+# Use "sa" and "adminPass1" at server setup step
 
 if (askUserClear "Install $packageName?"); then
     wget -qO- $aptKeyUrl | sudo apt-key add -
