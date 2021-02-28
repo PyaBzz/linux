@@ -26,7 +26,7 @@ cleanup() {
             vlc*; do
             if (askUserClear "$action $packageName"); then
                 echo "Uninstalling $packageName"
-                sudo apt-get $action $packageName
+                sudo apt-get $action -y $packageName
             else
                 echo "Skipping $packageName"
             fi
