@@ -14,9 +14,9 @@ apply() {
 
     copyFile $myLayoutFile to $targetLayoutFile
 
-    mkdir -p $autostartDir
-    copyFile $shortcutFile to $autostartDir
-    copyFile $shortcutFile to $desktop
+    # mkdir -p $autostartDir
+    # copyFile $shortcutFile to $autostartDir
+    # copyFile $shortcutFile to $desktop
 
     echo "$packageName Applied!"
 }
