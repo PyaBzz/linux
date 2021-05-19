@@ -1,7 +1,7 @@
 alias gistatus='clear && git status'
 alias giff='clear && git diff'
 alias gadd='clear && git add -p'
-alias getch='clear && git fetch'
+alias getch='git fetch && gistatus'
 alias gull='clear && git pull'
 alias gush='clear && git push'
 alias geckout='clear && git checkout'
