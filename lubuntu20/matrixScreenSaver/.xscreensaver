@@ -40,7 +40,7 @@ textProgram:	fortune
 textURL:	https://feeds.feedburner.com/ubuntu-news
 
 programs:								      \
-  GL: 				glmatrix -speed 5 -root -no-rotate	    \n\
+  GL: 				xmatrix -root -insert bottom -no-trace -delay 40000 -density 40     \n\
 
 pointerPollTime:    0:00:05
 pointerHysteresis:  10
