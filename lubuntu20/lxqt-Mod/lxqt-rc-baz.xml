@@ -361,6 +361,12 @@
         <command>playerctl next</command>
       </action>
     </keybind>
+
+    <keybind key="A-k">
+      <action name="Execute">
+        <command>xdotool getactivewindow sleep 0.01 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k sleep 0.018 keydown l sleep 0.01 keyup l sleep 0.018 keydown k sleep 0.01 keyup k</command>
+      </action>
+    </keybind>
   </keyboard>
 
     #═══════════════════════════════════════
