@@ -1,7 +1,6 @@
 source ../../source.sh
 
 package="git"
-
 pkgMgrAskInstall $package
 
 package="aliases"
