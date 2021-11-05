@@ -12,6 +12,6 @@ sources=($(ls *.conf))
 targetDir=$HOME/.config/lxqt
 mkdir -p $targetDir
 
-backupAndReplaceToDir sources to $targetDir
+backupAndReplaceFilesToDir sources to $targetDir
 
 echo "Applied"
