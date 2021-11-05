@@ -1,5 +1,8 @@
 source ../../source.sh
 
+package="Bluetooth services"
+
+askToProceed "Install $package?"
 pkgMgrAskInstall "bluez"
 pkgMgrAskInstall "bluez-utils"
 pkgMgrAskInstall "blueman"
