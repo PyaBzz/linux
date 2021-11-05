@@ -18,7 +18,7 @@ pkgMgrInstall() {
     if (isArch); then
         sudo pacman -S --noconfirm $pkg
     elif (isUbuntu); then
-        sudo apt install $pkg
+        sudo apt install -y $pkg
     else
         echo "Unknown package manager"
     fi
