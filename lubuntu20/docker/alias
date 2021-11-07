@@ -1,3 +1,0 @@
-alias dockerps="docker ps --format 'table{{.Names}}\t{{.ID}}\t{{.Status}}\t{{.Ports}}'"
-alias dockeru="clear && docker-compose up -d"
-alias dockerd="clear && docker-compose down"
