@@ -10,7 +10,7 @@ else
 fi
 
 # confDir=/etc/sddm.conf.d
-mkDirIfMissing $confDir
+# mkDirIfMissing $confDir
 
 sourceFiles=(
     "./baz.icon"
