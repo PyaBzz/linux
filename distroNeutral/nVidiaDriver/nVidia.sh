@@ -1,10 +1,12 @@
 source ../../source.sh
 
-packageName="nVidia drivers"
-askToProceed "Install $package?"
+askToProceed "Install nVidia drivers?"
 
 if (isArch); then
     sudo pacman -S nvidia-lts
+    askToProceed "Install nVidia settings front-end?"
+    pkgMgrInstall "nvidia-settings"
+
 elif (isUbuntu); then
     sudo add-apt-repository ppa:graphics-drivers/ppa
     sudo apt update
