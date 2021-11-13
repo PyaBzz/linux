@@ -1,0 +1,5 @@
+alias bazdate='echo "year: $(date '+%Y'), month: $(date '+%m'), day: $(date '+%d'), hour: $(date '+%H'), minute: $(date '+%M')" | tee /dev/tty | tr -d "\n" | clip.exe'
+
+alias dockerps="docker ps --format 'table{{.Names}}\t{{.ID}}\t{{.Status}}\t{{.Ports}}'"
+alias dockeru="clear && docker-compose up -d"
+alias dockerd="clear && docker-compose down"

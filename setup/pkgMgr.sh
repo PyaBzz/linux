@@ -34,3 +34,16 @@ pkgMgrAskInstall() {
         echo "Skipped $pkg"
     fi
 }
+
+pkgMgrAskInstallMulti() {
+    local pkgs=("$@")
+    clear
+    pkgMgrUpdate
+    for pkg in ${pkgs[@]}; do
+        if (askUser "Install $pkg?"); then
+            pkgMgrInstall $pkg
+        else
+            echo "Skipped $pkg"
+        fi
+    done
+}
