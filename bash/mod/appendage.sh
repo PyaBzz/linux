@@ -49,6 +49,7 @@ setPromptStyle() {
 
 printGreeting
 setPromptStyle
+export isAppendageRun=true
 
 #════════════════════════════  Aliases  ════════════════════════════
 
@@ -56,4 +57,4 @@ for f in $HOME/.bashMod/aliases/*.sh; do source $f; done
 
 #════════════════════════════  Navigate  ════════════════════════════
 
-cd $HOME/projects
+cd $HOME/proj

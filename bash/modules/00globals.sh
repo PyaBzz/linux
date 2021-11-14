@@ -6,5 +6,9 @@ desktopDir=$HOME/Desktop
 downloadsDir=$HOME/Downloads
 
 isBashModded() {
-    isBackedUp $bashrcFile
+    if [ -z ${isAppendageRun+x} ]; then false; else true; fi
+}
+
+isBashNotModded() {
+    if (isBashModded); then false; else true; fi
 }

@@ -60,3 +60,14 @@ askToProceed() {
         exit 1
     fi
 }
+
+askRunFunc() {
+    # synopsis: askRunFunc <FuncName> [<QuestionString>]
+    # Negative answer skips func execution
+    if (askUser "$2"); then
+        $1
+        echo "$2 Done."
+    else
+        echo "Skipped"
+    fi
+}
