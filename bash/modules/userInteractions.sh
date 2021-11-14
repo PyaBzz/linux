@@ -57,7 +57,7 @@ askToProceed() {
         :
     else
         echo "Aborted"
-        exit 1
+        exit
     fi
 }
 

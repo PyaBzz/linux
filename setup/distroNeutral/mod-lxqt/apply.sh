@@ -1,14 +1,8 @@
 source ../../source.sh
 
-packageName="LXQT Mod"
-if (askUserClear "Apply $packageName?"); then
-    :
-else
-    echo "Aborted"
-    exit 1
-fi
+askToProceed "Apply LXQT Mod?"
 
-sources=($(ls *.conf))
+sources=($(ls conf/*.conf))
 targetDir=$HOME/.config/lxqt
 mkdir -p $targetDir
 
