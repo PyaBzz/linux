@@ -8,4 +8,4 @@ mkdir -p $targetDir
 
 backupAndReplaceFilesToDir sources to $targetDir
 
-echo "Applied"
+echo "Done"
