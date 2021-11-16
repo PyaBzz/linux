@@ -1,5 +1,6 @@
 source ../source.sh
 
+bashrcFile=$HOME/.bashrc
 appendageSource=./appendage.sh
 appendageFile=$bashModDir/appendage.sh
 aliasSource=./alias
@@ -17,16 +18,15 @@ applyBashMod() {
     if (isBashModded); then
         if (askUser "Overwrite the existing mod?"); then
             echo "Overwriting mod ..."
+            restoreFile $bashrcFile
         else
             echo "Skipped"
             return
         fi
-    else
-        backUp $bashrcFile
-        appendToBashrc
-        mkdir -p $aliasDir
     fi
 
+    backUp $bashrcFile
+    appendToBashrc
     copyFile $appendageSource to $appendageFile
     isAppendageRun=true
 }
@@ -37,5 +37,6 @@ applyAliases() {
         return
     fi
 
+    mkdir -p $aliasDir
     copyFile $aliasSource to $aliasDir/mod.sh
 }

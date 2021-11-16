@@ -121,6 +121,7 @@ restoreFile() {
         return
     fi
 
+    echo "function ${FUNCNAME[0]}: Restoring $backupFile"
     mv $backupFile $targetFile
 
     if [[ $? != 0 ]]; then # Check result of the last command
