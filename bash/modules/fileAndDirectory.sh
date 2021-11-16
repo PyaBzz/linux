@@ -91,14 +91,14 @@ backUp() {
     fi
 
     if (fileExists $backupFile); then
-        echo "function ${FUNCNAME[0]}: Skipped backup file as it exists at $backupFile"
+        echo "Func ${FUNCNAME[0]}: Skipped backup file as it exists at $backupFile"
         return 2 # 2 means that backup already exists
     fi
 
     copyFile $targetFile to $backupFile
 
     if (fileExists $backupFile); then
-        echo "function ${FUNCNAME[0]}: Backup saved in $backupFile"
+        echo "Func ${FUNCNAME[0]}: Backup saved in $backupFile"
     fi
 }
 
@@ -117,11 +117,11 @@ restoreFile() {
     local backupFile=$targetFile.bazbak
 
     if (fileMissing $backupFile); then
-        echo "function ${FUNCNAME[0]}: Backup file not found at $backupFile"
+        echo "Func ${FUNCNAME[0]}: Backup file not found at $backupFile"
         return
     fi
 
-    echo "function ${FUNCNAME[0]}: Restoring $backupFile"
+    echo "Func ${FUNCNAME[0]}: Restoring $backupFile"
     mv $backupFile $targetFile
 
     if [[ $? != 0 ]]; then # Check result of the last command
@@ -130,9 +130,9 @@ restoreFile() {
     fi
 
     if (fileMissing $backupFile); then
-        echo "function ${FUNCNAME[0]}: File restored in $targetFile"
+        echo "Func ${FUNCNAME[0]}: File restored in $targetFile"
     else
-        echo "function ${FUNCNAME[0]}: Could not restore $targetFile"
+        echo "Func ${FUNCNAME[0]}: Could not restore $targetFile"
     fi
 }
 
