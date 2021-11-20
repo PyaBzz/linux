@@ -1,6 +1,7 @@
 colourNc='\e[0m'
 colourRed='\e[1;31;40m'
 colourGreen='\e[1;32;40m'
+colourYellow='\e[1;33;40m'
 colourCyan='\e[1;36;40m'
 colourPurple='\e[0;35;40m'
 
