@@ -1,8 +1,7 @@
 source ../../source.sh
 
-package="Bluetooth services"
+askToProceed "Install Bluetooth services?"
 
-askToProceed "Install $package?"
 pkgMgrAskInstall "bluez"
 pkgMgrAskInstall "bluez-utils"
 pkgMgrAskInstall "blueman"
@@ -13,7 +12,8 @@ myFile=mpris-proxy.service
 targetDir=~/.config/systemd/user
 mkdir -p $targetDir
 targetFile=$targetDir/$myFile
-
 copyFile $myFile to $targetFile
 
+# This service is for media button controls
 systemctl enable mpris-proxy.service --user
+systemctl start mpris-proxy.service --user
