@@ -1,4 +1,4 @@
-source ../../source.sh
+source ../../../source.sh
 
 askToProceed "Take conf files from this machine?"
 

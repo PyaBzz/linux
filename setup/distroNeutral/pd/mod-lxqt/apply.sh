@@ -1,4 +1,4 @@
-source ../../source.sh
+source ../../../source.sh
 
 askToProceed "Apply LXQT Mod?"
 
