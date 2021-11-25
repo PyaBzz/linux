@@ -7,7 +7,8 @@ if (isArch); then
     # Download proprietary drivers from nvidia website for Quadro P2000.
     # Those have much better performance!
     # Then copy the blacklist.conf file to /etc/modprobe.d/blacklist.conf
-    # Then add these to /etc/pacman.conf in the ignore section: nvidia
+    # Then add these (space separated) to /etc/pacman.conf in the ignore section:
+    # nvidia nvidia-settings nvidia-utils
     # Then do these two lines:
     # askToProceed "Install nVidia settings front-end?"
     # pkgMgrInstall "nvidia-settings"
