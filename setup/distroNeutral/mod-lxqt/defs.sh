@@ -1,4 +1,4 @@
-source ../../../source.sh
+source ../../source.sh
 
 sourcesDir="./conf-$hostName"
 sources=($(ls $sourcesDir/*.conf))
