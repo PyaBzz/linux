@@ -1,11 +1,10 @@
 source ../source4test.sh
 
 # Arrange
-scratchDir=./scratchDir
 sourceFile="$scratchDir/sourceFile"
 targetFile="$scratchDir/targetFile"
 
-mkdir -p $scratchDir
+mkScratchDir
 
 text="dasoo"
 echo $text >$sourceFile

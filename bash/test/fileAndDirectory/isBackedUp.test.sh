@@ -1,8 +1,7 @@
 source ../source4test.sh
 
 # Arrange
-scratchDir=./scratchDir
-mkdir -p $scratchDir
+mkScratchDir
 
 targetFile="$scratchDir/targetFile"
 touch $targetFile
