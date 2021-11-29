@@ -34,7 +34,7 @@ mkDirIfMissing() {
     mkdir -p $1
 
     if [ "$?" -ne "0" ]; then
-        echo "Trying operation as root ..."
+        echo "Func ${FUNCNAME[0]}: Trying sudo ..."
         sudo mkdir -p $1
     fi
 }
@@ -62,19 +62,19 @@ copyFile() { #Todo: Test although covered in copyFiles
     local targetFile=$3
 
     if (fileMissing $sourceFile); then
-        echo "${FUNCNAME[0]} function: Source file not found at $sourceFile"
+        echo "Func ${FUNCNAME[0]}: Source file not found at $sourceFile"
         return
     fi
 
     if [[ $secondParameter != "to" ]]; then
-        echo "${FUNCNAME[0]} function: The 2nd parameter must be the word 'to'"
+        echo "Func ${FUNCNAME[0]}: The 2nd parameter must be the word 'to'"
         return
     fi
 
     cp $sourceFile $targetFile
 
     if [ "$?" -ne "0" ]; then
-        echo "Trying operation as root ..."
+        echo "Func ${FUNCNAME[0]}: Trying sudo ..."
         sudo cp $sourceFile $targetFile
     fi
 }
@@ -86,7 +86,7 @@ backUp() {
     local backupFile=$targetFile.bazbak
 
     if (fileMissing $targetFile); then
-        echo "${FUNCNAME[0]} function: Target file not found at $targetFile"
+        echo "Func ${FUNCNAME[0]}: Target file not found at $targetFile"
         return
     fi
 
@@ -125,7 +125,7 @@ restoreFile() {
     mv $backupFile $targetFile
 
     if [[ $? != 0 ]]; then # Check result of the last command
-        echo "Trying operation as root ..."
+        echo "Func ${FUNCNAME[0]}: Trying sudo ..."
         sudo mv $backupFile $targetFile
     fi
 
@@ -143,12 +143,12 @@ backupAndReplaceFile() { #Todo: Test
     local targetFile=$3
 
     if (fileMissing $sourceFile); then
-        echo "${FUNCNAME[0]} function: Source file not found at $sourceFile"
+        echo "Func ${FUNCNAME[0]}: Source file not found at $sourceFile"
         return
     fi
 
     if [[ $secondParameter != "to" ]]; then
-        echo "${FUNCNAME[0]} function: The 2nd parameter must be the word 'to'"
+        echo "Func ${FUNCNAME[0]}: The 2nd parameter must be the word 'to'"
         return
     fi
 

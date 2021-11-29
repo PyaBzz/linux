@@ -32,7 +32,7 @@ copyFiles() {
     local -n targets=$3
 
     if [[ $secondParameter != "to" ]]; then
-        echo "${FUNCNAME[0]} function: The 2nd parameter must be the word 'to'"
+        echo "Func ${FUNCNAME[0]}: The 2nd parameter must be the word 'to'"
         return
     fi
 
@@ -76,7 +76,7 @@ backupAndReplaceFiles() {
     local -n targets=$3
 
     if [[ $secondParameter != "to" ]]; then
-        echo "${FUNCNAME[0]} function: The 2nd parameter must be the word 'to'"
+        echo "Func ${FUNCNAME[0]}: The 2nd parameter must be the word 'to'"
         return
     fi
 
@@ -105,7 +105,7 @@ backupAndReplaceFilesToDir() {
     local targetDir=$3
 
     if [[ $secondParameter != "to" ]]; then
-        echo "${FUNCNAME[0]} function: The 2nd parameter must be the word 'to'"
+        echo "Func ${FUNCNAME[0]}: The 2nd parameter must be the word 'to'"
         return
     fi
 
