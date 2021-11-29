@@ -1,4 +1,5 @@
 source ./defs.sh
 
 pkgMgrAskInstall retroarch
-askRunFunc applyConfig "Apply config?"
+
+askRunFunc cloneConfigRepo "Clone config repository?"

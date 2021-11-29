@@ -1,8 +1,8 @@
 source ../../source.sh
 
 srcFile=./retroarch.cfg
-targetFile=~/.config/retroarch/retroarch.cfg
+targetDir=~/.config/retroarch
 
-applyConfig() {
-    backupAndReplaceFile $srcFile to $targetFile
+cloneConfigRepo() {
+    git clone git@github.com:PyaBzz/retroarch.git $targetDir
 }
