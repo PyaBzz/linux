@@ -2,8 +2,27 @@ myDir="$(readlink -f "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && p
 source $myDir/../source.sh
 
 scratchDir=./scratchDir
+
 mkScratchDir() {
     mkdir -p $scratchDir
+}
+
+wipeScratchDir() {
+    rm -rf $scratchDir/*
+
+    if (ifThatFailed); then
+        echo "Func ${FUNCNAME[0]}: Trying sudo ..."
+        sudo rm -rf $scratchDir/*
+    fi
+}
+
+rmScratchDir() {
+    rm -rf $scratchDir
+
+    if (ifThatFailed); then
+        echo "Func ${FUNCNAME[0]}: Trying sudo ..."
+        sudo rm -rf $scratchDir
+    fi
 }
 
 addToScratchDir() {
@@ -11,10 +30,6 @@ addToScratchDir() {
     local filePath="$scratchDir/$fileName"
     touch $filePath
     echo $filePath
-}
-
-rmScratchDir() {
-    rm -rf $scratchDir
 }
 
 testPassed="${colourGreen}Passed${colourNc}"
