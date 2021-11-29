@@ -12,3 +12,19 @@ isBashModded() {
 isBashNotModded() {
     if (isBashModded); then false; else true; fi
 }
+
+ifThatWorked() {
+    if [ "$?" -eq "0" ]; then
+        true
+    else
+        false
+    fi
+}
+
+ifThatFailed() {
+    if [ "$?" -eq "0" ]; then
+        true
+    else
+        false
+    fi
+}

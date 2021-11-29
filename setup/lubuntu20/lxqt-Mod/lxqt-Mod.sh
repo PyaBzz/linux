@@ -3,7 +3,7 @@ source ../../source.sh
 apply() {
     backUp $targetFile
 
-    if [[ $? == 2 ]]; then
+    if (backUpSkipped); then
         if (askUser "You've already been modded. Update?"); then
             echo "Updating $packageName"
         else

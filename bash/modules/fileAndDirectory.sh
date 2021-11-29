@@ -33,7 +33,7 @@ mkDirIfMissing() {
     # No quotes around the path!
     mkdir -p $1
 
-    if [ "$?" -ne "0" ]; then
+    if (ifThatFailed); then
         echo "Func ${FUNCNAME[0]}: Trying sudo ..."
         sudo mkdir -p $1
     fi
@@ -73,7 +73,7 @@ copyFile() { #Todo: Test although covered in copyFiles
 
     cp $sourceFile $targetFile
 
-    if [ "$?" -ne "0" ]; then
+    if (ifThatFailed); then
         echo "Func ${FUNCNAME[0]}: Trying sudo ..."
         sudo cp $sourceFile $targetFile
     fi
@@ -102,6 +102,14 @@ backUp() {
     fi
 }
 
+backUpSkipped() {
+    if [ "$?" -eq "2" ]; then
+        true
+    else
+        false
+    fi
+}
+
 isBackedUp() {
     # synopsis: isBackedUp <PathToTargetFile>
     # Checks if target file has been backed up
@@ -124,7 +132,7 @@ restoreFile() {
     echo "Func ${FUNCNAME[0]}: Restoring $backupFile"
     mv $backupFile $targetFile
 
-    if [[ $? != 0 ]]; then # Check result of the last command
+    if (ifThatFailed); then # Check result of the last command
         echo "Func ${FUNCNAME[0]}: Trying sudo ..."
         sudo mv $backupFile $targetFile
     fi
@@ -154,7 +162,7 @@ backupAndReplaceFile() { #Todo: Test
 
     backUp $targetFile
 
-    if [[ $? == 2 ]]; then
+    if (backUpSkipped); then
         if (askUser "Target file at $targetFile has already been modded. Replace it?"); then
             echo "Replacing $targetFile"
         else
