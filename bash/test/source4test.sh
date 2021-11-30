@@ -36,12 +36,13 @@ testPassed="${colourGreen}Passed${colourNc}"
 testFailed="${colourRed}Failed${colourNc}"
 
 printTestTodo() {
-    echo -e "${colourPurple}Todo${colourNc}"
+    local text=$1
+    echo -e "${colourPurple}Todo:${colourNc} $text"
 }
 
 printTestName() {
     local testName=$1
-    echo -e "$colourCyan$f$colourNc"
+    echo -e "$colourCyan$testName$colourNc"
 }
 
 printTestSuccess() {
