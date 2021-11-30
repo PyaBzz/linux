@@ -1,3 +1,4 @@
+# todo: break the file down
 allFilesExist() {
     # synopsis: allFilesExist <arrayOfPaths>
     local -n files=$1

@@ -4,10 +4,16 @@ shopt -s expand_aliases
 alias getMyDir='echo "$(readlink -f "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)")"'
 
 sourceFromDir() {
-    # synopsis: sourceFromDir <PathToDir>
-    # Sources all .sh files in the given directory
-    for f in $1/*.sh; do source $f; done
+    # synopsis: sourceFromDir <PathToDir> <Extension>
+    # Sources all files with the given extension in the given directory recursively
+    # Default extension is .sh
+
+    local extension=".sh"
+    if [ ! -z "$2" ]; then
+        extension="$2"
+    fi
+    for f in $(find $1 -name "*$extension"); do source $f; done
 }
 
 modulesDir=$(getMyDir)/modules
-sourceFromDir $modulesDir
+sourceFromDir $modulesDir .src.sh

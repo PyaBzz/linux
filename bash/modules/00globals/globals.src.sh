@@ -22,7 +22,7 @@ ifThatWorked() {
 }
 
 ifThatFailed() {
-    if [ "$?" -eq "0" ]; then
+    if [ "$?" -ne "0" ]; then
         true
     else
         false
