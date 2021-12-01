@@ -3,6 +3,9 @@ backUp() {
     # Puts a backup of the file next to it
     local targetFile=$1
     local backupFile=$targetFile.bazbak
+    local verbose=false
+
+    if [ "$2" = "--verbose" ] || [ "$2" = "-v" ]; then verbose=true; fi
 
     if (fileMissing $targetFile); then
         echo "Func ${FUNCNAME[0]}: Target file not found at $targetFile"
@@ -16,7 +19,7 @@ backUp() {
 
     copyFile $targetFile to $backupFile
 
-    if (fileExists $backupFile); then
+    if ($verbose && fileExists $backupFile); then
         echo "Func ${FUNCNAME[0]}: Backup saved in $backupFile"
     fi
 }
