@@ -17,7 +17,7 @@ copyFile() { #Todo: Test although covered in copyFiles
     cp $sourceFile $targetFile
 
     if (ifThatFailed); then
-        echo "Func ${FUNCNAME[0]}: Trying sudo ..."
+        #echo "Func ${FUNCNAME[0]}: Trying sudo ..."
         sudo cp $sourceFile $targetFile
     fi
 }
