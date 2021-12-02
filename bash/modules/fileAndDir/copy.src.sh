@@ -14,7 +14,7 @@ copy() { #Todo: Test although covered in copyMulti
         return
     fi
 
-    cp $sourceFile $targetFile
+    cp $sourceFile $targetFile 1>/dev/null 2>&1
 
     if (ifThatFailed); then
         #echo "Func ${FUNCNAME[0]}: Trying sudo ..."
