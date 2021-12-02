@@ -5,7 +5,7 @@ scriptName=$0
 existingFiles=()
 existingFiles+=$scriptName
 
-if (anyFileMissing existingFiles); then
+if (fileMissingMulti existingFiles); then
     result=${testFailed}
 else
     result=${testPassed}
@@ -16,7 +16,7 @@ missingFiles=()
 missingFiles+=("noSuchFile0")
 missingFiles+=("noSuchFile1")
 
-if (anyFileMissing missingFiles); then
+if (fileMissingMulti missingFiles); then
     result=${testPassed}
 else
     result=${testFailed}
@@ -27,7 +27,7 @@ mixedFiles=()
 mixedFiles+=($scriptName)
 mixedFiles+=("noSuchFile0")
 
-if (anyFileMissing mixedFiles); then
+if (fileMissingMulti mixedFiles); then
     result=${testPassed}
 else
     result=${testFailed}

@@ -1,6 +1,6 @@
 # todo: combine with the singular version
-allFilesExist() {
-    # synopsis: allFilesExist <arrayOfPaths>
+fileExistsMulti() {
+    # synopsis: fileExistsMulti <arrayOfPaths>
     local -n files=$1
     local res=true
     for file in "${files[@]}"; do

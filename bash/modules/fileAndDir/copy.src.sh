@@ -1,5 +1,5 @@
-copyFile() { #Todo: Test although covered in copyFiles
-    # synopsis: copyFile <SourceFilePath> to <TargetFilePath>
+copy() { #Todo: Test although covered in copyMulti
+    # synopsis: copy <SourceFilePath> to <TargetFilePath>
     local sourceFile=$1
     local secondParameter=$2
     local targetFile=$3

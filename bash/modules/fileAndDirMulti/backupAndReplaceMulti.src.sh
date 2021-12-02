@@ -1,5 +1,5 @@
-backupAndReplaceFiles() {
-    # synopsis: backupAndReplaceFiles <ArrayOfSourcePaths> to <ArrayOfTargetPaths>
+backupAndReplaceMulti() {
+    # synopsis: backupAndReplaceMulti <ArrayOfSourcePaths> to <ArrayOfTargetPaths>
     local -n _0sources=$1
     local secondParameter=$2
     local -n targets=$3
@@ -17,12 +17,12 @@ backupAndReplaceFiles() {
         return
     fi
 
-    if (anyFileMissing _0sources); then
+    if (fileMissingMulti _0sources); then
         echo "${FUNCNAME[0]} some of the source files are missing"
         return
     fi
 
     for index in "${!_0sources[@]}"; do
-        backupAndReplaceFile ${_0sources[$index]} to ${targets[$index]}
+        backupAndReplace ${_0sources[$index]} to ${targets[$index]}
     done
 }

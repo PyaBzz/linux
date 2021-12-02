@@ -8,7 +8,7 @@ shortcut=./dropbox.desktop
 if (askUserClear "Install $packageName"); then
     wget $downloadUrl -O $downloadedFile
     tar xzf $downloadedFile -C $HOME
-    copyFile $shortcut to $desktopDir
+    copy $shortcut to $desktopDir
     rm $downloadedFile
 else
     echo "Aborted"

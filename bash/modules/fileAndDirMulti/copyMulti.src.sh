@@ -1,6 +1,6 @@
 # todo: has got little use
-copyFiles() {
-    # synopsis: copyFile <ArrayOfSourcePaths> to <ArrayOfTargetPaths>
+copyMulti() {
+    # synopsis: copy <ArrayOfSourcePaths> to <ArrayOfTargetPaths>
     local -n sources=$1
     local secondParameter=$2
     local -n targets=$3
@@ -18,12 +18,12 @@ copyFiles() {
         return
     fi
 
-    if (anyFileMissing sources); then
+    if (fileMissingMulti sources); then
         echo "${FUNCNAME[0]} some of the source files are missing"
         return
     fi
 
     for index in "${!sources[@]}"; do
-        copyFile ${sources[$index]} to ${targets[$index]}
+        copy ${sources[$index]} to ${targets[$index]}
     done
 }

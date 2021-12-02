@@ -12,11 +12,11 @@ apply() {
         backUp $targetLayoutFile
     fi
 
-    copyFile $myLayoutFile to $targetLayoutFile
+    copy $myLayoutFile to $targetLayoutFile
 
     # mkdir -p $autostartDir
-    # copyFile $shortcutFile to $autostartDir
-    # copyFile $shortcutFile to $desktop
+    # copy $shortcutFile to $autostartDir
+    # copy $shortcutFile to $desktop
 
     echo "$packageName Applied!"
 }

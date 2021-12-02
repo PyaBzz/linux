@@ -15,9 +15,9 @@ targetFiles=(
     "$scratchDir/src2.bazbak"
 )
 
-backupFiles sourceFiles
+backupMulti sourceFiles
 
-if (allFilesExist targetFiles); then
+if (fileExistsMulti targetFiles); then
     printTestSuccess "backing-up all"
 else
     printTestFail "backing-up all"

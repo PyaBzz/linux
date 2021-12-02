@@ -24,9 +24,9 @@ targetFiles+=($target0)
 targetFiles+=($target1)
 targetFiles+=($target2)
 
-copyFiles sourceFiles to targetFiles
+copyMulti sourceFiles to targetFiles
 
-if (allFilesExist targetFiles); then
+if (fileExistsMulti targetFiles); then
     result=${testPassed}
 else
     result=${testFailed}

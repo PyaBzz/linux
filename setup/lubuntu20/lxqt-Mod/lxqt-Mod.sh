@@ -12,14 +12,14 @@ apply() {
         fi
     fi
 
-    copyFile $myFile to $targetFile
+    copy $myFile to $targetFile
     openbox --reconfigure
 
     echo "numlock=true" >>$sessionConfigFile
 
     mkdir -p $autostartDir
-    copyFile $shortcutFile to $autostartDir
-    copyFile $shortcutFile to $desktop
+    copy $shortcutFile to $autostartDir
+    copy $shortcutFile to $desktop
 
     echo "$packageName Applied!"
 }

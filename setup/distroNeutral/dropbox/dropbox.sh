@@ -10,5 +10,5 @@ mkDirIfMissing $downloadsDir
 downloadedFile=$downloadsDir/Dropbox.tar.gz
 wget $downloadUrl -O $downloadedFile
 tar xzf $downloadedFile -C $HOME
-copyFile $shortcut to $desktopDir
+copy $shortcut to $desktopDir
 rm $downloadedFile

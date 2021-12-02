@@ -1,5 +1,5 @@
-backupAndReplaceFilesToDir() {
-    # synopsis: backupAndReplaceFilesToDir <ArrayOfSourcePaths> to <targetDirPath>
+backupAndReplaceMultiToDir() {
+    # synopsis: backupAndReplaceMultiToDir <ArrayOfSourcePaths> to <targetDirPath>
     local -n _1srcFiles=$1
     local secondParameter=$2
     local targetDir=$3
@@ -14,5 +14,5 @@ backupAndReplaceFilesToDir() {
         targetFiles+=($targetDir/$(basename "$file"))
     done
 
-    backupAndReplaceFiles _1srcFiles to targetFiles
+    backupAndReplaceMulti _1srcFiles to targetFiles
 }

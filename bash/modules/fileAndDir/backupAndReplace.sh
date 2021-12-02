@@ -1,5 +1,5 @@
-backupAndReplaceFile() { #Todo: Test
-    # synopsis: backupAndReplaceFile <SourceFilePath> to <TargetFilePath>
+backupAndReplace() { #Todo: Test
+    # synopsis: backupAndReplace <SourceFilePath> to <TargetFilePath>
     local sourceFile=$1
     local secondParameter=$2
     local targetFile=$3
@@ -25,6 +25,6 @@ backupAndReplaceFile() { #Todo: Test
         fi
     fi
 
-    copyFile $sourceFile to $targetFile
+    copy $sourceFile to $targetFile
     echo "$targetFile copied/replaced!"
 }

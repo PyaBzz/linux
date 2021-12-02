@@ -1,6 +1,6 @@
 # todo: unused func!
-anyFileMissing() {
-    # synopsis: anyFileMissing <arrayOfPaths>
+fileMissingMulti() {
+    # synopsis: fileMissingMulti <arrayOfPaths>
     local -n files=$1
     local res=false
 
