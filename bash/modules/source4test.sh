@@ -4,6 +4,9 @@ source $myDir/../source.sh
 scratchDir=./scratchDir
 
 mkScratchDir() {
+    if (dirExists $scratchDir); then
+        rmScratchDir
+    fi
     mkdir -p $scratchDir
 }
 
@@ -17,7 +20,7 @@ wipeScratchDir() {
 }
 
 rmScratchDir() {
-    rm -rf $scratchDir 1> /dev/null 2>&1
+    rm -rf $scratchDir 1>/dev/null 2>&1
 
     if (ifThatFailed); then
         #echo "Func ${FUNCNAME[0]}: Trying sudo ..."

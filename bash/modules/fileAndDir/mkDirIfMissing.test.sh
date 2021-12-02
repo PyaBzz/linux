@@ -6,7 +6,6 @@ parentDir=$scratchDir/parent
 childDir=$parentDir/child
 
 # Arrange
-# rmScratchDir
 objective="making dir normally if missing"
 mkScratchDir
 wipeScratchDir
@@ -21,8 +20,6 @@ if (dirExists $childDir); then
 else
     printTestFail "$objective"
 fi
-
-rmScratchDir
 
 # Arrange
 objective="making dir as su if missing"
