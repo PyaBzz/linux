@@ -1,4 +1,4 @@
-source ./work.sh
+source ./defs.sh
 
 askToProceed "Apply $pkg?"
 copy $payloadFile to $targetFile
