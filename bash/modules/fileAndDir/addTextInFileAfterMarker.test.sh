@@ -1,6 +1,6 @@
 source ../source4test.sh
 
-# Arrange
+#===============  Arrange  ===============
 sourceFile="$scratchDir/sourceFile"
 targetFile="$scratchDir/targetFile"
 

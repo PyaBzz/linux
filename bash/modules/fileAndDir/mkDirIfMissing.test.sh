@@ -5,7 +5,7 @@ source ../source4test.sh
 parentDir=$scratchDir/parent
 childDir=$parentDir/child
 
-# Arrange
+#===============  Arrange  ===============
 objective="making dir normally if missing"
 mkScratchDir
 wipeScratchDir
@@ -21,7 +21,7 @@ else
     printTestFail "$objective"
 fi
 
-# Arrange
+#===============  Arrange  ===============
 objective="making dir as su if missing"
 mkScratchDir
 wipeScratchDir

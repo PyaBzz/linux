@@ -4,7 +4,7 @@ source ../source4test.sh
 source0="$scratchDir/source0"
 target0="$scratchDir/target0"
 
-# Arrange
+#===============  Arrange  ===============
 objective="copy normally"
 mkScratchDir
 touch $source0
@@ -19,7 +19,7 @@ else
     printTestFail "$objective"
 fi
 
-# Arrange
+#===============  Arrange  ===============
 objective="copy as su"
 mkScratchDir
 touch $source0
@@ -35,7 +35,7 @@ else
     printTestFail "$objective"
 fi
 
-# Arrange
+#===============  Arrange  ===============
 objective="backup target first"
 mkScratchDir
 touch $source0
@@ -51,7 +51,7 @@ else
     printTestFail "$objective"
 fi
 
-# Arrange
+#===============  Arrange  ===============
 objective="not backup target first"
 mkScratchDir
 touch $source0

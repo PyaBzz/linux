@@ -1,6 +1,6 @@
 source ../source4test.sh
 
-# Arrange
+#===============  Arrange  ===============
 mkScratchDir
 
 sourceFiles=(
