@@ -1,5 +1,5 @@
-backupAndReplaceMulti() {
-    # synopsis: backupAndReplaceMulti <ArrayOfSourcePaths> to <ArrayOfTargetPaths>
+copyWithBackupMulti() {
+    # synopsis: copyWithBackupMulti <ArrayOfSourcePaths> to <ArrayOfTargetPaths>
     local -n _0sources=$1
     local secondParameter=$2
     local -n targets=$3
@@ -23,6 +23,6 @@ backupAndReplaceMulti() {
     fi
 
     for index in "${!_0sources[@]}"; do
-        backupAndReplace ${_0sources[$index]} to ${targets[$index]}
+        copyWithBackup ${_0sources[$index]} to ${targets[$index]}
     done
 }

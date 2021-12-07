@@ -1,5 +1,5 @@
-backupAndReplace() { #Todo: Test
-    # synopsis: backupAndReplace <SourceFilePath> to <TargetFilePath>
+copyWithBackup() { #Todo: Test
+    # synopsis: copyWithBackup <SourceFilePath> to <TargetFilePath>
     local sourceFile=$1
     local secondParameter=$2
     local targetFile=$3

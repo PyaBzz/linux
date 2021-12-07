@@ -15,5 +15,5 @@ apply() {
         fi
     fi
 
-    backupAndReplace $myLayoutFile to $targetLayoutFile
+    copyWithBackup $myLayoutFile to $targetLayoutFile
 }
