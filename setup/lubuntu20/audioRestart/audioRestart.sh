@@ -6,7 +6,7 @@ desktop="$HOME/Desktop"
 packageName="audio-restart"
 
 if (askUserClear "Install $packageName?"); then
-    copy $shortcutFile to $desktop
+    copy $shortcutFile $desktop
     echo "$packageName Applied!"
 else
     echo "Aborted"

@@ -1,18 +1,12 @@
 copyToDirWithBackupMulti() {
-    # synopsis: copyToDirWithBackupMulti <ArrayOfSourcePaths> to <targetDirPath>
+    # synopsis: copyToDirWithBackupMulti <ArrayOfSourcePaths> <targetDirPath>
     local -n _1srcFiles=$1
-    local secondParameter=$2
-    local targetDir=$3
-
-    if [[ $secondParameter != "to" ]]; then
-        echo "Func ${FUNCNAME[0]}: The 2nd parameter must be the word 'to'"
-        return
-    fi
+    local targetDir=$2
 
     targetFiles=()
     for file in ${_1srcFiles[@]}; do
         targetFiles+=($targetDir/$(basename "$file"))
     done
 
-    copyWithBackupMulti _1srcFiles to targetFiles
+    copyWithBackupMulti _1srcFiles targetFiles
 }

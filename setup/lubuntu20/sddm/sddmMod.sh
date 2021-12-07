@@ -13,7 +13,7 @@ targetFiles+=("/usr/share/sddm/themes/lubuntu/theme.conf")
 targetFiles+=("/usr/share/sddm/themes/lubuntu/bazWallpaper")
 
 if (askUserClear "Apply $package?"); then
-    copyMulti sourceFiles to targetFiles
+    copyMulti sourceFiles targetFiles
     echo "Applied $package"
 else
     echo "Skipped $package"

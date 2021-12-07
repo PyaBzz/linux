@@ -1,16 +1,10 @@
 copyWithBackup() { #Todo: Test
-    # synopsis: copyWithBackup <SourceFilePath> to <TargetFilePath>
+    # synopsis: copyWithBackup <SourceFilePath> <TargetFilePath>
     local sourceFile=$1
-    local secondParameter=$2
-    local targetFile=$3
+    local targetFile=$2
 
     if (fileMissing $sourceFile); then
         echo "Func ${FUNCNAME[0]}: Source file not found at $sourceFile"
-        return
-    fi
-
-    if [[ $secondParameter != "to" ]]; then
-        echo "Func ${FUNCNAME[0]}: The 2nd parameter must be the word 'to'"
         return
     fi
 
@@ -25,6 +19,6 @@ copyWithBackup() { #Todo: Test
         fi
     fi
 
-    copy $sourceFile to $targetFile
+    copy $sourceFile $targetFile
     echo "$targetFile copied/replaced!"
 }

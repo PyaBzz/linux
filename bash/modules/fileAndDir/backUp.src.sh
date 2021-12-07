@@ -17,7 +17,7 @@ backUp() {
         return 2 # 2 means that backup already exists
     fi
 
-    copy $targetFile to $backupFile
+    copy $targetFile $backupFile
 
     if ($verbose && fileExists $backupFile); then
         echo "Func ${FUNCNAME[0]}: Backup saved in $backupFile"

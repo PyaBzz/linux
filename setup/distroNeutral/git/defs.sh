@@ -6,7 +6,7 @@ aliases() {
         echo "Skipped aliases. Prerequisite: bashMod"
         return
     fi
-    copy $aliasFile to $aliasDir/git.sh
+    copy $aliasFile $aliasDir/git.sh
 }
 
 userConfigs() {

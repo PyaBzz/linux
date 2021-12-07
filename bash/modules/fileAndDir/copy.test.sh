@@ -10,7 +10,7 @@ mkScratchDir
 touch $source0
 
 # Act
-copy $source0 to $target0
+copy $source0 $target0
 
 # Verify
 if (fileExists $target0); then
@@ -26,7 +26,7 @@ touch $source0
 chmod -w $scratchDir
 
 # Act
-copy $source0 to $target0
+copy $source0 $target0
 
 # Verify
 if (fileExists $target0); then

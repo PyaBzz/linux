@@ -10,15 +10,15 @@ openboxTargetFile="$openboxTargetDir/rc.xml"
 
 applyToLocal() {
     mkdir -p $lxqtTargetDir
-    copyToDirMulti lxqtSources to $lxqtTargetDir
+    copyToDirMulti lxqtSources $lxqtTargetDir
 
     mkdir -p $openboxTargetDir
-    copy $openboxSrcFile to $openboxTargetFile
+    copy $openboxSrcFile $openboxTargetFile
 }
 
 takeFromLocal() {
     mkdir -p $lxqtSrcDir
     cp $lxqtTargetDir/*.conf $lxqtSrcDir
 
-    copy $openboxTargetFile to $openboxSrcFile
+    copy $openboxTargetFile $openboxSrcFile
 }

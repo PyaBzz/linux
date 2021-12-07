@@ -2,6 +2,6 @@ source ./defs.sh
 
 askToProceed "Take conf file from this machine?"
 
-copy $targetFile to $sourceFile
+copy $targetFile $sourceFile
 
 echo "Done"

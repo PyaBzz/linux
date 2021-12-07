@@ -24,7 +24,7 @@ targetFiles=(
 # "$confDir/theme.conf"
 # "/usr/share/sddm/themes/lubuntu/bazWallpaper"
 
-copyMulti sourceFiles to targetFiles
+copyMulti sourceFiles targetFiles
 setfacl -m u:sddm:x $HOME
 
 echo "Applied $package"

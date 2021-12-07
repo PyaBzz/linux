@@ -14,7 +14,7 @@ fi
 package="aliases"
 if (askUser "Apply $package?"); then
     if (isBashModded); then
-        copy ./alias to $aliasDir/git.sh
+        copy ./alias $aliasDir/git.sh
         echo "$package applied"
     else
         echo "Skipped $package as bashMod hasn't been applied yet"

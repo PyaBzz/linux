@@ -27,7 +27,7 @@ applyBashMod() {
 
     backUp $bashrcFile
     appendToBashrc
-    copy $appendageSource to $appendageFile
+    copy $appendageSource $appendageFile
     isAppendageRun=true
 }
 
@@ -38,5 +38,5 @@ applyAliases() {
     fi
 
     mkdir -p $aliasDir
-    copy $aliasSource to $aliasDir/mod.sh
+    copy $aliasSource $aliasDir/mod.sh
 }

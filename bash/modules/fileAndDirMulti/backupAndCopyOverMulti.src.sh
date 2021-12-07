@@ -1,13 +1,7 @@
 copyWithBackupMulti() {
-    # synopsis: copyWithBackupMulti <ArrayOfSourcePaths> to <ArrayOfTargetPaths>
+    # synopsis: copyWithBackupMulti <ArrayOfSourcePaths> <ArrayOfTargetPaths>
     local -n _0sources=$1
-    local secondParameter=$2
-    local -n targets=$3
-
-    if [[ $secondParameter != "to" ]]; then
-        echo "Func ${FUNCNAME[0]}: The 2nd parameter must be the word 'to'"
-        return
-    fi
+    local -n targets=$2
 
     local sourcesCount=${#_0sources[@]}
     local targetsCount=${#targets[@]}
@@ -23,6 +17,6 @@ copyWithBackupMulti() {
     fi
 
     for index in "${!_0sources[@]}"; do
-        copyWithBackup ${_0sources[$index]} to ${targets[$index]}
+        copyWithBackup ${_0sources[$index]} ${targets[$index]}
     done
 }
