@@ -8,8 +8,10 @@ backUp() {
     if [ "$2" = "--verbose" ] || [ "$2" = "-v" ]; then verbose=true; fi
 
     if (fileMissing $targetFile); then
-        echo "Func ${FUNCNAME[0]}: Target file not found at $targetFile"
-        return
+        if ($verbose); then
+            echo "Func ${FUNCNAME[0]}: Target file not found at $targetFile"
+        fi
+        return 1
     fi
 
     if (fileExists $backupFile); then
@@ -17,7 +19,11 @@ backUp() {
         return 2 # 2 means that backup already exists
     fi
 
-    copy $targetFile $backupFile
+    cp $targetFile $backupFile
+
+    if (ifThatFailed); then
+        sudo cp $targetFile $backupFile
+    fi
 
     if ($verbose && fileExists $backupFile); then
         echo "Func ${FUNCNAME[0]}: Backup saved in $backupFile"
