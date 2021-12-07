@@ -20,16 +20,16 @@ else
 fi
 
 #===============  Arrange  ===============
-objective="copy as su"
+objective="not backup target first"
 mkScratchDir
 touch $source0
-chmod -w $scratchDir
+touch $target0
 
 # Act
 copy $source0 $target0
 
 # Verify
-if (fileExists $target0); then
+if (fileExists $target0 && ! isBackedUp $target0); then
     printTestSuccess "$objective"
 else
     printTestFail "$objective"
@@ -52,16 +52,16 @@ else
 fi
 
 #===============  Arrange  ===============
-objective="not backup target first"
+objective="copy as su"
 mkScratchDir
 touch $source0
-touch $target0
+chmod -w $scratchDir
 
 # Act
 copy $source0 $target0
 
 # Verify
-if (fileExists $target0 && ! isBackedUp $target0); then
+if (fileExists $target0); then
     printTestSuccess "$objective"
 else
     printTestFail "$objective"

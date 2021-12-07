@@ -13,7 +13,6 @@ restoreFile() {
     mv $backupFile $targetFile
 
     if (ifThatFailed); then # Check result of the last command
-        #echo "Func ${FUNCNAME[0]}: Trying sudo ..."
         sudo mv $backupFile $targetFile
     fi
 

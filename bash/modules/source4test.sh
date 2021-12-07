@@ -14,7 +14,6 @@ wipeScratchDir() {
     rm -rf $scratchDir/*
 
     if (ifThatFailed); then
-        #echo "Func ${FUNCNAME[0]}: Trying sudo ..."
         sudo rm -rf $scratchDir/*
     fi
 }
@@ -23,7 +22,6 @@ rmScratchDir() {
     rm -rf $scratchDir 1>/dev/null 2>&1
 
     if (ifThatFailed); then
-        #echo "Func ${FUNCNAME[0]}: Trying sudo ..."
         sudo rm -rf $scratchDir
     fi
 }

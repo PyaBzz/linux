@@ -6,7 +6,6 @@ copy() { #Todo: Test although covered in copyMulti
     local verbose=false
 
     if [ "$3" = "--backup" ] || [ "$3" = "-b" ]; then shouldBackup=true; fi
-
     if [ "$4" = "--verbose" ] || [ "$4" = "-v" ]; then verbose=true; fi
 
     if (fileMissing $sourceFile); then
@@ -21,7 +20,6 @@ copy() { #Todo: Test although covered in copyMulti
     cp $sourceFile $targetFile 1>/dev/null 2>&1
 
     if (ifThatFailed); then
-        #echo "Func ${FUNCNAME[0]}: Trying sudo ..."
         sudo cp $sourceFile $targetFile
     fi
 }
