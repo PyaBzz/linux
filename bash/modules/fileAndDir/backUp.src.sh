@@ -1,5 +1,5 @@
 backUp() {
-    # synopsis: backUp <PathToTargetFile>
+    # synopsis: backUp <PathToTargetFile> [-v|--verbose]
     # Puts a backup of the file next to it
     local targetFile=$1
     local backupFile=$targetFile.bazbak
