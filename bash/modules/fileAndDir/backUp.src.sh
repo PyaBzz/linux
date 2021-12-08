@@ -9,13 +9,15 @@ backUp() {
 
     if (fileMissing $targetFile); then
         if ($verbose); then
-            echo "Func ${FUNCNAME[0]}: Target file not found at $targetFile"
+            echo "Func ${FUNCNAME[0]}: Target not found at $targetFile"
         fi
         return 1
     fi
 
     if (fileExists $backupFile); then
-        echo "Func ${FUNCNAME[0]}: Skipped backup file as it exists at $backupFile"
+        if ($verbose); then
+            echo "Func ${FUNCNAME[0]}: Skipped as it exists at $backupFile"
+        fi
         return 2 # 2 means that backup already exists
     fi
 
@@ -25,7 +27,7 @@ backUp() {
         sudo cp $targetFile $backupFile
     fi
 
-    if ($verbose && fileExists $backupFile); then
+    if (fileExists $backupFile && $verbose); then
         echo "Func ${FUNCNAME[0]}: Backup saved in $backupFile"
     fi
 }
