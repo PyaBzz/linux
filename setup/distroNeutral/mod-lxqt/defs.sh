@@ -2,6 +2,7 @@ source ../../source.sh
 
 lxqtSrcDir="./$hostName/lxqt"
 lxqtTargetDir=$HOME/.config/lxqt
+bazButtonIcon="./baz.png"
 
 openboxSrcDir="./$hostName/openbox"
 openboxSrcFile="$openboxSrcDir/rc.xml"
@@ -12,6 +13,7 @@ openboxTargetFile="$openboxTargetDir/rc.xml"
 applyToLocal() {
     mkdir -p $lxqtTargetDir
     cp $lxqtSrcDir/*.conf $lxqtTargetDir
+    cp $bazButtonIcon $HOME
 
     mkdir -p $openboxTargetDir
     cp $openboxSrcFile $openboxTargetFile
