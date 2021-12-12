@@ -1,5 +1,4 @@
 source ./defs.sh
 
 pkgMgrAskInstall retroarch
-
-askRunFunc cloneConfigRepo "Clone config repository?"
+askRunFunc linkInstallDir "Link install directory to redirect here?"

@@ -1,8 +1,7 @@
 source ../../source.sh
 
-srcFile=./retroarch.cfg
-targetDir=~/.config/retroarch
+redirectTo=$(getCallingScriptDir)/runHere
 
-cloneConfigRepo() {
-    git clone git@github.com:PyaBzz/retroarch.git $targetDir
+linkInstallDir() {
+    ln -sf $redirectTo $configDir/retroarch
 }

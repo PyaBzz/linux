@@ -3,6 +3,7 @@ bashModDir=$HOME/.bashMod
 aliasDir=$bashModDir/aliases
 desktopDir=$HOME/Desktop
 downloadsDir=$HOME/Downloads
+configDir=$HOME/.config
 hostName=$(cat /etc/hostname)
 
 isBashModded() {
