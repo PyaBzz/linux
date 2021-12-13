@@ -17,6 +17,7 @@ applyToLocal() {
 
     mkdir -p $openboxTargetDir
     cp $openboxSrcFile $openboxTargetFile
+    openbox --reconfigure
 }
 
 takeFromLocal() {
