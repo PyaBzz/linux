@@ -2,7 +2,7 @@ source ../../source.sh
 
 lxqtSrcDir="./$hostName/lxqt"
 lxqtTargetDir=$HOME/.config/lxqt
-bazButtonIcon="./baz.png"
+bazButtonIcon="./.face.png"
 
 openboxSrcDir="./$hostName/openbox"
 openboxSrcFile="$openboxSrcDir/rc.xml"
