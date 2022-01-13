@@ -3,3 +3,5 @@ alias bazdate='date +"year: %Y, month: %m, day: %d, hour: %H, minute: %M" | tee 
 alias dockerps="docker ps --format 'table{{.Names}}\t{{.ID}}\t{{.Status}}\t{{.Ports}}'"
 alias dockeru="clear && docker-compose up -d"
 alias dockerd="clear && docker-compose down"
+alias memu="cd /c/projects/dev-environment-setup/support && dockeru"
+alias memd="cd /c/projects/dev-environment-setup/support && dockerd"
