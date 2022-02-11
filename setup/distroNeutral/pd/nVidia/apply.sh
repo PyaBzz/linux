@@ -9,6 +9,11 @@ if (isArch); then
     # Then copy the blacklist.conf file to /etc/modprobe.d/blacklist.conf
     # Then add these (space separated) to /etc/pacman.conf in the ignore section:
     # nvidia nvidia-settings nvidia-utils
+
+    # That makes these two lines appear in the output of 'pacman -Syu':
+    # warning: nvidia-settings: ignoring package upgrade (495.44-1 => 510.47.03-1)
+    # warning: nvidia-utils: ignoring package upgrade (495.44-6 => 510.47.03-3)
+    
     # Then do these two lines:
     # askToProceed "Install nVidia settings front-end?"
     # pkgMgrInstall "nvidia-settings"
