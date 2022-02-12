@@ -1,7 +1,7 @@
 source ../../source.sh
 
 packageName="persian keyboard layout fix"
-myLayoutFile=$(getCallingScriptDir)/ir
+myLayoutFile=$(getCallingScriptDir)/ir # Cannot use ./ for ln
 localLayoutFile=/usr/share/X11/xkb/symbols/ir
 
 apply() {

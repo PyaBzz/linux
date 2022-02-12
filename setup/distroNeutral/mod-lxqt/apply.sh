@@ -1,6 +1,6 @@
 source ./defs.sh
 
 askToProceed "Apply LXQT Mod?"
-applyToLocal
+apply
 
 echo "Done"

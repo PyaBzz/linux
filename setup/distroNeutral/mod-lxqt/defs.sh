@@ -1,29 +1,23 @@
 source ../../source.sh
 
-lxqtSrcDir="./$hostName/lxqt"
-lxqtTargetDir=$HOME/.config/lxqt
-bazButtonIcon="./.face.png"
+lxqtMyDirBase="$(getCallingScriptDir)/$hostName" # Cannot use ./ for ln
+lxqtMyDir="$lxqtMyDirBase/lxqt"
+lxqtLocalDir=$HOME/.config/lxqt
+bazButtonIcon="./.face.png" # Todo: symlink this as well!
 
-openboxSrcDir="./$hostName/openbox"
-openboxSrcFile="$openboxSrcDir/rc.xml"
+openboxMyFile="$(getCallingScriptDir)/$hostName/openbox/rc.xml"
+openboxLocalFile="$HOME/.config/openbox/rc.xml"
 
-openboxTargetDir="$HOME/.config/openbox"
-openboxTargetFile="$openboxTargetDir/rc.xml"
+apply() {
+    if (dirExists $lxqtLocalDir); then
+        backUp $lxqtLocalDir --verbose
+        cp -r $lxqtLocalDir $lxqtMyDirBase
+        rm -rf $lxqtLocalDir
+    fi
+    ln -sf $lxqtMyDir $lxqtLocalDir
 
-applyToLocal() {
-    mkdir -p $lxqtTargetDir
-    cp $lxqtSrcDir/*.conf $lxqtTargetDir
+    backUp $openboxLocalFile
+    ln -sf $openboxMyFile $openboxLocalFile
+
     cp $bazButtonIcon $HOME
-
-    mkdir -p $openboxTargetDir
-    cp $openboxSrcFile $openboxTargetFile
-    openbox --reconfigure
-}
-
-takeFromLocal() {
-    mkdir -p $lxqtSrcDir
-    cp $lxqtTargetDir/*.conf $lxqtSrcDir
-
-    mkdir -p $openboxSrcDir
-    cp $openboxTargetFile $openboxSrcFile
 }
