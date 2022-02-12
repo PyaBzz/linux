@@ -1,33 +1,35 @@
 backUp() {
-    # synopsis: backUp <PathToTargetFile> [-v|--verbose]
+    # synopsis: backUp <PathTotargetObj> [-v|--verbose]
     # Puts a backup of the file next to it
-    local targetFile=$1
-    local backupFile=$targetFile.bazbak
+    local targetObj=$1
+    local backupObj=$targetObj.bazbak
     local verbose=false
 
     if [ "$2" = "--verbose" ] || [ "$2" = "-v" ]; then verbose=true; fi
 
-    if (fileMissing $targetFile); then
+    if (fileMissing $targetObj && dirMissing $targetObj); then
         if ($verbose); then
-            echo "Func ${FUNCNAME[0]}: Target not found at $targetFile"
+            echo "Func ${FUNCNAME[0]}: Target not found at $targetObj"
         fi
         return 1
     fi
 
-    if (fileExists $backupFile); then
+    if (fileExists $backupObj || dirExists $backupObj); then
         if ($verbose); then
-            echo "Func ${FUNCNAME[0]}: Skipped as it exists at $backupFile"
+            echo "Func ${FUNCNAME[0]}: Skipped as it exists at $backupObj"
         fi
         return 2 # 2 means that backup already exists
     fi
 
-    cp $targetFile $backupFile
+    cp -r $targetObj $backupObj
 
     if (ifThatFailed); then
-        sudo cp $targetFile $backupFile
+        sudo cp -r $targetObj $backupObj
     fi
 
-    if (fileExists $backupFile && $verbose); then
-        echo "Func ${FUNCNAME[0]}: Backup saved in $backupFile"
+    if (fileExists $backupObj || dirExists $backupObj); then
+        if ($verbose); then
+            echo "Func ${FUNCNAME[0]}: Backup saved in $backupObj"
+        fi
     fi
 }
