@@ -1,19 +1,11 @@
 source ../../source.sh
 
 packageName="persian keyboard layout fix"
-myLayoutFile=./ir
-targetLayoutFile=/usr/share/X11/xkb/symbols/ir
+myLayoutFile=$(getCallingScriptDir)/ir
+localLayoutFile=/usr/share/X11/xkb/symbols/ir
 
 apply() {
-    if (isBackedUp $targetLayoutFile); then
-        if (askUser "Overwrite the existing mod?"); then
-            echo "Overwriting mod ..."
-            restoreFile $targetLayoutFile
-        else
-            echo "Skipped"
-            return
-        fi
-    fi
-
-    copyWithBackup $myLayoutFile $targetLayoutFile
+    backUp $localLayoutFile
+    sudo ln -sf $myLayoutFile $localLayoutFile
+    # To apply layout changes without a restart: setxkbmap -layout ir
 }
