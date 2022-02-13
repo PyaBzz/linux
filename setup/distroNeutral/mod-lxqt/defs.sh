@@ -1,12 +1,15 @@
 source ../../source.sh
 
-lxqtMyDirBase="$(getCallingScriptDir)/$hostName" # Cannot use ./ for symlinks
+myDir=$(getMyDir) # Cannot use ./ for symlinks
+lxqtMyDirBase="$myDir/$hostName"
 lxqtMyDir="$lxqtMyDirBase/lxqt"
 lxqtLocalDir=$HOME/.config/lxqt
-bazButtonIcon="./.face.png" # Todo: symlink this as well!
 
-openboxMyFile="$(getCallingScriptDir)/$hostName/openbox/rc.xml"
+openboxMyFile="$myDir/$hostName/openbox/rc.xml"
 openboxLocalFile="$HOME/.config/openbox/rc.xml"
+
+bazIcon="$mediaDir/baz.png"
+iconFile=$HOME/.face.png
 
 apply() {
     if (dirExists $lxqtLocalDir); then
@@ -19,5 +22,5 @@ apply() {
     backUp $openboxLocalFile
     ln -sf $openboxMyFile $openboxLocalFile
 
-    cp $bazButtonIcon $HOME
+    ln -sf $bazIcon $iconFile
 }
