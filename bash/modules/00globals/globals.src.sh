@@ -1,5 +1,5 @@
 #
-bashModDir=$HOME/.bashMod
+bashModDir="$(getMyDir)/../../mod" # Cannot use ./ for ln
 aliasDir=$bashModDir/aliases
 desktopDir=$HOME/Desktop
 downloadsDir=$HOME/Downloads

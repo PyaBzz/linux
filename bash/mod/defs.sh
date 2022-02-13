@@ -1,12 +1,10 @@
 source ../source.sh
 
-bashrcFile=$HOME/.bashrc
-appendageSource=./appendage.sh
-appendageFile=$bashModDir/appendage.sh
-aliasSource=./alias
+bashRcFile=$HOME/.bashrc
+appendageFile=$(getCallingScriptDir)/appendage.sh
 
 appendToBashrc() {
-    cat <<EOT >>$bashrcFile
+    cat <<EOT >>$bashRcFile
 
 #══════════════════  BazMod  ══════════════════
 source $appendageFile
@@ -16,27 +14,11 @@ EOT
 
 applyBashMod() {
     if (isBashModded); then
-        if (askUser "Overwrite the existing mod?"); then
-            echo "Overwriting mod ..."
-            restoreFile $bashrcFile
-        else
-            echo "Skipped"
-            return
-        fi
-    fi
-
-    backUp $bashrcFile
-    appendToBashrc
-    copy $appendageSource $appendageFile
-    isAppendageRun=true
-}
-
-applyAliases() {
-    if (isBashNotModded); then
-        echo "Skipped aliases as bashMod hasn't been applied yet"
+        echo "Skipped as your Bash is already modded"
         return
     fi
 
-    mkdir -p $aliasDir
-    copy $aliasSource $aliasDir/mod.sh
+    backUp $bashRcFile
+    appendToBashrc
+    isAppendageRun=true
 }
