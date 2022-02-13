@@ -1,6 +1,6 @@
 source ../../source.sh
 
-lxqtMyDirBase="$(getCallingScriptDir)/$hostName" # Cannot use ./ for ln
+lxqtMyDirBase="$(getCallingScriptDir)/$hostName" # Cannot use ./ for symlinks
 lxqtMyDir="$lxqtMyDirBase/lxqt"
 lxqtLocalDir=$HOME/.config/lxqt
 bazButtonIcon="./.face.png" # Todo: symlink this as well!
