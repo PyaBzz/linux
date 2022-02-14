@@ -1,7 +1,7 @@
 myDir="$(readlink -f "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)")"
 source $myDir/../source.sh
 
-scratchDir=./scratchDir
+scratchDir=$myDir/scratchDir
 
 mkScratchDir() {
     if (dirExists $scratchDir); then
@@ -54,4 +54,27 @@ printTestSuccess() {
 printTestFail() {
     local text=$1
     echo -e "${testFailed} $text"
+}
+
+assertStringEquals() {
+    local expectedStr=$1
+    local actualStr=$2
+    local objective=$3
+
+    if [ $actualStr == $expectedStr ]; then
+        printTestSuccess "$objective"
+    else
+        printTestFail "$objective"
+    fi
+}
+
+assertFileExists() {
+    local filePath=$1
+    local objective=$2
+
+    if (fileExists $filePath); then
+        printTestSuccess "$objective"
+    else
+        printTestFail "$objective"
+    fi
 }

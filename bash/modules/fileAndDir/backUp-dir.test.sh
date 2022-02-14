@@ -21,20 +21,12 @@ backUp $targetDir
 echo $overWriteContent >$targetFile
 
 # Verify
-if (fileExists $backupFile); then
-    printTestSuccess "$objective"
-else
-    printTestFail "$objective"
-fi
+assertFileExists $backupFile "$objective"
 
 # Verify
-backupContent=$(cat $backupFile)
 objective="match original dir content"
+backupContent=$(cat $backupFile)
 
-if [ $backupContent == $initialContent ]; then
-    printTestSuccess "$objective"
-else
-    printTestFail "$objective"
-fi
+assertStringEquals $initialContent $backupContent "$objective"
 
 rmScratchDir
