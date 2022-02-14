@@ -1,7 +1,7 @@
 source ../source.sh
 
 bashRcFile=$HOME/.bashrc
-appendageFile=$(getCallingScriptDir)/appendage.sh
+appendageFile=$(getMyDir)/appendage.sh
 
 appendToBashrc() {
     cat <<EOT >>$bashRcFile

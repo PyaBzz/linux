@@ -1,11 +1,10 @@
 source ../../source.sh
 
-myDir=$(getMyDir) # Cannot use ./ for symlinks
-lxqtMyDirBase="$myDir/$hostName"
-lxqtMyDir="$lxqtMyDirBase/lxqt"
+lxqtPayloadDirBase="$(getMyDir)/$hostName" # Cannot use ./ for symlinks
+lxqtPayloadDir="$lxqtPayloadDirBase/lxqt"
 lxqtLocalDir=$HOME/.config/lxqt
 
-openboxMyFile="$myDir/$hostName/openbox/rc.xml"
+openboxMyFile="$(getMyDir)/$hostName/openbox/rc.xml" # Cannot use ./ for symlinks
 openboxLocalFile="$HOME/.config/openbox/rc.xml"
 
 bazIcon="$mediaDir/baz.png"
@@ -14,10 +13,10 @@ iconFile=$HOME/.face.png
 apply() {
     if (dirExists $lxqtLocalDir); then
         backUp $lxqtLocalDir --verbose
-        cp -r $lxqtLocalDir $lxqtMyDirBase
+        cp -r $lxqtLocalDir $lxqtPayloadDirBase
         rm -rf $lxqtLocalDir
     fi
-    ln -sf $lxqtMyDir $lxqtLocalDir
+    ln -sf $lxqtPayloadDir $lxqtLocalDir
 
     backUp $openboxLocalFile
     ln -sf $openboxMyFile $openboxLocalFile

@@ -41,9 +41,9 @@ setPromptStyle
 export isAppendageRun=true
 
 #════════════════════════════  Aliases  ════════════════════════════
-alias getMyDir='echo "$(readlink -f "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)")"'
+myDir="$(readlink -f "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)")"
 
-for f in $(getMyDir)/aliases/*.sh; do source $f; done
+for f in $myDir/aliases/*.sh; do source $f; done
 
 #════════════════════════════  Navigate  ════════════════════════════
 
