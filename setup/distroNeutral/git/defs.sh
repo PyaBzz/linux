@@ -1,7 +1,7 @@
 source ../../source.sh
 
 aliases() {
-    local aliasFile=./alias
+    local aliasFile=$(getMyDir)/alias # Cannot use ./ for symlinks
     if (isBashNotModded); then
         echo "Skipped aliases. Prerequisite: bashMod"
         return
