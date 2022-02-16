@@ -1,4 +1,4 @@
-source ../source.sh
+source ../../source.sh
 
 pkg="Work aliases"
 payloadFile="$(getMyDir)/alias" # Cannot use ./ for symlinks
