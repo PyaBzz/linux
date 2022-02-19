@@ -20,5 +20,7 @@ elif (isArch); then
     makepkg -sri # automatically runs `pacman -U ...`
     rm -rf $repoLocal
 fi
-# Set Chrome as your default browser
-addTextInFileAfterMarker "BROWSER=/usr/bin/google-chrome-stable" $HOME/.config/lxqt/session.conf "\[Environment\]"
+
+echo "Setting chrome as your default browser is done as part of your LXQT mod for file:"
+echo "$HOME/.config/lxqt/session.conf"
+echo "Under [Environment] section"
