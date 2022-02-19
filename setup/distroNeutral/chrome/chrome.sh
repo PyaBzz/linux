@@ -3,7 +3,7 @@ source ../../source.sh
 package="Google Chrome"
 
 askToProceed "Install $package?"
-mkDirIfMissing $downloadsDir
+mkdir -p $downloadsDir
 
 if (isUbuntu); then
     dlUrl=https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -13,7 +13,7 @@ if (isUbuntu); then
     rm -rf $dlFile
 elif (isArch); then
     repoLocal=$downloadsDir/chrome
-    mkDirIfMissing $repoLocal
+    mkdir -p $repoLocal
     repoUrl=https://aur.archlinux.org/google-chrome.git
     git clone $repoUrl $repoLocal
     cd $repoLocal

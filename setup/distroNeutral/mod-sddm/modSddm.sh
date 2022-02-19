@@ -10,7 +10,7 @@ else
 fi
 
 # confDir=/etc/sddm.conf.d
-# mkDirIfMissing $confDir
+# mkdir -p $confDir
 
 bazIcon="$mediaDir/baz.png"
 # "./theme.conf"
