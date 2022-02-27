@@ -316,8 +316,7 @@
       </action>
     </keybind>
 
-    <!-- Keybindings for window docking -->
-    <keybind key="C-W-Up">        # Full-Height / Full-Screen
+    <keybind key="W-Up">        # baz window docking full-height / full-screen
       <action name="If">
         <query target="default">
           <maximizedvertical>yes</maximizedvertical>
@@ -331,18 +330,18 @@
       </action>
     </keybind>
 
-    <keybind key="C-W-Down">        # Middle screen
+    <keybind key="W-Down">        # baz window docking middle screen
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo"><x>center</x><y>center</y><width>50%</width><height>50%</height></action>
     </keybind>
 
-    <keybind key="C-W-Left">        # Dock Left
+    <keybind key="W-Left">        # baz window docking left
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo"><x>0</x><width>50%</width></action>
       <!-- <action name="Maximize"><direction>vertical</direction></action> -->
     </keybind>
 
-    <keybind key="C-W-Right">        # Dock Right
+    <keybind key="W-Right">        # baz window docking right
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo"><x>-0</x><width>50%</width></action>
       <!-- <action name="Maximize"><direction>vertical</direction></action> -->
