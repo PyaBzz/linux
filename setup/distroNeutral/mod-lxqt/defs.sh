@@ -18,8 +18,8 @@ apply() {
     fi
     ln -sf $lxqtPayloadDir $lxqtLocalDir
 
-    backUp $openboxLocalFile
-    ln -sf $openboxMyFile $openboxLocalFile
+    # backUp $openboxLocalFile
+    ln -sfb $openboxMyFile $openboxLocalFile --suffix=.bazbak
 
     ln -sf $bazIcon $iconFile
 }
