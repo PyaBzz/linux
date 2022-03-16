@@ -47,4 +47,5 @@ for f in $bashModDir/aliases/*.sh; do source $f; done
 
 #════════════════════════════  Navigate  ════════════════════════════
 
-cd $HOME/proj
+export proj=$HOME/proj
+cd $proj
