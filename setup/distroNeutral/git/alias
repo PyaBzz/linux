@@ -9,6 +9,7 @@ alias gistash='git stash'
 alias granch='git branch'
 alias gommit='git commit'
 alias glog='git log'
+alias glean='git clean'
 
 alias gipe='git diff HEAD --name-only | xargs '
 alias gmod='gipe chmod -x && gipe ll'
