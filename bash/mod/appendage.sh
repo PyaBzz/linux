@@ -11,7 +11,7 @@ repeatSpace() {
 
 printGreeting() {
     local lineLen=41
-    local greeting="Hi $USER !"
+    local greeting="Hi $(whoami) !"
     local greetingLen=${#greeting}
     if [ $(($greetingLen % 2)) -eq 0 ]; then
         greeting+=" "
