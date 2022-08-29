@@ -3,5 +3,4 @@ alias daze='date +"year: %Y, month: %m, day: %d, hour: %H, minute: %M" | tee /de
 alias dockerps="docker ps --format 'table{{.Names}}\t{{.ID}}\t{{.Status}}\t{{.Ports}}'"
 alias dockeru="docker-compose up -d"
 alias dockerd="docker-compose down"
-alias memu="cd /c/projects/dev-environment-setup/support && dockeru && cd - > /dev/null"
-alias memd="cd /c/projects/dev-environment-setup/support && dockerd && cd - > /dev/null"
+alias dockers="docker stop"
