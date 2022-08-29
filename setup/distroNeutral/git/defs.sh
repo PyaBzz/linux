@@ -1,8 +1,9 @@
 source ../../source.sh
 
+aliasSrc=$aliasDir/../aliasSource/git.sh
+aliasLnk=$aliasDir/git.sh
+
 aliases() {
-    local aliasSrc=$aliasDir/../aliasSource/git.sh
-    local aliasLnk=$aliasDir/git.sh
     if (isBashNotModded); then
         echo "Skipped aliases. Prerequisite: bashMod"
         return
