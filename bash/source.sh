@@ -6,7 +6,7 @@ alias getMyDir='echo "$(readlink -f "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev
 # ==========================  Globals  ==========================
 
 bashModDir="$(getMyDir)/mod" # Cannot use ./ for symlinks
-aliasDir=$bashModDir/aliases
+aliasDir=$bashModDir/alias
 desktopDir=$HOME/Desktop
 downloadsDir=$HOME/Downloads
 configDir=$HOME/.config

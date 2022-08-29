@@ -1,5 +1,5 @@
 source ./defs.sh
 
 askToProceed "Apply $pkg?"
-ln -sf $payloadFile $targetFile
+ln -sf $aliasSrc $aliasLnk
 echo "Applied"

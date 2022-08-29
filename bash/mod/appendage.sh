@@ -43,7 +43,7 @@ export isAppendageRun=true
 #════════════════════════════  Aliases  ════════════════════════════
 bashModDir="$(readlink -f "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)")"
 
-for f in $bashModDir/aliases/*.sh; do source $f; done
+for f in $bashModDir/alias/*.sh; do source $f; done
 
 #════════════════════════════  Navigate  ════════════════════════════
 

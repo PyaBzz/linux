@@ -1,5 +1,5 @@
 source ./defs.sh
 
 askToProceed "Undo $pkg?"
-rm $targetFile
+unlink $aliasLnk
 echo "Removed"
