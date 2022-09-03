@@ -10,7 +10,7 @@ aliasDir=$bashModDir/alias
 desktopDir=$HOME/Desktop
 downloadsDir=$HOME/Downloads
 configDir=$HOME/.config
-hostName=$(cat /etc/hostname)
+# hostName=$(cat /etc/hostname)
 
 isBashModded() {
     if [ -z ${isAppendageRun+x} ]; then false; else true; fi
