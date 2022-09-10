@@ -7,6 +7,8 @@ alias getMyDir='echo "$(readlink -f "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev
 
 bashModDir="$(getMyDir)/mod" # Cannot use ./ for symlinks
 aliasDir=$bashModDir/alias
+aliasSrcDir=$bashModDir/alias/source
+aliasAppliedDir=$bashModDir/alias/applied
 desktopDir=$HOME/Desktop
 downloadsDir=$HOME/Downloads
 configDir=$HOME/.config
@@ -48,7 +50,7 @@ sourceFromDir() {
     for f in $(find $1 -name "*$extension"); do source $f; done
 }
 
-# ==========================  Modules  ==========================
+# ==========================  Extension  ==========================
 
-modulesDir=$(getMyDir)/modules
-sourceFromDir $modulesDir .src.sh
+extensionDir=$(getMyDir)/extension
+sourceFromDir $extensionDir .src.sh

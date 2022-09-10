@@ -22,3 +22,36 @@ applyBashMod() {
     appendToBashrc
     isAppendageRun=true
 }
+
+linkAlias() {
+    local pkg=$1
+    local aliasSrc=$aliasSrcDir/$pkg.sh
+    local aliasLnk=$aliasAppliedDir/$pkg.sh
+
+    askToProceed "Install aliases for $pkg?"
+
+    if (isBashNotModded); then
+        echo "Skipped aliases. Prerequisite: bashMod"
+        return
+    fi
+    ln -sf $aliasSrc $aliasLnk
+
+    if (fileExists $aliasLnk); then
+        echo "Done!"
+    else
+        echo "Failed!"
+    fi
+}
+
+unlinkAlias() {
+    local pkg=$1
+    local aliasLnk=$aliasAppliedDir/$pkg.sh
+    askToProceed "Uninstall aliases for $pkg?"
+    unlink $aliasLnk
+
+    if (fileMissing $aliasLnk); then
+        echo "Done!"
+    else
+        echo "Failed!"
+    fi
+}
