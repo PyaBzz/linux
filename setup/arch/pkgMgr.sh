@@ -1,4 +1,8 @@
-pkgMgrUpdate() {
+pkgMgrUpgradeSystem() {
+    sudo pacman -Syu
+}
+
+pkgMgrFetchList() {
     sudo pacman -Syy
 }
 
@@ -20,7 +24,7 @@ pkgMgrAskInstall() {
 }
 
 pkgMgrUpdateKeys() {
-    sudo pacman -Sy archlinux-keyring && pacman -Su
+    sudo pacman -Sy archlinux-keyring
 }
 
 pkgMgrRemove() {
