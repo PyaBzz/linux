@@ -19,6 +19,17 @@ pkgMgrAskInstall() {
     fi
 }
 
+pkgMgrUpdateKeys() {
+    sudo pacman -Sy archlinux-keyring && pacman -Su
+}
+
+pkgMgrRemove() {
+    local pkg=$1
+    echo "Removing $pkg"
+    sudo pacman -R --noconfirm $pkg
+    echo "Removed $pkg"
+}
+
 # pkgMgrAskInstallMulti() {
 #     local pkgs=("$@")
 #     clear
