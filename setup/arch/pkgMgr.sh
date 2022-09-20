@@ -16,7 +16,7 @@ pkgMgrInstall() {
 pkgMgrAskInstall() {
     local pkg=$1
     if (askUserClear "Install $pkg?"); then
-        pkgMgrUpdate
+        pkgMgrFetchList
         pkgMgrInstall $pkg
     else
         echo "Skipped $pkg"
@@ -37,7 +37,7 @@ pkgMgrRemove() {
 # pkgMgrAskInstallMulti() {
 #     local pkgs=("$@")
 #     clear
-#     pkgMgrUpdate
+#     pkgMgrFetchList
 #     for pkg in ${pkgs[@]}; do
 #         if (askUser "Install $pkg?"); then
 #             pkgMgrInstall $pkg

@@ -2,7 +2,7 @@
 # isArch() { [ $(myDistro) = "Arch" ]; }
 # isUbuntu() { [ $(myDistro) = "Ubuntu" ]; }
 
-# pkgMgrUpdate() {
+# pkgMgrFetchList() {
 #     if (isArch); then
 #         sudo pacman -Syy
 #     elif (isUbuntu); then
@@ -28,7 +28,7 @@
 # pkgMgrAskInstall() {
 #     local pkg=$1
 #     if (askUserClear "Install $pkg?"); then
-#         pkgMgrUpdate
+#         pkgMgrFetchList
 #         pkgMgrInstall $pkg
 #     else
 #         echo "Skipped $pkg"
@@ -38,7 +38,7 @@
 # pkgMgrAskInstallMulti() {
 #     local pkgs=("$@")
 #     clear
-#     pkgMgrUpdate
+#     pkgMgrFetchList
 #     for pkg in ${pkgs[@]}; do
 #         if (askUser "Install $pkg?"); then
 #             pkgMgrInstall $pkg
