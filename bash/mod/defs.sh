@@ -25,7 +25,6 @@ applyBashMod() {
 
 linkAlias() {
     local pkg=$1
-    local aliasSrc=$aliasSrcDir/$pkg.sh
     local aliasLnk=$aliasAppliedDir/$pkg.sh
 
     askToProceed "Install aliases for $pkg?"
@@ -34,7 +33,10 @@ linkAlias() {
         echo "Skipped aliases. Prerequisite: bashMod"
         return
     fi
-    ln -sf $aliasSrc $aliasLnk
+
+    cd $aliasAppliedDir
+    ln -sf ../source/$pkg.sh
+    cd -
 
     if (fileExists $aliasLnk); then
         echo "Done!"

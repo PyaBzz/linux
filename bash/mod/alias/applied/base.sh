@@ -1,1 +1,1 @@
-/home/baz/proj/linux/bash/mod/alias/source/base.sh
+../source/base.sh
