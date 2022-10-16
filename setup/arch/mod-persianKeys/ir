@@ -51,8 +51,8 @@ xkb_symbols "pes_part_basic" {
     key <AD11> { [ Arabic_jeem,       braceright,              0x100202a                ] }; //uk_
     key <AD12> { [ Arabic_tcheh,      braceleft,               0x100202b                ] }; //uk_
           
-    key <AC01> { [ Arabic_sheen,      Arabic_hamzaonwaw,       VoidSymbol               ] }; //uk_
-    key <AC02> { [ Arabic_seen,       Arabic_damma,            VoidSymbol               ] }; //uk_
+    key <AC01> { [ Arabic_sheen,      Arabic_superscript_alef, VoidSymbol               ] }; //uk_A
+    key <AC02> { [ Arabic_seen,       Arabic_damma,            VoidSymbol               ] }; //uk_S
     key <AC03> { [ Farsi_yeh,         Arabic_yeh,              Arabic_alefmaksura       ] }; //uk_
     key <AC04> { [ Arabic_beh,        Arabic_shadda,           VoidSymbol               ] }; //uk_
     key <AC05> { [ Arabic_lam,        Arabic_hamzaonalef,      VoidSymbol               ] }; //uk_
@@ -66,8 +66,8 @@ xkb_symbols "pes_part_basic" {
     key <AB01> { [ Arabic_zah,        Arabic_kaf,              VoidSymbol               ] }; //uk_
     key <AB02> { [ Arabic_tah,        0x1000653,               VoidSymbol               ] }; //uk_
     key <AB03> { [ Arabic_zain,       Arabic_jeh,              VoidSymbol               ] }; //uk_
-    key <AB04> { [ Arabic_ra,         Arabic_superscript_alef, 0x1000656                ] }; //uk_
-    key <AB05> { [ Arabic_thal,       0x100200c,               0x100200d                ] }; //uk_
+    key <AB04> { [ Arabic_ra,         Arabic_hamzaonwaw,       0x1000656                ] }; //uk_V
+    key <AB05> { [ Arabic_thal,       0x100200c,               0x100200d                ] }; //uk_B
     key <AB06> { [ Arabic_dal,        Arabic_hamza_above,      Arabic_hamza_below       ] }; //uk_
     key <AB07> { [ Arabic_hamzaonyeh, Arabic_hamza,            ellipsis                 ] }; //uk_
     key <AB08> { [ Arabic_waw,        greater,                 comma                    ] }; //uk_
@@ -81,6 +81,7 @@ xkb_symbols "pes_part_basic" {
 
     // baz to map:
     // Arabic_hamzaunderalef
+    // Arabic_superscript_alef
 };
 
 hidden partial alphanumeric_keys
