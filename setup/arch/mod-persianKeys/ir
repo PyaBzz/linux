@@ -79,7 +79,7 @@ xkb_symbols "pes_part_basic" {
     key <AB10> { [ slash,		Arabic_question_mark,	question	] };
 
     key <TLDE> { [ 0x100200d,		division,		asciitilde	] };
-    key <AE11> { [ minus,		Arabic_tatweel,		underscore	] };
+    key <AE11> { [ minus,		underscore,		Arabic_tatweel	] };
     key <AE12> { [ equal,		plus,			0x1002212	] };
     key <BKSL> { [ Arabic_peh,		bar,			0x1002010	] };
 
@@ -91,16 +91,16 @@ hidden partial alphanumeric_keys
 xkb_symbols "pes_part_ext" {
 
     // Persian and ASCII digits
-    key <AE01> { [ Farsi_1,	exclam,		grave,			1	] };
-    key <AE02> { [ Farsi_2,	0x100066c,	at,			2	] };
-    key <AE03> { [ Farsi_3,	0x100066b,	numbersign,		3	] };
-    key <AE04> { [ Farsi_4,	0x100fdfc,	dollar,			4	] };
-    key <AE05> { [ Farsi_5,	0x100066a,	percent,		5	] };
-    key <AE06> { [ Farsi_6,	multiply,	asciicircum,		6	] };
-    key <AE07> { [ Farsi_7,	Arabic_comma,	ampersand,		7	] };
-    key <AE08> { [ Farsi_8,	asterisk,	enfilledcircbullet,	8	] };
-    key <AE09> { [ Farsi_9,	parenright,	0x100200e,		9	] };
-    key <AE10> { [ Farsi_0,	parenleft,	0x100200f,		0	] };
+    key <AE01> { [ Farsi_1,	exclam,         grave,			    1	] };
+    key <AE02> { [ Farsi_2,	at,             0x100066c,		    2	] };
+    key <AE03> { [ Farsi_3,	numbersign,     0x100066b,		    3	] };
+    key <AE04> { [ Farsi_4,	dollar,         0x100fdfc,		    4	] };
+    key <AE05> { [ Farsi_5,	percent,	    0x100066a,		    5	] };
+    key <AE06> { [ Farsi_6,	asciicircum,    multiply,		    6	] };
+    key <AE07> { [ Farsi_7,	ampersand,      Arabic_comma,	    7	] };
+    key <AE08> { [ Farsi_8,	asterisk,       enfilledcircbullet, 8	] };
+    key <AE09> { [ Farsi_9,	parenright,     0x100200e,          9	] };
+    key <AE10> { [ Farsi_0,	parenleft,      0x100200f,          0	] };
 };
 
 hidden partial alphanumeric_keys
