@@ -1,5 +1,5 @@
-// Bazed Iranian keyboard layout
-// Persian layout,
+// Baz Persian keyboard layout
+// Meant to match persian keyboard layout of Windows
 
 default partial alphanumeric_keys
 xkb_symbols "pes" {
@@ -7,7 +7,6 @@ xkb_symbols "pes" {
 
     include "ir(pes_part_basic)"
     include "ir(pes_part_ext)"
-
     include "nbsp(zwnj2nb3nnb4)"
     include "level3(ralt_switch)"
 };
@@ -19,7 +18,6 @@ xkb_symbols "pes_keypad" {
     include "ir(pes_part_basic)"
     include "ir(pes_part_ext)"
     include "ir(pes_part_keypad)"
-
     include "nbsp(zwnj2nb3nnb4)"
     include "level3(ralt_switch)"
 };
@@ -28,58 +26,58 @@ hidden partial alphanumeric_keys
 xkb_symbols "pes_part_basic" {
 
     // Persian digits
-    key <AE01> { [ Farsi_1,           exclam,                  grave                    ] };
-    key <AE02> { [ Farsi_2,           0x100066c,               at                       ] };
-    key <AE03> { [ Farsi_3,           0x100066b,               numbersign               ] };
-    key <AE04> { [ Farsi_4,           0x100fdfc,               dollar                   ] };
-    key <AE05> { [ Farsi_5,           0x100066a,               percent                  ] };
-    key <AE06> { [ Farsi_6,           multiply,                asciicircum              ] };
-    key <AE07> { [ Farsi_7,           Arabic_comma,            ampersand                ] };
-    key <AE08> { [ Farsi_8,           asterisk,                enfilledcircbullet       ] };
-    key <AE09> { [ Farsi_9,           parenright,              0x100200e                ] };
-    key <AE10> { [ Farsi_0,           parenleft,               0x100200f                ] };
+    key <AE01> { [ Farsi_1,           exclam,                  grave                    ] }; //uk_1
+    key <AE02> { [ Farsi_2,           0x100066c,               at                       ] }; //uk_2
+    key <AE03> { [ Farsi_3,           0x100066b,               numbersign               ] }; //uk_3
+    key <AE04> { [ Farsi_4,           0x100fdfc,               dollar                   ] }; //uk_4
+    key <AE05> { [ Farsi_5,           0x100066a,               percent                  ] }; //uk_5
+    key <AE06> { [ Farsi_6,           multiply,                asciicircum              ] }; //uk_6
+    key <AE07> { [ Farsi_7,           Arabic_comma,            ampersand                ] }; //uk_7
+    key <AE08> { [ Farsi_8,           asterisk,                enfilledcircbullet       ] }; //uk_8
+    key <AE09> { [ Farsi_9,           parenright,              0x100200e                ] }; //uk_9
+    key <AE10> { [ Farsi_0,           parenleft,               0x100200f                ] }; //uk_0
           
     // Persian letters and symbols          
-    key <AD01> { [ Arabic_dad,        Arabic_sukun,            degree                   ] };
-    key <AD02> { [ Arabic_sad,        Arabic_dammatan,         VoidSymbol               ] };
-    key <AD03> { [ Arabic_theh,       Arabic_kasratan,         0x13a4                   ] };
-    key <AD04> { [ Arabic_qaf,        Arabic_fathatan,         VoidSymbol               ] };
-    key <AD05> { [ Arabic_feh,        Arabic_comma,            VoidSymbol               ] };
-    key <AD06> { [ Arabic_ghain,      Arabic_kasra,            VoidSymbol               ] };
-    key <AD07> { [ Arabic_ain,        Arabic_fatha,            VoidSymbol               ] };
-    key <AD08> { [ Arabic_heh,        bracketright,            0x100202d                ] };
-    key <AD09> { [ Arabic_khah,       bracketleft,             0x100202e                ] };
-    key <AD10> { [ Arabic_hah,        backslash,               0x100202c                ] };
-    key <AD11> { [ Arabic_jeem,       braceright,              0x100202a                ] };
-    key <AD12> { [ Arabic_tcheh,      braceleft,               0x100202b                ] };
+    key <AD01> { [ Arabic_dad,        Arabic_sukun,            degree                   ] }; //uk_
+    key <AD02> { [ Arabic_sad,        Arabic_dammatan,         VoidSymbol               ] }; //uk_
+    key <AD03> { [ Arabic_theh,       Arabic_kasratan,         0x13a4                   ] }; //uk_
+    key <AD04> { [ Arabic_qaf,        Arabic_fathatan,         VoidSymbol               ] }; //uk_
+    key <AD05> { [ Arabic_feh,        Arabic_comma,            VoidSymbol               ] }; //uk_
+    key <AD06> { [ Arabic_ghain,      Arabic_kasra,            VoidSymbol               ] }; //uk_
+    key <AD07> { [ Arabic_ain,        Arabic_fatha,            VoidSymbol               ] }; //uk_
+    key <AD08> { [ Arabic_heh,        bracketright,            0x100202d                ] }; //uk_
+    key <AD09> { [ Arabic_khah,       bracketleft,             0x100202e                ] }; //uk_
+    key <AD10> { [ Arabic_hah,        backslash,               0x100202c                ] }; //uk_
+    key <AD11> { [ Arabic_jeem,       braceright,              0x100202a                ] }; //uk_
+    key <AD12> { [ Arabic_tcheh,      braceleft,               0x100202b                ] }; //uk_
           
-    key <AC01> { [ Arabic_sheen,      Arabic_hamzaonwaw,       VoidSymbol               ] };
-    key <AC02> { [ Arabic_seen,       Arabic_damma,            VoidSymbol               ] };
-    key <AC03> { [ Farsi_yeh,         Arabic_yeh,              Arabic_alefmaksura       ] };
-    key <AC04> { [ Arabic_beh,        Arabic_shadda,           VoidSymbol               ] };
-    key <AC05> { [ Arabic_lam,        Arabic_hamzaonalef,      VoidSymbol               ] };
-    key <AC06> { [ Arabic_alef,       Arabic_maddaonalef,      0x1000671                ] };
-    key <AC07> { [ Arabic_teh,        Arabic_tehmarbuta,       VoidSymbol               ] };
-    key <AC08> { [ Arabic_noon,       guillemotright,          0x100fd3e                ] };
-    key <AC09> { [ Arabic_meem,       guillemotleft,           0x100fd3f                ] };
-    key <AC10> { [ Arabic_keheh,      colon,                   semicolon                ] };
-    key <AC11> { [ Arabic_gaf,        Arabic_semicolon,        quotedbl                 ] };
+    key <AC01> { [ Arabic_sheen,      Arabic_hamzaonwaw,       VoidSymbol               ] }; //uk_
+    key <AC02> { [ Arabic_seen,       Arabic_damma,            VoidSymbol               ] }; //uk_
+    key <AC03> { [ Farsi_yeh,         Arabic_yeh,              Arabic_alefmaksura       ] }; //uk_
+    key <AC04> { [ Arabic_beh,        Arabic_shadda,           VoidSymbol               ] }; //uk_
+    key <AC05> { [ Arabic_lam,        Arabic_hamzaonalef,      VoidSymbol               ] }; //uk_
+    key <AC06> { [ Arabic_alef,       Arabic_maddaonalef,      0x1000671                ] }; //uk_
+    key <AC07> { [ Arabic_teh,        Arabic_tehmarbuta,       VoidSymbol               ] }; //uk_
+    key <AC08> { [ Arabic_noon,       guillemotright,          0x100fd3e                ] }; //uk_
+    key <AC09> { [ Arabic_meem,       guillemotleft,           0x100fd3f                ] }; //uk_
+    key <AC10> { [ Arabic_keheh,      colon,                   semicolon                ] }; //uk_
+    key <AC11> { [ Arabic_gaf,        Arabic_semicolon,        quotedbl                 ] }; //uk_
       
-    key <AB01> { [ Arabic_zah,        Arabic_kaf,              VoidSymbol               ] };
-    key <AB02> { [ Arabic_tah,        0x1000653,               VoidSymbol               ] };
-    key <AB03> { [ Arabic_zain,       Arabic_jeh,              VoidSymbol               ] };
-    key <AB04> { [ Arabic_ra,         Arabic_superscript_alef, 0x1000656                ] };
-    key <AB05> { [ Arabic_thal,       0x100200c,               0x100200d                ] };
-    key <AB06> { [ Arabic_dal,        Arabic_hamza_above,      Arabic_hamza_below       ] };
-    key <AB07> { [ Arabic_hamzaonyeh, Arabic_hamza,            ellipsis                 ] };
-    key <AB08> { [ Arabic_waw,        greater,                 comma                    ] };
-    key <AB09> { [ period,            less,                    apostrophe               ] };
-    key <AB10> { [ slash,             Arabic_question_mark,    question                 ] };
+    key <AB01> { [ Arabic_zah,        Arabic_kaf,              VoidSymbol               ] }; //uk_
+    key <AB02> { [ Arabic_tah,        0x1000653,               VoidSymbol               ] }; //uk_
+    key <AB03> { [ Arabic_zain,       Arabic_jeh,              VoidSymbol               ] }; //uk_
+    key <AB04> { [ Arabic_ra,         Arabic_superscript_alef, 0x1000656                ] }; //uk_
+    key <AB05> { [ Arabic_thal,       0x100200c,               0x100200d                ] }; //uk_
+    key <AB06> { [ Arabic_dal,        Arabic_hamza_above,      Arabic_hamza_below       ] }; //uk_
+    key <AB07> { [ Arabic_hamzaonyeh, Arabic_hamza,            ellipsis                 ] }; //uk_
+    key <AB08> { [ Arabic_waw,        greater,                 comma                    ] }; //uk_
+    key <AB09> { [ period,            less,                    apostrophe               ] }; //uk_
+    key <AB10> { [ slash,             Arabic_question_mark,    question                 ] }; //uk_
       
-    key <TLDE> { [ 0x100200d,        division,                 asciitilde               ] };
-    key <AE11> { [ minus,            underscore,               Arabic_tatweel           ] };
-    key <AE12> { [ equal,            plus,                     0x1002212                ] };
-    key <BKSL> { [ Arabic_peh,       bar,                      0x1002010                ] };
+    key <TLDE> { [ 0x100200d,        division,                 asciitilde               ] }; //uk_
+    key <AE11> { [ minus,            underscore,               Arabic_tatweel           ] }; //uk_-
+    key <AE12> { [ equal,            plus,                     0x1002212                ] }; //uk_=
+    key <BKSL> { [ Arabic_peh,       bar,                      0x1002010                ] }; //uk_#
 
     // baz to map:
     // Arabic_hamzaunderalef
@@ -89,37 +87,37 @@ hidden partial alphanumeric_keys
 xkb_symbols "pes_part_ext" {
 
     // Persian and ASCII digits
-    key <AE01> { [ Farsi_1,          exclam,                   grave,              1    ] };
-    key <AE02> { [ Farsi_2,          at,                       0x100066c,          2    ] };
-    key <AE03> { [ Farsi_3,          numbersign,               0x100066b,          3    ] };
-    key <AE04> { [ Farsi_4,          dollar,                   0x100fdfc,          4    ] };
-    key <AE05> { [ Farsi_5,          percent,                  0x100066a,          5    ] };
-    key <AE06> { [ Farsi_6,          asciicircum,              multiply,           6    ] };
-    key <AE07> { [ Farsi_7,          ampersand,                Arabic_comma,       7    ] };
-    key <AE08> { [ Farsi_8,          asterisk,                 enfilledcircbullet, 8    ] };
-    key <AE09> { [ Farsi_9,          parenright,               0x100200e,          9    ] };
-    key <AE10> { [ Farsi_0,          parenleft,                0x100200f,          0    ] };
+    key <AE01> { [ Farsi_1,          exclam,                   grave,              1    ] }; //uk_
+    key <AE02> { [ Farsi_2,          at,                       0x100066c,          2    ] }; //uk_
+    key <AE03> { [ Farsi_3,          numbersign,               0x100066b,          3    ] }; //uk_
+    key <AE04> { [ Farsi_4,          dollar,                   0x100fdfc,          4    ] }; //uk_
+    key <AE05> { [ Farsi_5,          percent,                  0x100066a,          5    ] }; //uk_
+    key <AE06> { [ Farsi_6,          asciicircum,              multiply,           6    ] }; //uk_
+    key <AE07> { [ Farsi_7,          ampersand,                Arabic_comma,       7    ] }; //uk_
+    key <AE08> { [ Farsi_8,          asterisk,                 enfilledcircbullet, 8    ] }; //uk_
+    key <AE09> { [ Farsi_9,          parenright,               0x100200e,          9    ] }; //uk_
+    key <AE10> { [ Farsi_0,          parenleft,                0x100200f,          0    ] }; //uk_
 };
 
 hidden partial alphanumeric_keys
 xkb_symbols "pes_part_keypad" {
 
     // Persian digits and Mathematical operators
-    key <KP1>  { [ KP_End,           Farsi_1                                            ] };
-    key <KP2>  { [ KP_Down,          Farsi_2                                            ] };
-    key <KP3>  { [ KP_Next,          Farsi_3                                            ] };
-    key <KP4>  { [ KP_Left,          Farsi_4                                            ] };
-    key <KP5>  { [ KP_Begin,         Farsi_5                                            ] };
-    key <KP6>  { [ KP_Right,         Farsi_6                                            ] };
-    key <KP7>  { [ KP_Home,          Farsi_7                                            ] };
-    key <KP8>  { [ KP_Up,            Farsi_8                                            ] };
-    key <KP9>  { [ KP_Prior,         Farsi_9                                            ] };
-    key <KP0>  { [ KP_Insert,        Farsi_0                                            ] };
-    key <KPDV> { [ division,         XF86_Ungrab                                        ] };
-    key <KPMU> { [ multiply,         XF86_ClearGrab                                     ] };
-    key <KPSU> { [ 0x1002212,        XF86_Prev_VMode                                    ] };
-    key <KPAD> { [ plus,             XF86_Next_VMode                                    ] };
-    key <KPEN> { [ KP_Enter                                                             ] };
-    key <KPEQ> { [ equal                                                                ] };
-    key <KPDL> { [ KP_Delete,        0x100066b                                          ] };
+    key <KP1>  { [ KP_End,           Farsi_1                                            ] }; //uk_
+    key <KP2>  { [ KP_Down,          Farsi_2                                            ] }; //uk_
+    key <KP3>  { [ KP_Next,          Farsi_3                                            ] }; //uk_
+    key <KP4>  { [ KP_Left,          Farsi_4                                            ] }; //uk_
+    key <KP5>  { [ KP_Begin,         Farsi_5                                            ] }; //uk_
+    key <KP6>  { [ KP_Right,         Farsi_6                                            ] }; //uk_
+    key <KP7>  { [ KP_Home,          Farsi_7                                            ] }; //uk_
+    key <KP8>  { [ KP_Up,            Farsi_8                                            ] }; //uk_
+    key <KP9>  { [ KP_Prior,         Farsi_9                                            ] }; //uk_
+    key <KP0>  { [ KP_Insert,        Farsi_0                                            ] }; //uk_
+    key <KPDV> { [ division,         XF86_Ungrab                                        ] }; //uk_
+    key <KPMU> { [ multiply,         XF86_ClearGrab                                     ] }; //uk_
+    key <KPSU> { [ 0x1002212,        XF86_Prev_VMode                                    ] }; //uk_
+    key <KPAD> { [ plus,             XF86_Next_VMode                                    ] }; //uk_
+    key <KPEN> { [ KP_Enter                                                             ] }; //uk_
+    key <KPEQ> { [ equal                                                                ] }; //uk_
+    key <KPDL> { [ KP_Delete,        0x100066b                                          ] }; //uk_
 };
