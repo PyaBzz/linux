@@ -10,4 +10,7 @@ apply() {
     echo "To apply layout changes without a restart:"
     echo "setxkbmap -layout ir"
     echo "setxkbmap -layout gb"
+    echo ""
+    echo "For complete list of key names see:"
+    echo "/usr/include/X11/keysymdef.h"
 }
