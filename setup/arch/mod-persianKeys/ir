@@ -55,7 +55,7 @@ xkb_symbols "pes_part_basic" {
     key <AC02> { [ Arabic_seen,       Arabic_damma,            VoidSymbol               ] }; //uk_S
     key <AC03> { [ Farsi_yeh,         Arabic_yeh,              Arabic_alefmaksura       ] }; //uk_
     key <AC04> { [ Arabic_beh,        Arabic_shadda,           VoidSymbol               ] }; //uk_
-    key <AC05> { [ Arabic_lam,        Arabic_hamzaonalef,      VoidSymbol               ] }; //uk_
+    key <AC05> { [ Arabic_lam,        Arabic_hamza_above,      VoidSymbol               ] }; //uk_G
     key <AC06> { [ Arabic_alef,       Arabic_maddaonalef,      0x1000671                ] }; //uk_
     key <AC07> { [ Arabic_teh,        Arabic_tehmarbuta,       VoidSymbol               ] }; //uk_
     key <AC08> { [ Arabic_noon,       guillemotright,          0x100fd3e                ] }; //uk_
@@ -68,7 +68,7 @@ xkb_symbols "pes_part_basic" {
     key <AB03> { [ Arabic_zain,       Arabic_jeh,              VoidSymbol               ] }; //uk_
     key <AB04> { [ Arabic_ra,         Arabic_hamzaonwaw,       0x1000656                ] }; //uk_V
     key <AB05> { [ Arabic_thal,       0x100200c,               0x100200d                ] }; //uk_B
-    key <AB06> { [ Arabic_dal,        Arabic_hamza_above,      Arabic_hamza_below       ] }; //uk_
+    key <AB06> { [ Arabic_dal,        Arabic_hamzaonalef,      Arabic_hamza_below       ] }; //uk_N
     key <AB07> { [ Arabic_hamzaonyeh, Arabic_hamza,            ellipsis                 ] }; //uk_
     key <AB08> { [ Arabic_waw,        greater,                 comma                    ] }; //uk_
     key <AB09> { [ period,            less,                    apostrophe               ] }; //uk_
