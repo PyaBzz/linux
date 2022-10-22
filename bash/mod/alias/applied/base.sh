@@ -1,6 +1,7 @@
 alias l='ls -la'
 alias sd='shutdown now'
 alias sr='shutdown -r now'
+alias ss='lxqt-leave --suspend'
 alias ..='cd ..'
 alias .2='cd ../..'
 alias .3='cd ../../..'
