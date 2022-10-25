@@ -1,4 +1,4 @@
-alias l='ls -la'
+alias l='ls -lah'
 alias sd='shutdown now'
 alias sr='shutdown -r now'
 alias ss='lxqt-leave --suspend'
