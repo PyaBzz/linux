@@ -1,9 +1,10 @@
 source ../../source.sh
 
-openboxMyFile="$(getMyDir)/$hostName/openbox/rc.xml" # Cannot use ./ for symlinks
-openboxLocalFile="$HOME/.config/openbox/rc.xml"
+payloadFile="$(getMyDir)/$hostName/openbox/rc.xml" # Cannot use ./ for symlinks
+localFile="$HOME/.config/openbox/rc.xml"
 
 apply() {
-    # backUp $openboxLocalFile
-    ln -sfb $openboxMyFile $openboxLocalFile --suffix=.bazbak
+    mkdir -p $HOME/.config/openbox
+    backUp $localFile
+    ln -sfb $payloadFile $localFile --suffix=.bazbak
 }

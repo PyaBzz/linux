@@ -5,14 +5,17 @@ alias getMyDir='echo "$(readlink -f "$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev
 
 # ==========================  Globals  ==========================
 
+hostName=$(cat /etc/hostname)
+
 bashModDir="$(getMyDir)/mod" # Cannot use ./ for symlinks
 aliasDir=$bashModDir/alias
 aliasSrcDir=$bashModDir/alias/source
 aliasAppliedDir=$bashModDir/alias/applied
+
 desktopDir=$HOME/Desktop
 downloadsDir=$HOME/Downloads
 configDir=$HOME/.config
-hostName=$(cat /etc/hostname)
+autostartDir=$configDir/autostart
 
 isBashModded() {
     if [ -z ${isAppendageRun+x} ]; then false; else true; fi

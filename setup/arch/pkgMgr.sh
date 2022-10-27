@@ -9,6 +9,7 @@ pkgMgrFetchList() {
 pkgMgrInstall() {
     local pkg=$1
     echo "Installing $pkg"
+    pkgMgrFetchList
     sudo pacman -S --noconfirm $pkg
     echo "Installed $pkg"
 }
@@ -16,7 +17,6 @@ pkgMgrInstall() {
 pkgMgrAskInstall() {
     local pkg=$1
     if (askUserClear "Install $pkg?"); then
-        pkgMgrFetchList
         pkgMgrInstall $pkg
     else
         echo "Skipped $pkg"

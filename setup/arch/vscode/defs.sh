@@ -1,6 +1,8 @@
 source ../source.sh
 
 installVsCode() {
+    pkgMgrInstall fakeroot
+
     mkdir -p $downloadsDir
     repoLocal=$downloadsDir/vscode
     mkdir -p $repoLocal

@@ -3,6 +3,7 @@ source ../source.sh
 package="Google Chrome"
 
 askToProceed "Install $package?"
+pkgMgrInstall fakeroot
 mkdir -p $downloadsDir
 repoLocal=$downloadsDir/chrome
 mkdir -p $repoLocal
