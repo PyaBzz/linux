@@ -8,6 +8,7 @@ alias geckout='git checkout'
 alias gistash='git stash'
 alias granch='git branch'
 alias gommit='git commit'
+alias gamend='gommit --amend --no-edit'
 alias glog='git log'
 alias glean='git clean'
 
